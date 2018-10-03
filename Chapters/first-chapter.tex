@@ -1,0 +1,478 @@
+\part{Исчисление вероятностей случайных событий}
+\section{Соотношение между случайными событиями}
+Пусть имеется фиксированный комплекс условий, воспроизводимый любое неограниченное количество раз.
+
+\begin{definition}
+  Комплекс испытаний будем называть \textit{экспериментом}.
+\end{definition}
+
+\begin{definition}
+  Явления в течение испытаний обозначим как \textit{события}.
+\end{definition}
+
+Рассмотрим связанную с этим комплексом условий \textit{систему событий}.
+\[
+  \{A, B, C, \dots\},
+  \{A_1, A_2, \dots, A_n\}
+\]
+
+\subsection{Соотношения между событиями}
+
+\begin{enumerate}
+\item $U$ --- \textit{достоверное событие}, в результате испытаний происходит всегда.
+\item $V$ --- \textit{невозможное событие}, никогда не происходит.
+\item \textit{Сумма событий} ($\sum\limits_{i=1}^n A_i$) --- событие, происходящее тогда и только тогда, когда происходит хотя бы одно из связанных событий.
+\item \textit{Произведение событий} ($\prod\limits_{i=1}^n A_i$) --- событие, происходящее тогда и только тогда, когда происходят все из связанных событий.
+\item Событие $A$ --- \textit{частный случай} события $B$, если с появлением $A$ появляется и $B$ ($A \subset B$). Если $A$ влечёт $B$ и $B$ влечёт $A$, то события $A$ и $B$ равносильны ($A = B$).
+\end{enumerate}
+\begin{proof}
+  $A \subset B \Rightarrow A\times B = A, A + B = B.$
+  $B = A \Rightarrow B + A = A, A + A = A.$
+\end{proof}
+\begin{enumerate}
+\setcounter{enumi}{5}
+\item $\bar{A}$ --- \textit{противоположное событие}, если оно происходит только тогда, когда $A$ не происходит.
+
+\[
+A  ,  \bar{A} \text{ противоположны} \Leftrightarrow
+ \begin{cases}
+   A\times \bar{A} = V \\
+   A + \bar{A} = U
+ \end{cases}
+\]
+
+\item События $A$ и $B$ называются \textit{несовместными}, если их одновременное появление невозможно.
+$$A\times B = V$$
+
+\item \textit{Разность событий} $A$ и $B$ состоит в том, что $A$ происходит, а $B$ нет. ($A - B$).
+\end{enumerate}
+
+\subsection{Свойства событий}
+  \textbf{Коммуникативность.} $A + B = B + A, A\times B = B\times A$
+  \smallskip
+
+  \textbf{Ассоциативность.} $A + (B + C)=(A + B) + C, A\times (B\times C) = (A\times B)\times C$
+  \smallskip
+
+  \textbf{Дистрибутивность.} $(A + B)\times C = A\times C + B\times C,  A + B\times C = (A + B)\times (A + C)$
+
+\subsection{Некоторые тождества}
+\begin{enumerate}
+  \item $A + A\times B = A$
+\end{enumerate}
+\begin{proof}
+  %TODO:
+\end{proof}
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+\item{$A + B = A + \bar{A}\times B$}
+\end{enumerate}
+\begin{proof}
+  %TODO:
+\end{proof}
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Формула инверсий (законы Де Моргана).
+\smallskip
+
+  $\overline{(A\times B)} = \overline{A} + \overline{B}$, можно обобщить до $\overline{\prod\limits_{i=1}^n A_i} = \sum\limits_{i=1}^n \overline{A_i} $
+
+  $\overline{(A + B)} = \overline{A}\times \overline{B}$, можно обобщить до $\overline{\sum\limits_{i=1}^n A_i} = \prod\limits_{i=1}^n \overline{A_i} $
+\end{enumerate}
+ События $A_1 \dots A_n$ образуют \textit{полную группу событий}, если при каждом испытании произойдёт хотя бы одно из них.
+\smallskip
+
+\example $A, \overline{A}$ --- полная группа. $A_k$, где $k = \ZTo n$ --- система из $n + 1$ событий.
+
+Система --- некое событие, происходящее $k$ раз в серии испытаний. Тогда $A_0, \dots, A_n$ --- $n$-группа (полная).
+
+\section{Классическое определение вероятности}
+Пусть результатом испытания являются появление одного из $n$ попарно несовместных и равновозможных событий $E_1, \dots, E_n$ (т.е. $E_k\times E_i = V,$ где $i, k = \ZTo n, i \not= k$, при этом $\sum\limits_{i = 1}^n E_i = U$) называется элементарным.
+
+\definition $E_n$ называется благоприятным для некоторого события $A$, если $E_n$ влечёт $A$.
+\definition Вероятностью появления события $A$ будем называть соотношение числа $m$ (количество элементарных благоприятных событий) к числу $n$ (общее количество элементарных событий).
+\begin{equation}
+  \Prob (A) = \frac{m}{n} \hfill
+\end{equation}
+\addition При расчёте вероятности события $A$ по формуле (1) выбор системы элементарных событий можно произвести различными способами.
+\conclusion $\Prob(U) = 1, \Prob(V) = 0.$
+\conclusion $\forall A: 0 \leqslant \Prob(A) \leqslant 1.$
+\section{Вероятность и относительная частота}
+\begin{definition}
+  Пусть при одних и тех же условиях произведено $N$ испытаний, интересующее событие произошло $M$ раз.
+\end{definition}
+
+Относительной частотой назовём число
+
+\begin{equation}
+  \tilde{\Prob}(A) = \frac{M}{N}
+\end{equation}
+
+ Относительная частота выясняется на практике, а вероятность в теории.
+Очевидно, что
+$$\tilde{\Prob}(V) = \Prob(V) = 0,$$
+$$\tilde{\Prob}(U) = \Prob(U) = 1.$$
+Но из равенства $\tilde{\Prob}(A) = 0$ не следует, что $\Prob(A) = 0$, как и в случае с  $\tilde{\Prob}(A) = 1$.
+\[
+  \Prob(A) = \xcancel {\lim_{n\to\infty} \tilde{\Prob}(A)} = \lim_{N\to\infty} \frac{M}{N}.
+\]
+При увеличении числа опытов отклонения (большие) относительной частоты $\tilde{\Prob}(A)$ от вероятности $\Prob(A)$ будут попадаться реже. \\
+На практике относительная частота $\tilde{\Prob}(A)$ может быть принята за вероятность $\Prob(A)$ при большом количестве испытаний.
+
+\section{Геометрические вероятности}
+Пусть $\chi_0$ --- размер детали. Учтём погрешность, пусть $(\chi - 4; \chi + 4)$. Теперь пространство событий несчётно. Классическое определение было задано для счётных множеств событий.
+
+\subsection{Геометрический подход}
+Пусть имеется ограниченное множество (одномерное евклидово), имеющее объём. \\
+Рассмотрим систему подмножеств исходного множества $\Omega$, которые имеют объём ($S$ --- система).
+\[
+  \forall A \in S:  \Prob(A) = \frac{|A|}{|\Omega|}
+\]
+Тройка объектов $ \big<\Omega, S, \Prob\big> $ служит моделью задач, в которых точку бросают в область $\Omega$.
+\smallskip
+
+При этом вероятность того, что некоторая точка попала в область $A$, пропорциональна объёму $A$.
+\subsection{Парадоксы}
+\begin{itemize}
+  \item Геометрическая вероятность попадания в какую-либо точку равна нулю.
+  То есть, вероятность невозможного события равна нулю, однако обратное не является верным.
+  \item Взаимно однозначное преобразование может существенно изменить вероятность.
+\end{itemize}
+\subsubsection{Парадокс Бертрана}
+Для некоторой окружности случайно выберем хорду. Найдём вероятность того, что хорда длиннее стороны правильного треугольника, вписанного в эту окружность. $A$ --- интересующее нас событие.
+\begin{description}[leftmargin=0cm]
+\item[Метод «случайного центра».]
+Выберем наудачу произвольную точку внутри круга и построим хорду с центром в выбранной точке. Хорда длиннее стороны равностороннего треугольника, если выбранная точка находится внутри круга, вписанного в треугольник. Площадь вписанного круга есть 1/4 от площади большего, значит, исходная вероятность равна 1/4.
+\begin{figure}[ht]
+  \centering
+  \def\svgwidth{8em}
+  \input{Images/Bertrand/1-4.pdf_tex}
+  \caption{Случайные хорды, выбранные в случае 1.}
+\end{figure}
+\[
+  \Prob(A) = \frac{\pi \frac{R^2}{4}}{\pi R^2} = \frac{1}{4}.
+\]
+\item[Метод «случайных концов».] Наудачу выберем две точки на окружности и проведём через них хорду. Чтобы посчитать искомую вероятность, представим, что треугольник повёрнут так, что одна из его вершин совпадает с концом хорды. Заметим, что если другой конец хорды лежит на дуге между двумя другими вершинами треугольника, то длина хорды больше стороны треугольника. Длина рассмотренной дуги равна трети длины окружности, следуя классическому определению, искомая вероятность равна 1/3.
+\begin{figure}[ht]
+  \centering
+  \def\svgwidth{8em}
+  \input{Images/Bertrand/1-3.pdf_tex}
+  \caption{Случайные хорды, выбранные в случае 2.}
+\end{figure}
+\[
+  \Prob(A) = \frac{2\pi \frac{R}{3}}{2 \pi R} = \frac{1}{3}.
+\]
+\item[Метод «случайного радиуса».] Зафиксируем радиус окружности, наудачу выберем точку на радиусе. Построим хорду, перпендикулярную зафиксированному радиусу, проходящую через выбранную точку. Для нахождения искомой вероятности представим, что треугольник повёрнут так, что одна из его сторон перпендикулярна зафиксированному радиусу. Хорда длиннее стороны треугольника, если её центр ближе к центру, чем точка пересечения треугольника с зафиксированным радиусом. Сторона треугольника делит пополам радиус, следовательно вероятность выбрать хорду длиннее стороны треугольника --- 1/2.
+\begin{figure}[ht]
+  \centering
+  \def\svgwidth{8em}
+  \input{Images/Bertrand/1-2.pdf_tex}
+  \caption{Случайные хорды, выбранные в случае 3.}
+\end{figure}
+\[ \Prob(A) = \frac{\frac{R}{2}}{R} = \frac{1}{2}. \]
+\end{description}
+Возможны различные выборы равномерным образом, и каждый метод использует свой выбор.
+\section{Условная вероятность. Теорема умножения вероятностей и независимость событий}
+Пусть $\exists A, B$, при этом $B \not= V$.
+\begin{definition}
+  Вероятность $A$, вычисляемая при условии, что $B$ произошло, называется условной вероятностью $A$ относительно $B$.
+\end{definition}
+\[ \Prob(A | B) \]
+Если $\Prob(A | B) = \Prob(A)$, то $A$ не зависит от $B$. В противном случае $A$ зависит от $B$.
+\subsection{Теорема умножения вероятностей}
+Пусть имеется $n$ элементарных событий $\{E_i\}_{i = \To n}$. Событие $A$ происходит $m$ раз, событие $B$ --- $k$ раз, $A\times B$ --- $l$ раз. Тогда
+\[ \Prob(A) = \frac{m}{n}, \Prob(B) = \frac{k}{n}, \Prob(A\times B) = \frac{l}{n}. \]
+\[ \Prob(B|A) = \frac{l}{m} = \frac{\frac{l}{n}}{\frac{m}{n}} = \frac{\Prob(A|B)}{\Prob(A)},\]
+\[ \Prob(A|B) = \frac{\frac{l}{n}}{\frac{k}{n}}, \text{ то есть} \]
+\[ \Prob(A \times B) = \Prob(A) \cdot \Prob(B|A) = \Prob(B) \cdot \Prob(A|B) \]
+Установлена теорема умножения двух любых событий. \\
+Также
+\[
+\Prob(A) \cdot \Prob(B|A) \overset{\makebox[0pt]{\mbox{*}}}{=} \Prob(B) \cdot \Prob(A) \text{ ($A$ не зависит от $B$)}
+\]
+\captionof*{figure}{$*$ $\Rightarrow$ $B$ не зависит от $A$.}
+\subsection{Независимость событий}
+\begin{definition}
+  Два события $A$ и $B$ независимы $\Leftrightarrow \Prob(A \times B) = \Prob(A) \times \Prob(B)$ (также верно, если одно из событий является невозможным).
+\end{definition}
+\begin{example}
+  Пусть имеется колода из 36 карт, из неё случайным образом вытаскиваем одну карту. Пусть событие $A$ -- <<вытянут \texttt{A} (туз)>>, событие $B$ -- <<вытянута карта масти {\color{red} $\blacklozenge$}>>. Тогда событие $A \times B$ -- вытянута карта ${\color{red} \blacklozenge} \texttt{A}$.
+  \[
+    \Prob(A) = \frac{9}{36} = \frac{1}{4}, \Prob(B) = \frac{4}{36} = \frac{1}{9}
+  \]
+  \[
+    \Prob(A \times B) = \frac{1}{36}
+  \]
+\end{example}
+\[
+  \Prob(A_1 \times \dots \times A_n) = \Prob(A_1) \times \Prob(A_2|A_1) \cdot \Prob(A_3|A_1 \times A_2) \cdot \dots
+\]
+\[
+  \ldots \cdot \Prob(A_n | \prod\limits_{k = 1}^{n-1} A_k)
+\]
+\begin{proof}
+
+\end{proof}
+\[
+\Prob(A_1, A_2, A_3) = \Prob(A_1 \times A_2) \times \Prob(A_3 | A_1 \times A_2) =
+\]
+\[
+\Prob(A_1) \cdot \Prob(A_2 | A_1) \cdot \Prob(A_3 | A_1 \times A_2)
+\]
+Попарная независимость событий
+\begin{equation}\label{3}
+\begin{split}
+\Prob(A_1 \times A_2) = \Prob(A_1) \cdot \Prob(A_2) \\
+\Prob(A_3 \times A_2) = \Prob(A_3) \cdot \Prob(A_2) \\
+\Prob(A_1 \times A_3) = \Prob(A_1) \cdot \Prob(A_3) \\
+\end{split}
+\end{equation}
+
+При независимости событий (в совокупности):
+\begin{equation}\label{4}
+  \Prob(A_1 \times A_2 \times A_3) = \Prob(A_1) \cdot \Prob(A_2) \cdot \Prob(A_3)
+\end{equation}
+\subsection{Парадокс Бернштейна}
+Рассмотрим испытание, в результате которого бросаются две монеты. Пусть
+\begin{itemize}
+  \item событие $A$ -- <<на первой монете выпал орёл>>,
+  \item событие $B$ -- <<на второй монете выпал орёл>>,
+  \item событие $C$ -- <<только на одной монете выпал орёл>>.
+\end{itemize}
+Установим систему элементарных событий $\Omega$, равную \{\text{О--О, Р--Р, Р--О, О--Р}\}.
+\[
+\Prob(A) = \Prob(B) = \Prob(C) = \frac{1}{2}
+\]
+\[ \Prob(A \times B) = \frac{1}{4} = \Prob(A) \cdot \Prob(B), \]
+\[ \Prob(A \times C) = \frac{1}{4} = \Prob(A) \cdot \Prob(C), \]
+\[ \Prob(B \times C) = \frac{1}{4} = \Prob(B) \cdot \Prob(C). \]
+
+\[ \Prob(A \times B \times C) = 0 \not= \Prob(A) \cdot \Prob(B) \cdot \Prob(C)\]
+\textbf{Вывод:} попарная независимость (\ref{3}) $\cancel{\Rightarrow}$ независимость в совокупности (\ref{4}). \\
+События независимы в совокупности $\Leftrightarrow$ (\ref{3}) и (\ref{4}) выполняются.
+\begin{definition}
+  $A_1, \dots, A_n$ независимы в совокупности, если
+  \[
+    \Prob(A_{i_1} \times \dots A_{i_k}) = \Prob(A_{i_1}) \times \dots \times \Prob(A_{i_n}), \text{ где}
+  \]
+  \[
+    1 \leqslant i_1 \leqslant i_2 \leqslant \ldots \leqslant i_k \leqslant n
+  \]
+\end{definition}
+$\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для проверки независимости событий в совокупности. Если нам заранее известно, что $A_1, \dots, A_n$ независимы в совокупности, то
+\[
+  \Prob(\prod\limits_{k = 1}^n A_k) = \prod\limits_{k = 1}^n \Prob(A_k)
+\]
+\section{Теорема сложения вероятностей}
+Рассмотрим события $A$ и $B$.
+\begin{itemize}
+  \item $A$ -- $m$ элементарных событий из $n$,
+  \item $B$ -- $n$ элементарных событий из $n$,
+  \item $A \times B$ -- $l$ элементарных событий из $n$.
+\end{itemize}
+\[
+\Prob(A + B) = \frac{m + k - l}{n} = \Prob(A) + \Prob(B) - \Prob(A \times B)
+\]
+Установлена теорема о сложении двух любых событий.
+\[
+  A \times B = V \Rightarrow \Prob(A \times B) = \Prob(A) + \Prob(B)
+\]
+Если $B$ = $\overline{A}$, то
+\[
+  \Prob(\underbrace{A \times \overline{A}}_{U = 1}) = \Prob(A) + \Prob(\overline{A}) \Rightarrow \Prob(\overline{A}) = 1 - \Prob(A)
+\]
+По теореме о сложении:
+\[
+  \begin{split}
+  \Prob(A_1 + A_2 + A_3) = \Prob(A_1 + A_2) + \Prob(A_3) - \\
+  - \Prob((A_1 + A_2) \times A_3) = \Prob(A_1) + \Prob(A_2) + \Prob(A_3) - \\
+  - \Prob(A_1 \times A_2) - \Prob(A_1 \times A_3) - \Prob(A_2 \times A_3) + \\ \Prob(A_1 \times A_2 \times A_3)
+  \end{split}
+\]
+Обобщённая формула:
+\[
+  \begin{split}
+    \Prob(\sum\limits_{k=1}^n A_k) = \sum\limits_{k=1}^n \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{j=k+1}^n \Prob(A_k \times A_j) + \\
+    + \sum\limits_{k=1}^{n-2} \sum\limits_{j=k+1}^{n-1} \sum\limits_{i=j+1}^n \Prob(A_k \times A_j \times A_i) - \ldots \\ \ldots + (-1)^n \cdot \Prob(\prod\limits_{k=1}^n A_k)
+  \end{split}
+\]
+Для попарно несовместных событий:
+\[
+  \underset{i \not= j}{A_i \times A_j} = V \Rightarrow \Prob(\sum\limits_{k=1}^n A_k) = \sum\limits_{k=1}^n \Prob(A_k)
+\]
+Если $A_1, \dots, A_n$ независимы в совокупности, то справедлива следующая формула:
+\[
+\begin{split}
+  \Prob(\sum\limits_{k=1}^n A_k) = 1 - \Prob(\overline{\sum\limits_{k=1}^n A_k}) = 1 - \Prob(\prod\limits_{k=1}^n \overline{A_k}) = \\
+  = 1 - \prod\limits_{k=1}^n \Prob(\overline{A_k}) = 1 - \prod\limits_{k=1}^n(1 - \Prob(A_k)).
+\end{split}
+\]
+Если вероятности исходных событий не зависят от номеров, а от количества сомножителей, то
+\[
+  \begin{split}
+  \Prob(\sum\limits_{k=1}^n A_k) = C_n^1 \Prob(A_1) - C_n^2 \Prob(A_1 \times A_2) + C_n^3 \Prob(A_1 \times A_2 \times \\
+  \times A_3) - \ldots + (-1)^n-1 C_n^n \Prob(\prod\limits_{k=1}^n A_k)
+  \end{split}
+\]
+\begin{proof}
+%TODO:
+\end{proof}
+\[
+  \begin{split}
+  \Prob(\prod\limits_{k=1}^n A_k) = \sum\limits_{k=1}^n \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{j=k+1}^{n} \Prob(A_k + A_j) + \\
+  + \sum\limits_{k=1}^{n-2} \sum\limits_{j=k+1}^{n-1} \sum\limits_{i=j+1}^{n} \Prob(A_k + A_j + A_i) - \ldots + (-1)^{n-1} \Prob(\sum\limits_{k=1}^n A_k)
+  \end{split}
+\]
+\begin{proof}
+%TODO:
+\end{proof}
+\section{Формула полной вероятности и формула Байеса}
+\subsection{Формула полной вероятности}
+Пусть имеется $n$ попарно несовместных событий, составляющих полную группу, $H_1, \dots, H_n$ --- назовём их гипотезами.
+\begin{itemize}
+  \item $\sum\limits_{i=1}^n H_i = U,$ где $i, j = \To n$, при этом $i \not= j$,
+  \item $H_i \times H_j = V,$ где $i, j = \To n,$ при этом $i \not= j$,
+  \item $\Prob(\sum\limits_{i=1}^n H_i) = \sum\limits_{i=1}^n \Prob(H_i) = 1$.
+\end{itemize}
+Также определим событие $A$ как безусловное:
+\[ A = U \times A = \sum\limits_{i=1}^n H_i \times A \]
+\[
+  \Prob(A) = \Prob(\sum\limits_{i=1}^n H_i \times A) = \sum\limits_{i=1}^n \underbrace{\Prob(H_i)}_{\underset{\text{зав. от опыта}}{\textit{a posteriori}}} = \underbrace{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A | H_i)}_{\underset{\text{не зав. от опыта}}{\textit{a priori}}}
+\]
+\captionof*{figure}{\textbf{Формула полной вероятности.}}
+\[\boxed{\Prob(A) = \sum\limits_{i=1}^n \Prob(H_i) \times \Prob(A | H_i)} \]
+\subsection{Формула Байеса}
+Получим формулу Байеса:
+\[ \Prob(A \times H_k) = \Prob(A) \cdot \Prob(H_k | A) = \Prob(H_k) \cdot \Prob(A | H_k) \]
+
+\[ \Prob(H_k | A) = \frac{\Prob(H_k) \cdot \Prob(A|H_k)}{\Prob(A)} = \frac{\Prob(H_k) \cdot \Prob(A | H_k)}{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A|H_i)}
+\]
+\captionof*{figure}{\textbf{Формула Байеса.}}
+\[ \boxed{\Prob(H_k | A) = \frac{\Prob(H_k) \cdot \Prob(A | H_k)}{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A|H_i)}} \]
+
+\section{Последовательность испытаний Бернулли. Биномиальный закон распределения вероятностей. Закон распределения вероятностей Пуассона}
+\subsection{Последовательность испытаний Бернулли}
+Пусть производится серия из $n$ испытаний, имеется $k$ исходов. Исходы образуют полную группу событий и являются попарно независимыми событиями. В рамках данного параграфа $k = 2$.
+\begin{definition}
+  Испытания независимы, если все исходы этих испытаний независимы в совокупности.
+\end{definition}
+\begin{definition}
+  $n$ испытаний образуют последовательность испытаний Бернулли, если
+  \begin{enumerate}
+    \item Они независимы
+    \item У каждого из этих испытаний 2 исхода: $\{\underset{\text{успех}}{A}, \underset{\text{неудача}}{\overline{A}} \}$
+    \item Вероятность появления исхода во всех испытаниях не изменяется.
+  \end{enumerate}
+\end{definition}
+$A_i$ -- появление $A$ в $i$-ом испытании. Тогда
+\[ \forall i=\To n : \Prob(A) = p \Rightarrow \Prob(\overline{A}) = 1 - p = q \]
+Пусть имеется $n$ испытаний с $k=2$ исходами. $m$ -- число появления $A$ за $n$ испытаний
+\[
+  \begin{split}
+  \overbrace{A_1 \times A_2 \times \dots A_m \times A_m}^{C_n^m p^m q^{n-m}} \times \overline{A_{m+1}} \times \dots \\
+  \ldots \times \overline{A_n} + \underbrace{\overline{A_1} \times \overline{A_2} \times \dots \times \overline{A_{n-m}}}_{n-m} \times \overbrace{A_{n-m+1} \times \ldots \times A_n}^m.
+  \end{split}
+\]
+\captionof*{figure}{\textbf{Формула Бернулли}}
+\[
+  \boxed{\Prob_m^{(n)} = C_n^m p^m q^{n-m}}
+\]
+\[
+  \sum\limits_{m=0}^n \Prob_m^{(n)} = (p + q)^n = 1
+\]
+Рассмотрим, что в $n$ испытаний Бернулли успех $A$ произойдёт не менее $m$ раз.
+\[
+  R_m^{n} = \sum\limits_{k = m}^n \Prob_k^{(n)} = 1 - \sum\limits_{k=0}^{m-1} P_k^{(n)}
+\]
+\begin{example}
+  Вероятность того, что при $n$ испытаний $A$ произойдёт хотя бы 1 раз:
+  \[ R_1^{(n)} = 1 - \Prob_0^{(n)} = 1 - q^n \]
+\end{example}
+\subsection{Закон распределения вероятностей Пуассона}
+Рассмотрим последовательность испытаний Бернулли, когда число испытаний $n \to \infty$, при этом $p = \Prob(A_i) \to 0$, $np = a$ --- константа
+\[
+  \Prob_m \equiv \lim_{n \to \infty} C_n^m p^m (1-p)^{nm}
+\]
+\[ p = \frac{a}{n} \]
+\[ \Prob_m = \lim_{n \to \infty} \frac{n!\ a^m (1 - \frac{a}{n})^n}{(n-m)!\ m!\ n^m (1 - \frac{a}{n})^m} = \frac{a^m}{m!} \cdot e^{-a}, m = 0, 1, 2, \dots \]
+\captionof*{figure}{$\underset{(\textit{редких событий})}{\textbf{Закон распределения вероятностей Пуассона}}$}
+\[ \boxed{\sum\limits_{m=0}^\infty \Prob_m = \sum\limits_{m=0}^\infty \frac{a^m}{m!} \cdot e^{-a} = 1}\]
+\begin{example}
+  Пусть $n$ --- число атомов в веществе, время распада --- 1 секунда. Тогда $p \approx 10^{-12}$.
+\end{example}
+
+\section{Полиномиальное распределение вероятностей}
+Пусть имеется $n$ испытаний с $k \geqslant 2$ исходами. $A_1, \dots, A_k$ --- исходы.
+\begin{itemize}
+  \item $A_i \times A_j = V$, где $i \not = j$, $i, j = \To k$
+  \item $\sum\limits_{i=1}^k A_i = U$, где $i \not = j$, $i, j = \To k$
+  \item $p_1, \dots, p_k$ --- вероятности исходов. От испытания к испытанию не изменяются, $\sum\limits_{i=1}^k p_i = 1$, где $\forall i: p_i \geq 0$
+\end{itemize}
+$m_1, \dots, m_k$ раз будут происходить $A_1, \dots, A_k$, $\sum\limits_{i=1}^k m_i = n$, то есть $m_i \geq 0, m_i \in \mathbb{Z}$. \\
+\[ \Prob_{m_1, \dots, m_k}^{(n)} \]
+\begin{description}[leftmargin=0cm]
+  \item[$k = 2, \Prob_{m_1, m_2}^{(n)}:$] $m_1 = m, m_2 = n-m, p_1 = p, p_2 = 1-p$
+  \[
+    \Prob_{m_1, m_2}^{(n)} = \frac{n!}{m_1 !\ m_2 !} p_1^{m_1} \cdot p_2^{m_2}
+  \]
+  \item[$k \ge 2:$] $\Prob_{m_1, \ldots, m_k}^{(n)} = \frac{n!}{m_1 ! \ldots m_k !} \cdot p_1^{m_1} \cdot p_2^{m_2} \cdot \ldots \cdot p_k^{m_k}$ \\
+  Любое событие представимо в виде суммы несовместных. Пусть
+  \[
+    \begin{split}
+    A_k = A’_k + A’_{k+1}, A’_k \cdot A’_{k+1} = V \\
+    p’_k + p’_{k+1} = p_k, \\
+    m’_k + m’_{k+1} = m_k, \\
+    {\Prob’}_{k}^{m’_{k}} \cdot {\Prob’}_{k+1}^{m'_{k+1}} \\
+    C_{m_k}^{{m’}_k} \cdot \overbrace{ C_{\underbrace{{m_k - {m’}_k}}_{{m’}_{k+1}}}^{{m’}_{k+1}} }^{\text{= 1}} = \frac{m_k !}{{m’}_k !\ {m’}_{k+1} !}
+    \end{split}
+  \]
+  Тогда $ \forall i : m_i \geqslant 0, m_i \in \mathbb{Z};  \sum\limits_{i=1}^k m_i = 0$ :
+  \captionof*{figure}{\textbf{Полиномиальный закон распределения вероятностей}}
+  \[
+    \boxed{\Prob_{m_1, \dots, m_k}^{(n)} = \frac{n!}{{m’}_1 ! \ldots {m’}_k !\ {m’}_{k+1} !} \cdot p_1^{m_1} \cdot p_2^{m_2} \cdot \dots \cdot {p’}_k^{{m’}_k} \cdot {p’}_{k+1}^{{m’}_{k+1}}}
+  \]
+\end{description}
+
+\section{Вероятностные производящие функции}
+Производящие функции можно определить для любой числовой последовательности (имея в виду счётный набор).
+\begin{definition}
+  Производящей функцией числовой последовательности называется сумма ряда:
+  \[ \sum\limits_{k=0}^\infty a_k u^k, \text{ где $a_0, \dots, a_k$ --- числовой ряд, $u \in \mathbb{R}$ }\]
+  если такой ряд сходится.
+\end{definition}
+\[
+  {\{p_i\}}_{i = 0, 1, \dots} : p_i \geqslant 0, \forall i : \sum\limits_{i=0}^\infty p_i = 1
+\]
+\setcounter{equation}{0}
+Производящая функция:
+\begin{equation}\label{10-1}
+  G(u) = \sum\limits_{i = 0}^\infty p_i u^i
+\end{equation}
+\begin{equation}\label{10-2}
+  p_i = \frac{1}{i!} \cdot \frac{d^{\textit{i}} G(u)}{d u^i} \Bigm |_{u = 0}
+\end{equation}
+Между соотношениями закона распределения (\ref{10-1}) и (\ref{10-2}) устанавливают взаимно однозначное соответствие.
+\begin{example}
+  $B[n, p]$ --- биномиальное распределение. \\ $G(u) = \sum\limits_{m=0}^n C_n^m \cdot p^m \cdot q^{n-m} \cdot u^m = (pu + q)^m$.
+\end{example}
+\begin{example}
+  $P[a]$ --- закон Пуассона. \\ $G(u) = \sum\limits_{m=0}^\infty \frac{a^m e^{-a}}{m!} u^m = e^{au} \cdot e^{-a}$.
+\end{example}
+Пусть имеется $n$ испытаний, $k > 2$ исходов
+\[
+  \underset{u_i \in \mathbb{R}}{G_n(u_1, \dots, u_k)} = \underset{ \underset{m_i \geqslant 0, m_i \in \mathbb{Z}}{m_1, \dots, m_k : \sum\limits_{i=1}^k m_i = n}} {\sum \Prob_{m_1, \dots, m_k}^{(n)}} \cdot u_1^{m_1} \cdot \ldots \cdot u_k^{m_k}
+\]
+Если имеется $n_1 + n_2 = n$ испытаний, то выполняется мультипликативное свойство
+\[
+  G_{n_1 + n_2} (\overline{u}) = G_{n_1} (\overline{u}) \cdot G_{n_2} (\overline{u}).
+\]
+\begin{example}
+  $B[n, p]$ --- биномиальный закон распределения вероятностей. \\
+  $G_1(u) = q + pu, G_n(u) = (q + pu)^n$\\
+  \[
+    G(u) = \prod\limits_{i=1}^n (p_i u + q_i)
+  \]
+Пусть $p_1, \dots, p_n$ --- все разные, $q_i = 1 - p_i$. Как определить производящие функции для такой последовательности разных испытаний?
+\end{example}
