@@ -1,5 +1,0 @@
-pdflatex main.tex
-pdflatex main.tex
-pdflatex main.tex
-rm main{-blx*,.fdb_latexmk,.fls,.out,.gz,.toc,.xwm,.aux,.bbl,.blg,.log,.run*}
-evince main.pdf
