@@ -1,13 +1,13 @@
 \part{Исчисление вероятностей случайных событий}
 \section{Соотношение между случайными событиями}
-Пусть имеется фиксированный комплекс условий, воспроизводимый любое неограниченное количество раз.
+Пусть имеется фиксированный комплекс условий, воспроизводимый любое количество раз, в том числе и неограниченное.
 
 \begin{definition}
 	Комплекс испытаний будем называть \textit{экспериментом}.
 \end{definition}
 
 \begin{definition}
-	Явления в течение испытаний обозначим как \textit{события}.
+	Явления в результате испытаний обозначим как \textit{события}.
 \end{definition}
 
 Рассмотрим связанную с этим комплексом условий \textit{систему событий}.
@@ -127,7 +127,7 @@ $$\tilde{\Prob}(U) = \Prob(U) = 1.$$
 Пусть имеется ограниченное одномерное евклидово множество, имеющее объём. \\
 Рассмотрим $S$ --- систему подмножеств исходного множества $\Omega$, имеющих объём.
 \[
-	\forall A \in S:  \Prob(A) = \frac{|A|}{|\Omega|}
+	\forall A \in S:  \Prob(A) = \frac{\vert {A} \vert}{\vert \Omega \vert}
 \]
 Тройка объектов $ \big<\Omega, S, \Prob\big> $ служит моделью задач, в которых точку бросают в область $\Omega$.
 \smallskip
@@ -177,18 +177,18 @@ $$\tilde{\Prob}(U) = \Prob(U) = 1.$$
 \begin{definition}
 	Вероятность $A$, вычисляемая при условии, что $B$ произошло, называется условной вероятностью $A$ относительно $B$.
 \end{definition}
-\[ \Prob(A | B) \]
-Если $\Prob(A | B) = \Prob(A)$, то $A$ не зависит от $B$. В противном случае $A$ зависит от $B$.
+\[ \Prob(A  \mid  B) \]
+Если $\Prob(A \mid B) = \Prob(A)$, то $A$ не зависит от $B$. В противном случае $A$ зависит от $B$.
 \subsection{Теорема умножения вероятностей}
 Пусть имеется $n$ элементарных событий $\{E_i\}_{i = \To n}$. Событие $A$ происходит $m$ раз, событие $B$ --- $k$ раз, $A\times B$ --- $l$ раз ($m, k, l < n$). Тогда
 \[ \Prob(A) = \frac{m}{n}, \Prob(B) = \frac{k}{n}, \Prob(A\times B) = \frac{l}{n}. \]
-\[ \Prob(B|A) = \frac{l}{m} = \frac{\frac{l}{n}}{\frac{m}{n}} = \frac{\Prob(A|B)}{\Prob(A)},\]
-\[ \Prob(A|B) = \frac{\frac{l}{n}}{\frac{k}{n}}, \text{ то есть} \]
-\[ \Prob(A \times B) = \Prob(A) \cdot \Prob(B|A) = \Prob(B) \cdot \Prob(A|B) \]
+\[ \Prob(B \mid A) = \frac{l}{m} = \frac{\frac{l}{n}}{\frac{m}{n}} = \frac{\Prob(A \mid B)}{\Prob(A)},\]
+\[ \Prob(A \mid B) = \frac{\frac{l}{n}}{\frac{k}{n}}, \text{ то есть} \]
+\[ \Prob(A \times B) = \Prob(A) \cdot \Prob(B \mid A) = \Prob(B) \cdot \Prob(A \mid B) \]
 Установлена теорема умножения двух любых событий, хотя бы одно из которых является возможным. \\
 Пусть $A$ не зависит от $B$.
 \[
-	\Prob(A) \cdot \Prob(B|A) \overset{\makebox[0pt]{\mbox{*}}}{=} \Prob(B) \cdot \Prob(A) \Rightarrow \text{$B$ не зависит от $A$}
+	\Prob(A) \cdot \Prob(B \mid A) \overset{\makebox[0pt]{\mbox{*}}}{=} \Prob(B) \cdot \Prob(A) \Rightarrow \text{$B$ не зависит от $A$}
 \]
 \subsection{Независимость событий}
 \begin{definition}
@@ -205,19 +205,19 @@ $$\tilde{\Prob}(U) = \Prob(U) = 1.$$
 \end{example}
 Приведём теорему об умножении $n$ любых событий, хотя бы одно из которых возможно
 \[
-	\Prob(A_1 \times \dots \times A_n) = \Prob(A_1) \times \Prob(A_2|A_1) \cdot \Prob(A_3|A_1 \times A_2) \cdot \dots
+	\Prob(A_1 \times \dots \times A_n) = \Prob(A_1) \times \Prob(A_2 \mid A_1) \cdot \Prob(A_3 \mid A_1 \times A_2) \cdot \dots
 \]
 \[
-	\ldots \cdot \Prob(A_n | \prod\limits_{k = 1}^{n-1} A_k)
+	\ldots \cdot \Prob(A_n \mid \prod\limits_{k = 1}^{n-1} A_k)
 \]
 \begin{proof}
 
 \end{proof}
 \[
-	\Prob(A_1, A_2, A_3) = \Prob(A_1 \times A_2) \times \Prob(A_3 | A_1 \times A_2) =
+	\Prob(A_1, A_2, A_3) = \Prob(A_1 \times A_2) \times \Prob(A_3 \mid A_1 \times A_2) =
 \]
 \[
-	\Prob(A_1) \cdot \Prob(A_2 | A_1) \cdot \Prob(A_3 | A_1 \times A_2)
+	\Prob(A_1) \cdot \Prob(A_2 \mid A_1) \cdot \Prob(A_3 \mid A_1 \times A_2)
 \]
 Попарная независимость событий
 \begin{equation}\label{1-5-3}
@@ -338,18 +338,18 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 Также определим событие $A$ как безусловное:
 \[ A = U \times A = \sum\limits_{i=1}^n H_i \times A \]
 \[
-	\Prob(A) = \Prob(\sum\limits_{i=1}^n H_i \times A) = \sum\limits_{i=1}^n \underbrace{\Prob(H_i)}_{\underset{\text{зав. от опыта}}{\textit{a posteriori}}} = \underbrace{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A | H_i)}_{\underset{\text{не зав. от опыта}}{\textit{a priori}}}
+	\Prob(A) = \Prob(\sum\limits_{i=1}^n H_i \times A) = \sum\limits_{i=1}^n \underbrace{\Prob(H_i)}_{\underset{\text{зав. от опыта}}{\textit{a posteriori}}} = \underbrace{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A \mid H_i)}_{\underset{\text{не зав. от опыта}}{\textit{a priori}}}
 \]
 \captionof*{figure}{\textbf{Формула полной вероятности.}}
-\[\boxed{\Prob(A) = \sum\limits_{i=1}^n \Prob(H_i) \times \Prob(A | H_i)} \]
+\[\boxed{\Prob(A) = \sum\limits_{i=1}^n \Prob(H_i) \times \Prob(A \mid H_i)} \]
 \subsection{Формула Байеса}
 Получим формулу Байеса:
-\[ \Prob(A \times H_k) = \Prob(A) \cdot \Prob(H_k | A) = \Prob(H_k) \cdot \Prob(A | H_k) \]
+\[ \Prob(A \times H_k) = \Prob(A) \cdot \Prob(H_k \mid A) = \Prob(H_k) \cdot \Prob(A \mid H_k) \]
 
-\[ \Prob(H_k | A) = \frac{\Prob(H_k) \cdot \Prob(A|H_k)}{\Prob(A)} = \frac{\Prob(H_k) \cdot \Prob(A | H_k)}{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A|H_i)}
+\[ \Prob(H_k \mid A) = \frac{\Prob(H_k) \cdot \Prob(A \mid H_k)}{\Prob(A)} = \frac{\Prob(H_k) \cdot \Prob(A \mid H_k)}{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A \mid H_i)}
 \]
 \captionof*{figure}{\textbf{Формула Байеса.}}
-\[ \boxed{\Prob(H_k | A) = \frac{\Prob(H_k) \cdot \Prob(A | H_k)}{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A|H_i)}} \]
+\[ \boxed{\Prob(H_k \mid A) = \frac{\Prob(H_k) \cdot \Prob(A \mid H_k)}{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A \mid H_i)}} \]
 
 \section{Последовательность испытаний Бернулли. Биномиальный закон распределения вероятностей. Закон распределения вероятностей Пуассона}
 \subsection{Последовательность испытаний Бернулли}
