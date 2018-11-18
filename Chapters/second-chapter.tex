@@ -79,9 +79,7 @@ $\big<\Omega, \mathcal{F}, \Prob \big>$ --- измеримое простран�
 		      \[
 			      \Prob(B_1) = \Prob(\sum\limits_{k=1}^\infty A_k) = \sum\limits_{k=1}^\infty \Prob(A_k)
 		      \]
-
 		      \[ \Prob(B_n) = \Prob(\sum\limits_{k=n}^\infty A_k) = \underbrace{\sum\limits_{k=n}^\infty \Prob(A_k)}_{n \to \infty} \to 0 \]
-
 		      \[ \lim\limits_{n \to \infty} \Prob (B_n) = 0\]
 		\item Из аксиомы (5') $\Rightarrow$ (5) \\
 		      Пусть имеется множество попарно несовместных событий ${\{A_n\}}_{n = 1, 2, \dots}$.
@@ -467,15 +465,15 @@ $\mathbb{R}^1 = (-\infty; +\infty)$ --- вещественная прямая. �
 	Итак,
 	\[
 		f(x) =
-		\begin{cases}
+		\begin{dcases*}
 			\frac{1}{b-a}, a \leqslant x \leqslant b \\
 			0, x < a \text{ или } x > b
-		\end{cases}
+		\end{dcases*}
 	\]
 \end{example}
 \begin{example} Распределение Гаусса (нормальное)
 	\[
-		f(x) ~ N(a, \sigma), a \in \mathbb{R}, \sigma > 0
+		f(x) \sim N(a, \sigma), a \in \mathbb{R}, \sigma > 0
 	\]
 	Тогда
 	\[
@@ -493,10 +491,10 @@ $\mathbb{R}^1 = (-\infty; +\infty)$ --- вещественная прямая. �
 	Здесь в нормированном множителе для плотности участвует $\Gamma$-функция
 	\[
 		f(x) =
-		\begin{cases}
+		\begin{dcases*}
 			0, x \leqslant 0 \\
 			\frac{\alpha^\lambda}{\Gamma(\lambda)} \cdot x^{\lambda - 1} \cdot e^{-\alpha x}, x > 0
-		\end{cases}
+		\end{dcases*}
 	\]
 	$\alpha$ --- параметр масштаба, $\lambda$ --- параметр формы. \\
 	Экспоненциальное (показательное) распределение получаем при $\lambda = 1$:
@@ -633,11 +631,11 @@ $F(x)$ --- непрерывная функция распределения, ф�
 
 	\[
 		F_\eta = F_\xi =
-		\begin{cases}
+		\begin{dcases*}
 			0, x < -1 \\
 			\frac{1}{2}, -1 \leqslant x < 1 \\
 			1, x \geqslant 1
-		\end{cases}
+		\end{dcases*}
 	\]
 \end{example}
 \begin{definition}
@@ -664,7 +662,7 @@ $F(x)$ --- непрерывная функция распределения, ф�
 		\end{split}
 	\]
 	\[
-		\xi ~ (\Omega, \mathcal{F})
+		\xi \sim (\Omega, \mathcal{F})
 	\]
 	Это означает, что $\xi(\omega)$ --- случайная величина.
 \end{proof}
@@ -797,7 +795,7 @@ $\mathbb{R}^1 \times \ldots \times \mathbb{R}^1$ --- $\mathbb{R}^n$ --- прям
 %TODO: ссылки на выражения 1,2; фикс нумераций выражений
 (1) и (2) говорят о том, что между вероятностью и функцией распределения в $\mathbb{R}^n$ установлено взаимно однозначное соответствие.
 
-\section{Случайный вектор и его распределение на $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$}
+\section{Случайный вектор и его распределение на вероятностном пространстве $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$}
 \begin{definition}
 	Любой упорядоченный набор случайных величин $\xi_1, \ldots, \xi_n$, заданный на $(\Omega, \mathcal{F}, \Prob)$, называется случайным вектором.
 	\[
@@ -875,13 +873,147 @@ $\mathbb{R}^1 \times \ldots \times \mathbb{R}^1$ --- $\mathbb{R}^n$ --- прям
 \begin{example}
 	$S \in \mathbb{R}^n$. \\
 	\[
-		f_{\overline{\xi}} (x) = \begin{cases}
+		f_{\overline{\xi}} (x) = \begin{dcases*}
  		\frac{1}{|S|}, x \in S \\
  		0, x \not \in S
- 		\end{cases}
+ 		\end{dcases*}
 	\]
 	Тогда
 	\[
 		\mathcal{P}_{\overline{\xi}} = \Prob \{ \xi \in B \} = \frac{|B \cap S|}{|S|}
 	\]
+	Рассмотрим положительно определённую симметричную матрицу $R$
+	\[
+		R = {\{ r_{ij} \}}_{\underset{j = 1, \ldots, n}{i = 1, \ldots, n}}, r_{ij} = r_{ji}
+		\]
+	\[
+		\forall x_i, x_j \in \mathbb{R}^1: \sum\limits_{i, j = 1} r_{ij} \cdot x_i \cdot x_j > 0
+	\]
+	\[
+		det R > 0 \Rightarrow \exists R^{-1} = B = {\{ b_{ij} \}}_{\underset{j = 1, \ldots, n}{i = 1, \ldots, n}}
+	\]
+	$n$-мерная невырожденная функция плотности вероятности:
+	\[
+		f (x_1, \ldots, x_n) = \frac{{[det B]}^{\frac{1}{2}}}{2 \pi^{\frac{n}{2}}} = e^{-\frac{1}{2} b_{ij}(x_i - a_i)(x_j - a_j)}, a_i, a_j \in \mathbb{R}^1
+	\]
+\end{example}
+
+\setcounter{equation}{0}
+\section{Независимость случайных величин}
+Пусть имеется упорядоченный набор случайных величин $\xi_1, \ldots, \xi_n$, заданный на вероятностном пространстве $(\Omega, \mathcal{F}, \Prob)$.
+\begin{definition}
+	Будем говорить, что $\xi_1, \ldots, \xi_n$ независимы, если для любого одномерного борелевского множества $\{ B_1, \ldots, B_n \} B_i \in \mathcal{B}(\mathbb{R}^1)$ выполняется:
+	\begin{equation}
+		\Prob \{ \xi_1 \in B_1, \ldots, \xi_n \in B_n \} = \prod\limits_{i = 1}^n \underbrace{\Prob \{ \xi_i \in B_i \}}_{\mathcal{P}_{\xi_i}(B_i)}
+	\end{equation}
+	\[
+		\mathcal{P}_{\overline{\xi}} (B_1 \times \ldots \times B_n), B_i = (-\infty, x_i]
+	\]
+	\begin{equation}
+		\forall x: F_{\xi_1, \ldots, \xi_n} (x_1, \ldots, x_n) = F_{\xi_1} (x_1) \cdot \ldots \cdot F_{\xi_n} (x_n)
+	\end{equation}
+	\begin{equation}
+		\underbrace{\Delta_{a_1 b_1} (\ldots \Delta_{a_n b_n} (F_{\xi_1, \ldots, \xi_n} (x_1, \ldots, x_n)))}_{\mathcal{P}_{ \overline{\xi}} \{ (a_1, b_1] \times \ldots \times (a_n, b_n] \} } =
+		\prod\limits_{i = 1}^n \underbrace{ \Delta_{a_i b_i} F_{\xi_i} (x_i) }_{\mathcal{P}_{\xi_i} \{ (a_i, b_i] \}}
+	\end{equation}
+	(1), (2), (3) эквивалентны.
+\end{definition}
+
+\begin{theorem}
+	Пусть имеется набор дискретных случайных величин $\xi_1, \ldots, \xi_n$. Они независимы тогда и только тогда, когда
+	\[
+		\Prob \{ \xi_1 = x_1, \ldots, \xi_n = x_n \} = \prod\limits_{i = 1}^n \Prob \{ \xi_i = x_i \}, \exists {\{ x^{(j)} \}}_{j = 1, 2, \ldots}
+	\]
+\end{theorem}
+
+\begin{theorem}
+	Пусть имеется набор абсолютно непрерывных случайных величин $\xi_1, \ldots, \xi_n$. Они независимы тогда и только тогда, когда
+	\[
+		f_{\xi_1, \ldots, \xi_n} (x_1, \ldots, x_n) = \prod\limits_{i = 1}^n f_{\xi_i} (x_i), x \in \mathbb{R}^n
+	\]
+\end{theorem}
+
+\begin{addition}
+	Пусть имеется набор случайных величин $\xi_1, \ldots, \xi_n$, $g_1 (x), \ldots, g(x)$ --- набор борелевских функций, $x \in \mathbb{R}^1$. Тогда $g_1(\xi_1), \ldots, g_n (\xi_n)$ также независимы.
+\end{addition}
+
+\begin{interjection}
+	Сконструируем интеграл Лебега. Пусть имеется измеримое пространство $[a, b]$, $g(x) = y$ --- непрерывная ограниченная функция.
+	\begin{itemize}
+		\item $A$ --- точка верхней границы $g(x)$,
+		\item $B$ --- точка нижней границы $g(x)$.
+	\end{itemize}
+	\[
+		A = y_0 < y_1 < \ldots < y_n = B
+	\]
+	\[
+		S_i = \{ x \}: y_{i - 1} < g(x) < y_i, x \in [a, b]
+	\]
+	Тогда
+	\[
+		\lim\limits_{max(y_i - y_{i - 1}) \to 0} \sum\limits_{i = 1}^n y_i \nu (S_i) \overset{\textrm{def}}{=} \int\limits_a^b g(x) dx
+	\]
+\end{interjection}
+
+\begin{addition}
+	Конструкция интеграла Лебега не зависит от того, на каком измеримом пространстве он задаётся, в отличие от интеграла Римана, не определяющемся на абстрактном пространстве $(\Omega, \mathcal{F})$. \\
+	В конструкции Лебега (когда $\Omega$ --- отрезок вещественной прямой) точки функции группируются согласно близости значений самой функции, а не как в интеграле Римана по близости на самой оси. \\
+	Таким образом, интегралы суммы Римана будут иметь предел для не слишком разрывных функций. Интеграл Лебега имеет смысл для более широкого класса функций. \\
+	Пусть интеграл Римана существует в смысле абсолютной сходимости, значит, совпадает с интегралом Лебега. \\
+	Для любого не более чем счётного набора попарно несовместных событий $B_1, \ldots, B_n, \ldots$ интеграл Лебега:
+	\[
+		\int\limits_{\sum\limits_i B_i} = \sum\limits_i \int\limits_{B_i} \ldots
+	\]
+\end{addition}
+
+\begin{theorem}
+	\textit{(Фубини)}. Рассмотрим специальный класс измеримых пространств с опрелённой на них вероятностной мерой: $(\Omega, \mathcal{F}, \Prob)$. Пусть $\Omega_1 = \{ \omega_1 \}$, $\Omega_2 = \{ \omega_2 \}$
+	\[
+		\Omega = \Omega_1 \times \Omega_2, \mathcal{F} = \mathcal{F}_1 \times \mathcal{F}_2, \Prob = \Prob_1 \times \Prob_2
+	\]
+	\[
+		A \in \mathcal{F}_1, B \in \mathcal{F}_2, A \times B \in \mathcal{F}
+	\]
+	\[
+		\Prob (A \times B) = \Prob_1 \times \Prob_2 (A \times B) = \Prob_1 (A) \times \Prob_2 (B)
+	\]
+	Тогда, если
+	\[
+		\iint\limits_{\Omega_1 \times \Omega_2} | \xi (\omega_1, \omega_2) | d (\Prob_1 \times \Prob_2) < +\infty \text{ --- интеграл конечен}
+	\]
+	То
+	\[
+		\exists \int\limits_{\Omega_1} \xi (\omega_1, \omega_2) d \Prob_i, i = 1, 2, \ldots
+	\]
+	\[
+		\iint\limits_{\Omega_1 \times \Omega_2} \xi(\omega_1, \omega_2) d (\Prob_1 \times \Prob_2) = \int\limits_{\Omega_1} \left[\int\limits_{\Omega_2} \xi (\omega_1, \omega_2) d \Prob_2 \right] d \Prob_1 =
+	\]
+	\[
+		= \int\limits_{\Omega_2} \left[\int\limits_{\Omega_1} \xi(\omega_1, \omega_2) d \Prob_1 \right] d \Prob_2
+	\]
+\end{theorem}
+\begin{example}
+	$n = 2.$
+	\[
+		(\xi, \eta), (\mathbb{R}^2, \mathcal{B} (\mathbb{R}^2), \mathcal{P}_{\xi, \eta}), f_{\xi, \eta} (x, y)
+	\]
+	\begin{itemize}
+		\item $\xi \sim x$ --- возможное значение $\xi$
+		\item $\eta \sim y$ --- возможное значение $\eta$
+	\end{itemize}
+	Пусть $B \in \mathcal{B} (\mathbb{R}^2)$
+	\[
+		\mathcal{P}_{\xi, \eta} (B) = \Prob \{ (\xi, \eta) \in B \} = \iint\limits_B f_{\xi, \eta} (x, y) dx dy
+	\]
+	\[
+		f_{\xi} (x) = \int\limits_{-\infty}^{+\infty} f_{\xi, \eta} (x, y) dy, f_{\eta} (y) = \int\limits_{-\infty}^{+\infty} f_{\xi, \eta} (x, y) dx
+	\]
+	Выведем $f_{\xi} (x)$. Пусть $B_1 \in \mathcal{B}(\mathbb{R}^1)$,
+	\[
+		\mathcal{P}_{\xi} (B) = \Prob \{ \xi \in B \} = \Prob \{ (\xi, \eta) \in B \times \mathbb{R}^1 \} =
+	\]
+	\[
+		\iint\limits_{B \times \mathbb{R}^1} f_{\xi, \eta} (x, y) dx dy \overset{\text{(т. Фубини)}}{=} \int\limits_{B_1} \left[ \int\limits_{\mathbb{R}^1} f_{\xi, \eta} (x, y) dy \right] dx
+	\]
+	Для $f_{\eta} (x)$ вывод аналогичен.
 \end{example}
