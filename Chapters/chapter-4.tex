@@ -1,3 +1,162 @@
 \part{Характеристические функции. Предельные теоремы}
 \setcounter{equation}{0}
 \section{Производящие функции. Факториальные моменты}
+Пусть задана случайная величина $\xi$, $m = 0, 1, 2, \ldots$, закон распределения, которому подчиняется $\xi$: 
+\[
+	\Prob \{ \xi = m \} = p_m, \sum\limits_{m = 0}^{\infty} p_m = 1
+\]
+Такой закон удобно исследовать с помощью производящих функций. Пусть $u \in \mathbb{R}^1$. Определим производящую функцию дискретной случайной величины
+\begin{equation}
+	\Psi_{\xi} (u) \underset{\textrm{def} }{=} \MExpect_u^{\xi} = \sum\limits_{m} p_m \cdot u^m, \ |u| \leqslant 1
+\end{equation}
+Рассмотрим данный ряд. Он абсолютно сходится для $|u| \leqslant 1$
+\begin{equation}
+	p_m = \frac{1}{m!} \left. \frac{d^m \Psi_{\xi} (u)}{du^{m}} \right|_{u = 0}
+\end{equation}
+\[
+	\xi : \{ p_k \}, \Psi_{\xi} (u), \Psi_{\xi}(1) = 1
+\]
+Существует взаимно однозначное соответствие между производящими функциями и соответствующими законами распределения
+\begin{theorem}
+	Пусть задан набор целочисленных неотрицательных независимых случайных величин $\xi_1, \ldots, \xi_n$. Обозначим $\xi_k \sim \Psi_{\xi_k} (u)$, то есть каждому элементу соответствует производящая функция. Тогда
+\[
+	\Psi_{\xi_1 + \ldots + \xi_n} (u) = \prod\limits_{k = 1}^{n} \Psi_{\xi_k} (u)
+\]
+\end{theorem}
+\begin{proof}
+	$u^{\xi_1}, \ldots, u^{\xi_n}$ --- независимы, поскольку $\xi_1, \ldots, \xi_n$ независимы. $g(x) = a^x$
+\[
+	\MExpect_{u^{\xi_1 + \ldots + \xi_n}} = \MExpect_{u^{\xi_1} \cdot \ldots \cdot u^{\xi_n}} = \prod\limits_{k = 1}^{n} \MExpect_{u^{\xi_k}}
+\]
+\end{proof}
+\begin{example}
+	Рассмотрим закон распределения Бернулли $B[n, p]$. $\xi_i$ --- число появления успеха в $i$-ом испытании.
+\[
+	\mu_n = \sum\limits_{i = 1}^{n} \xi_i, \ \Psi_{\mu_n} (u) = \prod\limits_{k = 1}^{n} \Psi_{\xi_k} (u)
+\]
+\[
+	\Psi_{\xi_k} (u) = \MExpect_{u^{\xi_k}} = u^0 q + u^1 p, \ \Psi_{\mu_n} (u) = (pu + q)^n
+\]
+\[
+	\Prob \{ \xi + \eta = n \} = \sum\limits_{k = 0}^{n} \Prob \{ \xi = k \} \cdot \Prob \{ \eta = n - k \}
+\]
+Используя теорему 1 можно найти композицию (свёртку) распределения, не прибегая к формуле свёртки.
+\end{example}
+\begin{theorem}
+	Пусть задан набор целочисленных неотрицательных независимых одинаково распределённых случайных величин $\xi_1, \ldots, \xi_n$
+\[
+	\forall k: \xi_k \sim \Psi_{\xi} (u)
+\]
+\[
+	\left.
+	\begin{aligned}
+	\eta_{\nu} = \xi_1 + \ldots + \xi_{\nu}, \nu \geqslant 1 \\
+	\eta_{\nu} = 0, \nu < 1
+	\end{aligned}
+	\right	\} \Rightarrow \Psi_{\eta_{\nu}} (u) = \Psi_{\nu} (\Psi_{\xi} (u))
+\]
+\end{theorem}
+\begin{proof}
+\[
+	\MExpect [u^{\xi_1 + \ldots + \xi_{\nu}} \ | \ \nu = n] = \MExpect_{u^{\xi_1 + \ldots + \xi_n}} = \left[ \Psi_{\xi} (u) \right]^n
+\]
+$n \in \mathbb{N}$
+\[
+	\Psi_{\eta_{\nu}} (u) = \underset{\textrm{def}}{=} \MExpect_{u^{\eta_{\nu}}} = \MExpect \left[ \MExpect \left[ u^{\eta_{\nu}} \ | \ \nu \right] \right] = \MExpect \left[ \left[ \Psi_{\xi} (u) \right]^{\nu} \right] = \Psi_{\nu} \left( \Psi_{\xi} (u)\right)
+\]
+\end{proof}
+\begin{definition}
+	$k$-ым факториальным моментом целочисленной неотрицательной случайной величины $\xi$ называется математическое ожидание $\MExpect_{\xi}^{[k]}$, такое, что
+    \[
+	    \xi^{[k]} = \xi (\xi - 1) \ldots (\xi - k + 1)
+    \] 
+	\[
+		m^{[k]} = m (m - 1) \ldots (m - k + 1)
+	\]
+	\[
+		m^{[k]} = 0, \ m < k
+	\]
+	При $k = 0$: $\xi^{[0]} = 1$
+	\[
+		\MExpect_{\xi^{[1]}} = \MExpect_{\xi}, \ \MExpect_{\xi^{[2]}} = \MExpect_{\xi^{[2]}} - \MExpect_{\xi}
+	\]
+	\[
+		\Variance_{\xi} = \MExpect_{\xi^{[2]}} + \MExpect_{\xi^{[1]}} - (\MExpect_{\xi^{[1]}})^2
+	\]
+\end{definition}
+\begin{theorem}
+	Если существует факториальный момент $k$-ого порядка $\MExpect_{\xi^{[k]}}$, то существует левосторонняя $k$-ая производная производящей функции
+	\[
+		\exists \MExpect_{\xi^{[k]}} \Rightarrow \exists \Psi_{\xi}^{(k)} (1 - 0), \ \Psi_{\xi}^{(k)} (1 - 0) = \MExpect_{\xi^{[k]}}
+	\]
+$|u| < 1$
+\[
+	\Psi_{\xi}^{(k)} (u) = \sum\limits_{m = k}^{\infty} m^{[k]} \cdot u^{m - k} \Prob \{ \xi = m \}
+\]
+По второй теореме Абеля:
+	\[
+		\MExpect_{\xi^{[k]}} = \sum\limits_{m = k}^{\infty} m^{[k]} \Prob \{ \xi = m \}
+	\]
+\end{theorem}
+\begin{theorem}
+	\textit{(Абеля)} Пусть $r > 0$, тогда
+	\[
+		\sum\limits_{k = 0}^{\infty} a_k r^k = S
+	\]
+	\[
+		\sum\limits_{k = 0}^{\infty} a_k x^k, x \in [0, r]
+	\]
+	\[
+		\lim\limits_{x \to r - 0} \sum\limits_{k = 0}^{\infty} a_k x^k = S
+	\]
+\end{theorem}
+Оказывается, что соответствие между рассмотренными законами распределения вероятностей и производящими функциями не только взаимно однозначно, но ещё и взаимно непрерывно.
+\begin{theorem} \textit{(Непрерывность производящих функций)} 
+	Пусть при фиксированных $n$ $(n = 1, 2, \ldots)$:
+	\[
+		{\{ p_k (n) \}}_{k = 0, 1, 2, \ldots} : p_k (n) \geqslant 0, \forall k
+	\]
+	\[
+		\sum\limits_{k = 0}^{\infty} p_k (n) = 1
+	\]
+	\[
+		\Psi_m (u) = \sum\limits_{k = 0}^{\infty} p_k (n) u^k
+	\]
+	\[
+		\lim\limits_{n \to \infty} p_k (n) = p_k, \ \sum\limits_{k = 0}^{\infty} p_k = 1 \Leftrightarrow \forall 0 < u \leqslant 1: \lim\limits_{n \to \infty} \Psi_n (u) = \Psi (u),
+	\]
+	где $\Psi (u) = \sum\limits_{k = 0}^{\infty} p_k u^k$
+\end{theorem}
+\begin{example}
+	Рассмотрим биномиальное распределение. $\mu_n, p_n$
+	\[
+		\lim\limits_{n \to \infty} n p_n = a, \ \lim\limits_{n \to \infty} \Prob \{ \mu_n = m \}
+	\]
+	\[
+		\Psi_{\mu_n} (u) = \sum\limits_{m = 0}^{n} \Prob \{ \mu_n = m \} \cdot u^m = \left( \frac{a_n}{n} \cdot u + 1 - \frac{a_n}{n} \right)^n =
+	\]
+	\[
+		= \left( 1 + \frac{a_n}{n} (u - 1) \right)^n \underset{n \to \infty}{\rightarrow} e^{a(u - 1)} = \sum\limits_{m = 0}^{\infty} \frac{a}{m!} e^{-a} u^m,
+	\]
+	То есть
+	\[
+		\Prob \{ \mu_n = m \} \underset{n \to \infty}{\rightarrow} \frac{a^m}{m!} e^{-a}
+	\]
+\end{example}
+Рассмотрим случайный вектор $\overline{\xi} = (\xi_1, \ldots, \xi_n)$, где $\xi_i$ --- целочисленная непрерывная случайная величина. Также введём вектор значений $\overline{m} = (m_1, \ldots, m_n)$, не более чем счётный набор. То есть
+\[
+	\Prob_{\overline{m}} = \Prob \{ \overline{\xi} = \overline{m} \}
+\]
+Введём производящую функцию:
+\[
+	\Psi_{\overline{\xi}} (u_1, \ldots, u_m) \overset{\textrm{def}}{=} \MExpect [u_1^{\xi_1} \cdot \ldots \cdot u_m^{\xi_m}] = \sum\limits_{\overline{m}} \Prob_{\overline{m}} \cdot u^{m_1} \cdot \ldots \cdot u^{m_n}
+\]
+Можем определить смешанный факториальный момент порядка $k_1 + \ldots + k_n, \ k_i \geqslant 0, \ i = 1, 2, \ldots n$
+\[
+	\MExpect_{\xi_1^{[k_1]} \cdot \ldots \cdot \xi_n^{[k_n]}}, \xi_i^{[k]} = \xi_i (\xi_i - 1) \ldots (\xi_i - k + 1), \ \xi^{[0]} = 1
+\]
+\[
+	\MExpect_{\xi_1^{[k_1]} \cdot \ldots \cdot \xi_n^{[k_n]}} = 
+\left. \frac{ \partial^{k_1 + \ldots + k_n} \Psi_{\overline{\xi}} (u_1, \ldots, u_m) }{ \partial u_1^{k_1} \cdot \ldots \cdot \partial u_n^{k_n} } \right|_{u_1 = \ldots = u_n = 1}
+\]
+
