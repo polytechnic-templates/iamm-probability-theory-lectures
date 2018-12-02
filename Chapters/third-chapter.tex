@@ -708,3 +708,50 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \[
 	f_{t_n} (x) = \frac{1}{\pi (1 + x^2)}
 \]
+Рассмотрим случайные величины $\xi, \eta$
+\begin{itemize}
+	\item $\xi \sim {\{ x_i \}}_{i = 1, 2, \ldots}$,
+	\item $\eta \sim {\{ y_i \}}_{i = 1, 2, \ldots}$,
+	\item $\xi + \eta \sim {\{ z_k \}}_{k = 1, 2, \ldots}$
+\end{itemize}
+\[
+	\Prob \{ \xi + \eta = z_k \} = \sum\limits_{i} \Prob \{ \xi = x_i \} \Prob \{ \eta = z_k - x_i \} = 
+\]
+\[
+	= \sum\limits_{j} \Prob \{ \eta = y_i \} \Prob \{ \xi = z_k - y_j \}
+\]
+Тогда функция распределения
+\[
+	F_{g(\xi, \eta)} (z) = \iint\limits_{\{ (x, y) : g(x, y) \leqslant z \}} dF_{\xi, \eta} (x, y)
+\]
+Рассмотрим произведение этих случайных величин. Пусть также $\xi, \eta$ --- независимые. Тогда функция плотности вероятности
+\[
+	f_{\xi \cdot \eta} (z) = \int\limits_{-\infty}^{+\infty} f_{\xi} (\frac{z}{y}) f_{\eta} (y) \frac{1}{|y|} dy
+\]
+\[
+	f_{\frac{\xi}{\eta}} (z) = \int\limits_{-\infty}^{+\infty} f_{\xi} (zy) f_{\eta} (y) |y| dy = \frac{1}{z^2} \int\limits_{-\infty}^{+\infty} f_{\eta} \left(\frac{x}{z}\right) f_{\xi} (x) |x| dx
+\]
+Пусть задан вектор случайных величин с абсолютно непрерывным распределением
+\[
+	\overline{\xi} = (\xi_1, \ldots, \xi_n), f_{\xi} (x), x = (x_1, \ldots, x_n)
+\]
+Пусть $g$ --- борелевская функция
+\[
+	g_1: \mathbb{R}^n \to \mathbb{R}^1, \ i = 1, \ldots, n
+\]
+Рассмотрим
+\[
+	g : \mathbb{R}^n \to \mathbb{R}^n, \ \underset{x \in \mathbb{R}^n}{g(x)} = (g_1(x), \ldots, g_n(x))
+\]
+\[
+	J(x) = \left| \frac{\partial(g_1, \ldots, g_n)}{\partial(x_1, \ldots, x_n)} \right| \neq 0
+\]
+Сконструируем вектор
+\[
+	\overline{\eta} = (\eta_1, \ldots, \eta_n), \ \eta_i = g_i (\overline{\xi})
+\]
+Его распределение описывается следующей функцией плотности вероятности
+\[
+	f_{\overline{\eta}} (x) = f_{\xi} (g^{-1}(x)) = |J(g^{-1}(x))|^{-1}
+\]
+%natalia.kadyrova@gmail.com
