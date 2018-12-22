@@ -160,3 +160,235 @@ $|u| < 1$
 \left. \frac{ \partial^{k_1 + \ldots + k_n} \Psi_{\overline{\xi}} (u_1, \ldots, u_m) }{ \partial u_1^{k_1} \cdot \ldots \cdot \partial u_n^{k_n} } \right|_{u_1 = \ldots = u_n = 1}
 \]
 
+\section{Характеристические функции случайных величин}
+Пусть $\xi$, $\eta$ --- случайные величины, $i: \ i^2 = -1$. Составим случайную величину $\theta = \xi + i \eta$. \\
+Пусть также существуют математические ожидания введённых величин: $\MExpect_{\xi}$, $\MExpect_{\eta}$. Тогда можем составить математическое ожидание комплексно-значной случайной величины:
+\[
+	\MExpect_{\theta} = \MExpect_{\xi} + i \MExpect_{\eta} 
+\]
+Все свойства математического ожидания вещественно-значной случайной величины переносятся также на комплексно-значную случайную величину. \\
+$\theta_1$ и $\theta_2$ независимы, если независимы два вектора $(\xi_1, \eta_1)$ и $(\xi_2, \eta_2)$.
+\begin{definition}
+	Характеристической функцией вещественно-значной случайной величины называется функция вещественного агумента, которая представляет собой математическое ожидание $e^{it\xi}$:
+\[
+	\phi_{\xi} (t) = \MExpect_{e^{it\xi}}, \ t \in \mathbb{R}^1, \text{ $\xi$ --- вещественная случайная величина}
+\]
+\[
+	e^{i \alpha} = cos \alpha + i sin \alpha
+\]
+\[
+	\phi_{\xi} (t) = \MExpect [cos \xi t] + i \MExpect_ [sin \xi t]
+\]
+\[
+	|e^{it\xi}| = 1, \ \theta = a + i b, \ |\theta| = \sqrt{a^2 + b^2}
+\]
+\[
+	\phi_{\xi} (t) = \int\limits_{-\infty}^{+\infty} e^{itx} d \mathcal{P}_{\xi} (x)
+\]
+\end{definition}
+Характеристическая функция полностью определяется распределением своей случайной величины.
+\[
+	\exists \MExpect_{\xi}^{[k]} \Rightarrow \exists \psi_{\xi}^{[k]} (1 - 0), \ \psi_{\xi}^{(k)} (1 - 0) = \MExpect_{\xi}^{[k]}
+\]
+В случае, если $\xi$ --- абсолютно-непрерывная случайная величина
+\[
+	\phi_{\xi} (t) = \int\limits_{-\infty}^{+\infty} e^{itx} f_{\xi} (x) dx
+\]
+Если $\xi$ --- дискретная случайная величина:
+\[
+	\phi_{\xi} (t) = \sum\limits_{k} e^{itx} \cdot \Prob \{ \xi = x_k \},
+\]
+где $\{ x_k \}_{k = 1, \ldots}$ --- не более чем счётный набор
+\subsection{Простейшие свойства характеристической функции}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+	\item $|\phi(t)| \leqslant 1, \ \forall t \in \mathbb{R}^1, \ \phi(0) = 1$ \\
+\[ | \MExpect_{e^{it \xi}} | \leqslant \MExpect_{|e^{it \xi}|} = 1 \]
+	\item $\xi$ --- случайная величина, $a, b$ --- константы, $\eta = a \xi + b$
+\[
+	\phi_{\eta} (t) = \MExpect_{e^{it(a \xi + b)}} = e^{it b} \cdot \phi_{\xi} (at)
+\]
+$c$ --- константа
+\[
+	\phi_c (t) = e^{itc}
+\]
+	\item $\xi_1, \ldots, \xi_n$ --- вектор независимых случайных величин. Тогда
+\[
+	\phi_{\xi_1 + \ldots + xi_n} (t) = \prod\limits_{k = 1}^{n} \phi_{\xi_k} (t) \Rightarrow e^{it \xi_1}, \ldots, e^{it \xi_n}
+\]
+\item $\phi_{\xi} (-t) = \phi_{- \xi} (t) = \overline{\phi_{\xi} (t)}$
+\item $\xi \geqslant 0$, целочисленный случайный вектор. Тогда производящая функция $\psi_{\xi} (u) = \MExpect_{u^{\xi}}$. Тогда
+\[
+	\phi_{\xi} (t) = \MExpect_{e^{it\xi}} = \psi_{\xi} (e^{it})
+\]
+\item Характеристическая функция равномерно непрерывна по аргументу $(t)$ на всей числовой оси
+\[
+	| \phi(t + h) - \phi(t) | = \Delta (h) \underset{h \to 0}{\rightarrow} 0, \ \forall t \in \mathbb{R}^1
+\]
+Покажем это.
+\[
+	\phi(t) = \int\limits_{-\infty}^{+\infty} e^{itx} d \mathcal{P}_{\xi} (x)
+\]
+\[
+	| \phi (t + h) - \phi (t) | \leqslant \int\limits_{-\infty}^{+\infty} | e^{i (t + h) x} - e^{itx} | d \mathcal{P}_{\xi} (x) =
+\]
+Известно, что
+\[
+	| \theta_1 \cdot \theta_2 | = |\theta_1| \cdot | \theta_2 |, \ | e^{itx} | = 1
+\]
+\[
+	= \int\limits_{-\infty}^{+\infty} \underbrace{| e^{ihx} - 1 |}_{g_h (x)} d \mathcal{P}_{\xi} (x) = \Delta (h) \underset{h \to 0}{\rightarrow} 0
+\]
+$g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \mathbb{R}^1$
+\subsection{Примеры}
+\begin{itemize}
+	\item $B [n, p]$, $q = 1 - p$
+\[
+	\phi_{\xi} (t) = (pe^{it} + q)^n
+\]
+	\item $\xi \sim P [a]$, $a > 0$, $e^{a(u - 1)}$
+\[
+	\phi_{\xi} (t) = exp \{ a(e^{it} - 1) \}
+\]
+    \item $\xi = c$ с вероятностью 1.
+\[
+	\phi_c (t) = e^{itc}
+\] 
+	\item $\xi \sim N(0, 1)$. Доказать самостоятельно:
+\[
+	\phi_{\xi} (t) = e^{- \frac{t^2}{2}}
+\]
+\item $\eta \sim N(a, \sigma)$, $a \in \mathbb{R}^1$, $\theta > 0$
+\[
+	\phi_{\eta} (t) = е^{{ita} - \frac{\sigma^2 t^2}{2}}
+\]
+\item $\xi \sim R [a, b]$
+\[
+	\phi_{\xi} (t) = \frac{e^{i t b} - e^{i t a}}{it(b - a)}
+\]
+\end{itemize}
+\begin{theorem}
+	\textit{(Формула обращения)} Пусть $\xi$ --- случайная величина, задана функция распределения $F(x)$, характеристическая функция $\phi(t)$. Пусть также $x_1 < x_2$ --- точки непрерывности $F(x)$. Тогда имеет место соотношение
+\[
+	F(x_2) - F(x_1) = \frac{1}{2 \pi} \cdot \lim\limits_{A \to + \infty} \int\limits_{-A}^{A} \frac{e^{-it x_1} - e^{-it x_2}}{it} \phi(t) dt
+\]
+\end{theorem}
+\begin{proof}
+\[
+	\int\limits_{-\infty}^{+\infty} | \phi_{\xi} (t) | dt < \infty
+\]
+\[
+	f_{\xi} (x) = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} e^{it x} \cdot \phi(t) dt, \ a < b
+\]
+Проинтегрируем по $x$:
+\[
+	\int\limits_{a}^{b} f_{\xi} (x) dx = F(b) - F(a) = \int\limits_{a}^{b} \left[ \int\limits_{-\infty}^{+\infty} e^{-itx} \cdot \phi(t) dt \right] dx \overset{\text{т. Фубини}}{=}
+\]
+\[
+	= \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \phi(t) \left[ \int\limits_{a}^{b} e^{itx} dx \right] dt = \frac{1}{2 \pi} \int\limits_{-\infty}^{+\infty} \frac{e^{-ita} - e^{-itb}}{it} \phi(t) dt
+\]
+\end{proof}
+\begin{theorem}
+	Функция распределения однозначно определяется характеристической функцией своей случайной величины. 
+\end{theorem}
+Из предыдущей теоремы следует, что для любой точки непрерывности функции распределения соответствует формула обращения. Пусть $x$ --- точка непрерывности $F(x)$. Тогда
+\[
+	F(x) = \frac{1}{2 \pi} \lim\limits_{y \to -\infty} \lim\limits_{A \to +\infty} \int\limits_{-A}^{A} \frac{e^{-ity} - e^{-itx}}{it} \phi(t) dt
+\]
+\[
+	F_{\xi} (x) = \lim\limits_{x_1 \downarrow x} F(x_1)
+\]
+\begin{example} 
+	\begin{itemize}
+		\item Пусть $\xi \sim N(a_1, \sigma_1)$, $\xi_2 \sim N(a_2, \sigma_2)$, где $\xi_1, \xi_2$ --- независимые случайные величины. Каков закон распределения $\xi_1 + \xi_2$?
+\[
+	\phi_{\xi_k} (t) = e^{it a_k - \frac{\sigma^2_k t^2}{2}}, \ k = 1, 2, \ldots
+\]
+\[
+	\phi_{\xi_1 + \xi_2} (t) = e^{it(a_1 + a_2) - \frac{(\sigma_1^2 + \sigma_2^2)t^2}{3}}
+\]
+\[
+	\xi_1 + \xi_2 \sim N(a_1 + a_2, \sqrt{\sigma_1^2 + \sigma_2^2})
+\]
+\item $\xi_n^2 = \xi_1^2 + \ldots + \xi_n^2$, $\xi_k \sim N (0, 1)$, $k = 1, \ldots, n$, $\xi_1, \ldots,\xi_n$ --- независимые случайные величины
+	\end{itemize}
+\end{example}
+\begin{theorem}
+	Пусть математическое ожидание некоторой случайной величины конечно $\MExpect_{|\xi|^n}$. Тогда характеристическая функция $\xi$ дифференцируема $n$ раз и справедливо:
+\[
+	\phi_{\xi}^{(k)} (0) = i^k \MExpect_{\xi^k}, \ k \leqslant n
+\]
+\end{theorem}
+Покажем это.
+\[
+	\phi_{\xi}^{(k)} (t) = i^k \int\limits_{-\infty}^{+\infty} e^{itx} \cdot x^k d \mathcal{P}_{\xi}
+\]
+\[
+	\left| \int\limits_{-\infty}^{+\infty} x^k \cdot e^{itx} d \mathcal{P}_{\xi} \right| \leqslant \int\limits_{-\infty}^{+\infty} |x|^k d \mathcal{P}_{\xi} < \infty
+\]
+Рассмотрим логарифм характеристической функции
+\[
+	\kappa (t) = ln(\phi(t)), \ \kappa'(t) = \frac{\phi'(t)}{\phi(t)}
+\]
+\[
+	\kappa''(t) = \frac{\phi''(t) \cdot \phi(t) - [\phi'(t)]^2}{[\phi(t)]^2}
+\]
+\[
+	\kappa'(0) = \phi'(0) = i \cdot \MExpect_{\xi}
+\]
+\[
+	\kappa''(0) = \phi''(0) - [\phi'(0)] = - \Variance_{\xi}
+\]
+\begin{definition}
+	Производная $k$-ого порядка логарифма характеристической функции случайной величины $\xi$ в нуле, умноженная на $i^k$, называется семиинвариантом $k$-ого порядка случайной величины $\xi$
+\end{definition}
+Семиинвариант суммы независимых случайных величин равен сумме семиинвариантов слагаемых того же порядка. \\
+Семиинвариант любого порядка есть рациональная функция моментов порядков не превосходящих $k$. \\
+При сложении независимых случайных величин их функции распределения свёртываются, характеристические перемножаются, семиинварианты складываются.
+
+\item test
+\[
+	\phi(t) = \sum\limits_{k = 0}^{n} \frac{(it)^k}{k!} \MExpect_{\xi}^k + o(|t|^n)
+\]
+\[
+	\phi(t) = \phi(0) + t \cdot \phi'(0) + \frac{t^2}{2} \phi''(0) + o(t^2) = 
+\]
+\[
+	= 1 + it \cdot \MExpect_{\xi} - \frac{t^2}{2} \MExpect_{\xi^2} + o(t^2)
+\]
+
+\begin{theorem}
+	\[
+		\forall x : F_n (x) \underset{n \to \infty}{\rightarrow} F(x) \Leftrightarrow \phi_n (t) \underset{n \to \infty}{\rightarrow} \phi(t)
+	\]
+где $x$ --- точка непрерывности $F(x)$. \\
+Чтобы последовательность функций распределения $F_n$ сходилась в каждой точке к предыдущей функции распределения, необходимо и достаточно, чтобы последовательность соответствующих функций в каждой точке $t$ сходилась к характеристической функции, соответствующей этой функции распределения. \\
+Если $\phi$ --- вещественная, то она чётная.
+\end{theorem}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
