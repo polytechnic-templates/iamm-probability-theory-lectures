@@ -1,4 +1,4 @@
-\part{Производящее пространство элементарных событий. Случайные величины и векторы}
+\chapter{Производящее пространство элементарных событий. Случайные величины и векторы}
 \setcounter{equation}{0}
 \section{Аксиомы теории вероятностей. Вероятностное пространство}
 \begin{definition}
@@ -53,7 +53,7 @@ $\big<\Omega, \mathcal{F}, \Prob \big>$ --- измеримое простран�
 \[ A = \prod\limits_{i=1}^\infty A_i = \lim\limits_{n \to \infty} A_n \text{--- предел (\ref{2-1-2})}.
 \]
 \begin{definition}
-	Функция событий $Q(A)$ называется непревывной, если для любой монотонной последовательности случайных событий выполняется равенство
+	Функция событий $Q(A)$ называется непрерывной, если для любой монотонной последовательности случайных событий выполняется равенство
 	\[
 		\lim\limits_{n \to \infty} Q(A_n) = Q(\lim\limits_{n \to \infty} A_n)
 	\]
@@ -134,12 +134,8 @@ $\big<\Omega, \mathcal{F}, \Prob \big>$ --- измеримое простран�
 		      \]
 	      \end{proof}
 	\item $A_1, \dots, A_n$:
-	      \[
-		      \begin{split}
-			      \Prob(\sum\limits_{k=1}^\infty A_k) = \sum\limits_{k=1}^\infty \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{i=k+1}^n \Prob(A_k \times A_j) + \ldots \\
-			      \ldots - (-1)^{n-1} \cdot \Prob(\prod\limits_{k=1}^n A_k)
-		      \end{split}
-	      \]
+		  \[ \Prob(\sum\limits_{k=1}^\infty A_k) = \sum\limits_{k=1}^\infty \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{i=k+1}^n \Prob(A_k \times A_j) + \ldots \]
+	      \[ \ldots - (-1)^{n-1} \cdot \Prob(\prod\limits_{k=1}^n A_k) \]
 	      Пусть $B = \sum\limits_{k=1}^{n+1} A_k$. Тогда
 	      \[
 		      \Prob(\sum\limits_{k=1}^{n+1} A_k) = \Prob(A_{k+1} + \sum\limits_{k=1}^n A_k)
@@ -180,7 +176,7 @@ $\big<\Omega, \mathcal{F}, \Prob \big>$ --- измеримое простран�
 	      Пусть $A_1, \ldots, A_n, \ldots$ --- не более чем счётный набор, $A_i \times A_j = \emptyset, i \not = j; i,j = \To n$ \\
 	      Пусть также имеется событие $B$, $\Prob(B) > 0$.
 	      \[
-		      \Prob(\sum\limits_{n} A_n | B) = \frac{\Prob((\sum\limits_{n} A_n) \times B)}{\Prob(B)} = \frac{\sum\limits_{n} \Prob(A_n \times B_n)}{\Prob(B)} =
+		      \Prob \left( \sum\limits_{n} A_n | B \right) = \frac{\Prob((\sum\limits_{n} A_n) \times B)}{\Prob(B)} = \frac{\sum\limits_{n} \Prob(A_n \times B_n)}{\Prob(B)} =
 	      \]
 	      \[
 		      \overset{(\text{акс. } 4, 5)}{=} \sum\limits_{n} \Prob(A_n | B)
@@ -271,10 +267,10 @@ $\mathbb{R}^1 = (-\infty; +\infty)$ --- вещественная прямая. �
 		      \]
 		      \[
 			      \left.
-			      \begin{split}
+			      \begin{cases}
 				      B_{n+1} \subset B_n \\
 				      \lim\limits_{n \to \infty} = \prod\limits_n B_n = \emptyset
-			      \end{split}
+			      \end{cases}
 			      \right\}
 			      B_n \downarrow \emptyset
 		      \]
@@ -329,11 +325,9 @@ $\mathbb{R}^1 = (-\infty; +\infty)$ --- вещественная прямая. �
 \]
 \begin{proof}
 	\[
-		\begin{split}
-			F(x) - F(x-0) = \lim\limits_{n \to \infty} (F(x) - F(x - \frac{1}{n})) = \\
-			= \lim\limits_{n \to \infty} [\{ \Prob(-\infty, x] - \Prob(-\infty, x - \frac{1}{n}] \}]
-		\end{split}
+		F(x) - F(x-0) = \lim\limits_{n \to \infty} (F(x) - F(x - \frac{1}{n})) =
 	\]
+	\[ = \lim\limits_{n \to \infty} [\{ \Prob(-\infty, x] - \Prob(-\infty, x - \frac{1}{n}] \}] \]
 	Представим как сумму двух несовместных событий
 	\[
 		(-\infty, x - \frac{1}{n}] + (x - \frac{1}{n}, x]
@@ -487,7 +481,7 @@ $\mathbb{R}^1 = (-\infty; +\infty)$ --- вещественная прямая. �
 		\caption{Какой-то рисунок, который ещё не нарисовали.}
 	\end{figure}
 \end{example}
-\begin{example} $\Gamma$-рапределение \\
+\begin{example} $\Gamma$-распределение \\
 	Здесь в нормированном множителе для плотности участвует $\Gamma$-функция
 	\[
 		f(x) =
@@ -657,9 +651,7 @@ $F(x)$ --- непрерывная функция распределения, ф�
 \begin{proof}
 	$B \in \mathcal{B} (\mathbb{R}^1)$
 	\[
-		\begin{split}
 			\{ \omega : \eta (\omega) \in B \} = \{ \omega : g(\xi(\omega)) \in B \} = \{ \omega : \xi(\omega) \in g^{-1} (B) \} \in \mathcal {F}
-		\end{split}
 	\]
 	\[
 		\xi \sim (\Omega, \mathcal{F})
@@ -734,12 +726,8 @@ $\mathbb{R}^1 \times \ldots \times \mathbb{R}^1$ --- $\mathbb{R}^n$ --- прям
 	F (x_1, \ldots, x_n) = \Prob \{ (-\infty, x_1] \times \ldots \times (-\infty, x_n] \}
 \end{equation}
 Введём разностный оператор.
-\[
-	\begin{split}
-		\Delta_{a_i b_i} F(x_1, \ldots, x_n) = F(x_1, \ldots, x_{i-1}, b_i, x_{i+1}, \ldots, x_n) - \\
-		- F(x_1, \ldots, x_{i-1}, a_i, x_{i+1}, \ldots, x_n), a_i < b_i, i = 1, \ldots, n.
-	\end{split}
-\]
+\[ \Delta_{a_i b_i} F(x_1, \ldots, x_n) = F(x_1, \ldots, x_{i-1}, b_i, x_{i+1}, \ldots, x_n) - \]
+\[ - F(x_1, \ldots, x_{i-1}, a_i, x_{i+1}, \ldots, x_n), a_i < b_i, i = 1, \ldots, n. \]
 \begin{example}
 	$\Delta_{a_1 b_1} \Delta_{a_2 b_2} \ldots \Delta_{a_n b_n} F(x_1, \ldots, x_n) = \Prob \{(a_1, b_1] \times \ldots \times (a_n, b_n] \}$
 	%TODO: ex
@@ -774,16 +762,12 @@ $\mathbb{R}^1 \times \ldots \times \mathbb{R}^1$ --- $\mathbb{R}^n$ --- прям
 		\end{cases}
 	\]
 	%TODO: упражнение --- доказать 2, 3, 4
-	Oчевидно, свойства (2, 3, 4) выполнены. Применим разностный оператор.
+	Очевидно, свойства (2, 3, 4) выполнены. Применим разностный оператор.
 	\[
 		a_1 = 0, b_1 = 0 : \Delta_{0 1} F(x_1, x_2) = F(1,x_2) - F(0, x_2)
 	\]
-	\[
-		\begin{split}
-			a_2 = 0, b_2 = 0 : \Delta_{0 1} [\Delta_{0 1} F(x_1, x_2] = [F(1,1) - F(0, 1)] - \\
-			[F(1,0) - F(0,0)] = 1 - 1 - 1 + 0 = -1
-		\end{split}
-	\]
+	\[ a_2 = 0, b_2 = 0 : \Delta_{0 1} [\Delta_{0 1} F(x_1, x_2] = [F(1,1) - F(0, 1)] - \]
+	\[ [F(1,0) - F(0,0)] = 1 - 1 - 1 + 0 = -1 \]
 	Условие (1) не выполнено.
 \end{example}
 \begin{theorem}
@@ -838,7 +822,7 @@ $\mathbb{R}^1 \times \ldots \times \mathbb{R}^1$ --- $\mathbb{R}^n$ --- прям
 \]
 \begin{lemma}
 	Распределение любого подвектора исходного вектора (:) полностью определяется распределением исходного вектора $\overline{\xi}$.
-	$\overline{\eta} = (\xi_1, \ldots, \xi_k), k < n$ порождает на $(\mathbb{R}^k, \mathcal{B}(\mathbb{R}^k))$ вероятностую меру $\mathcal{P}_{\overline{\eta}}$. $B \in \mathcal{B}(\mathbb{R}^k)$.
+	$\overline{\eta} = (\xi_1, \ldots, \xi_k), k < n$ порождает на $(\mathbb{R}^k, \mathcal{B}(\mathbb{R}^k))$ вероятностную меру $\mathcal{P}_{\overline{\eta}}$. $B \in \mathcal{B}(\mathbb{R}^k)$.
 \[
 		\mathcal{P}_{\overline{\eta}}(B) \overset{\textrm{def}}{=} \Prob(\overline{\eta} \in B) = \Prob ((\xi_1, \ldots, \xi_k) \in B) =
 \]
@@ -860,11 +844,9 @@ $\mathbb{R}^1 \times \ldots \times \mathbb{R}^1$ --- $\mathbb{R}^n$ --- прям
 \[
 	= \sum\limits_{j: x_1^{(j)} \in B} \ldots \sum\limits_{j: x_n^{(j)} \in B} \Prob (\xi_1 = x_1^{(j)}, \ldots, \xi_n = x_n^{(j)})
 \]
-\[
-	\begin{split}
-		F_{\overline{\xi}} (x_1, \ldots, x_n) = \Prob \{ \xi_1  \leqslant x_1, \ldots, \xi_n \leqslant x_n) = \\
-		 = \sum\limits_{j: x_1^{(j)} \leqslant x_1} \ldots \sum\limits_{j: x_n^{(j)} \leqslant x_n} \Prob (\xi_1 = x_1^{(j)}, \ldots, \xi_n = x_n^{(j)})
-	\end{split}
+\[ 
+F_{\overline{\xi}} (x_1, \ldots, x_n) = \Prob \{ \xi_1  \leqslant x_1, \ldots, \xi_n \leqslant x_n) = \]
+\[ = \sum\limits_{j: x_1^{(j)} \leqslant x_1} \ldots \sum\limits_{j: x_n^{(j)} \leqslant x_n} \Prob (\xi_1 = x_1^{(j)}, \ldots, \xi_n = x_n^{(j)})
 \]
 Будем говорить, что $n$-мерный случайный вектор имеет абсолютно непрерывное распределение, если существует функция плотности вероятности $f_{\overline{\xi}} (x_1, \ldots, x_n) \geqslant 0, \int\limits_{\mathbb{R}^n} f_{\overline{\xi}} (x) dx = 1$, такая, что
 \[
@@ -967,7 +949,7 @@ $\mathbb{R}^1 \times \ldots \times \mathbb{R}^1$ --- $\mathbb{R}^n$ --- прям
 \end{addition}
 
 \begin{theorem}
-	\textit{(Фубини)}. Рассмотрим специальный класс измеримых пространств с опрелённой на них вероятностной мерой: $(\Omega, \mathcal{F}, \Prob)$. Пусть $\Omega_1 = \{ \omega_1 \}$, $\Omega_2 = \{ \omega_2 \}$
+	\textit{(Фубини)}. Рассмотрим специальный класс измеримых пространств с определённой на них вероятностной мерой: $(\Omega, \mathcal{F}, \Prob)$. Пусть $\Omega_1 = \{ \omega_1 \}$, $\Omega_2 = \{ \omega_2 \}$
 	\[
 		\Omega = \Omega_1 \times \Omega_2, \mathcal{F} = \mathcal{F}_1 \times \mathcal{F}_2, \Prob = \Prob_1 \times \Prob_2
 	\]

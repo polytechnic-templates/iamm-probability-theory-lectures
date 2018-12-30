@@ -1,10 +1,16 @@
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\thesection}{\arabic{section}}
 \titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}
 \setlength{\parindent}{0pt}
 \bibliographystyle{ugost2008}
 \providecommand*{\bblmay}[1]{#1}
 \graphicspath{ {} }
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+%\usepackage{setspace}
+%\singlespacing
 
 \setcounter{tocdepth}{1} 
 \makeatletter

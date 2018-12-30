@@ -1,4 +1,4 @@
-\part{Числовые характеристики распределения случайных величин}
+\chapter{Числовые характеристики распределения случайных величин}
 \setcounter{equation}{0}
 \section{Математическое ожидание случайной величины}
 \begin{definition}
@@ -70,7 +70,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 \[
   \MExpect g(\overline\xi) = \int\limits_{\mathbb{R}^n} g(x) d \mathcal{P}_{\overline{\xi}} (x), x \in \mathbb{R}^n
 \]
-По определению математического ожидания задан также интеграл Лебега, но на абстрактном пространсве этих событий.
+По определению математического ожидания задан также интеграл Лебега, но на абстрактном пространстве этих событий.
 \[
   \int\limits_{\Omega} g (\overline{\xi}(\omega)) d \Prob (\omega)
 \]
@@ -107,7 +107,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
     \MExpect_{\xi} = \int\limits_a^b \frac{x}{b-a} dx = \frac{a+b}{2}
   \]
 \end{example}
-\begin{example} \textit{(Дискретная случайная величина (бернуллиевская), задающая некоторе распределение).}
+\begin{example} \textit{(Дискретная случайная величина (бернуллиевская), задающая некоторые распределение).}
   \[
     p + q = 1, \MExpect_{\xi} = p
   \]
@@ -119,7 +119,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
     \MExpect_{\mu_n} = \MExpect \left[ \sum\limits_{k = 1}^n \right] = \sum\limits_{k = 1}^n \MExpect_{\xi_k} = np
   \]
 \end{example}
-\begin{example} \textit{(Распредeление вероятностей случайных величин Пуассона).} $\xi \sim \Prob [a], a > 0$
+\begin{example} \textit{(Распределение вероятностей случайных величин Пуассона).} $\xi \sim \Prob [a], a > 0$
   \[
     \MExpect_{\xi} = \sum\limits_{k = 0}^{\infty} k \cdot \frac{a^k}{k \ !} e^{-a} = a \cdot e^{-a} \sum\limits_{k = 0}^{\infty} \frac{a^{k-1}}{(k-1) \ !} = a
   \]
@@ -377,7 +377,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 \begin{definition}
   \textit{Моментом} (или начальным моментом) порядка $p > 0$ случайной величины $\xi$ на вероятностном пространстве $(\Omega, \mathcal{F}, \Prob)$ назовём $\MExpect_{\xi^p}$, при этом предполагается, что существует $\MExpect_{|\xi|^p} < +\infty$. По теореме о вычислении математического ожидания:
   \[
-    \MExpect_{\xi^p} = \int\limits_{\-infty}^{+\infty} x^p d \mathcal{P}_{\xi} (x)
+    \MExpect_{\xi^p} = \int\limits_{\-\infty}^{+\infty} x^p d \mathcal{P}_{\xi} (x)
   \]
   \[
     \xi : \Omega \to \mathbb{R}^1 \ (\mathbb{R}^1, \mathcal{B} (\mathbb{R}^1), \mathcal{P}_{\xi})
@@ -466,7 +466,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   \end{enumerate}
 \end{definition}
 
-\section{Законы распредeления функций случайных величин}
+\section{Законы распределения функций случайных величин}
 Пусть определена случайная величина $\xi$, функция распределения этой случайной величины $F_{\xi}(x)$, а также, если $\xi$ абсолютно непрерывна, то функция плотности вероятности $f_{\xi}(x)$. \\
 Рассмотрим борелевскую функцию одного аргумента:
 \[

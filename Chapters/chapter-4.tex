@@ -1,4 +1,4 @@
-\part{Характеристические функции. Предельные теоремы}
+\chapter{Характеристические функции. Предельные теоремы}
 \setcounter{equation}{0}
 \section{Производящие функции. Факториальные моменты}
 Пусть задана случайная величина $\xi$, $m = 0, 1, 2, \ldots$, закон распределения, которому подчиняется $\xi$: 
@@ -169,7 +169,7 @@ $|u| < 1$
 Все свойства математического ожидания вещественно-значной случайной величины переносятся также на комплексно-значную случайную величину. \\
 $\theta_1$ и $\theta_2$ независимы, если независимы два вектора $(\xi_1, \eta_1)$ и $(\xi_2, \eta_2)$.
 \begin{definition}
-	Характеристической функцией вещественно-значной случайной величины называется функция вещественного агумента, которая представляет собой математическое ожидание $e^{it\xi}$:
+	Характеристической функцией вещественно-значной случайной величины называется функция вещественного аргумента, которая представляет собой математическое ожидание $e^{it\xi}$:
 \[
 	\phi_{\xi} (t) = \MExpect_{e^{it\xi}}, \ t \in \mathbb{R}^1, \text{ $\xi$ --- вещественная случайная величина}
 \]
@@ -339,11 +339,11 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 	\kappa''(0) = \phi''(0) - [\phi'(0)] = - \Variance_{\xi}
 \]
 \begin{definition}
-	Производная $k$-ого порядка логарифма характеристической функции случайной величины $\xi$ в нуле, умноженная на $i^k$, называется семиинвариантом $k$-ого порядка случайной величины $\xi$
+	Производная $k$-ого порядка логарифма характеристической функции случайной величины $\xi$ в нуле, умноженная на $i^k$, называется семи-инвариантом $k$-ого порядка случайной величины $\xi$
 \end{definition}
-Семиинвариант суммы независимых случайных величин равен сумме семиинвариантов слагаемых того же порядка. \\
-Семиинвариант любого порядка есть рациональная функция моментов порядков не превосходящих $k$. \\
-При сложении независимых случайных величин их функции распределения свёртываются, характеристические перемножаются, семиинварианты складываются.
+Семи-инвариант суммы независимых случайных величин равен сумме семи-инвариантов слагаемых того же порядка. \\
+Семи-инвариант любого порядка есть рациональная функция моментов порядков не превосходящих $k$. \\
+При сложении независимых случайных величин их функции распределения свёртываются, характеристические перемножаются, семи-инварианты складываются.
 
 \item Пусть математическое ожидание некоторой случайной величины $\xi$ конечно $\MExpect_{|\xi|^n}$. Тогда имеет место:
 \[
@@ -358,7 +358,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 
 \begin{theorem}
 	\[
-		\forall x : F_n (x) \underset{n \to \infty}{\rightarrow} F(x) \Leftrightarrow \phi_n (t) \underset{n \to \infty}{\rightarrow} \phi(t)
+		\forall x: \ F_n (x) \underset{n \to \infty}{\rightarrow} F(x) \Leftrightarrow \phi_n (t) \underset{n \to \infty}{\rightarrow} \phi(t)
 	\]
 где $x$ --- точка непрерывности $F(x)$. \\
 Чтобы последовательность функций распределения $F_n$ сходилась в каждой точке к предыдущей функции распределения, необходимо и достаточно, чтобы последовательность соответствующих функций в каждой точке $t$ сходилась к характеристической функции, соответствующей этой функции распределения. \\
@@ -375,7 +375,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 	\phi_{\xi} (\overline{t}) = \int\limits_{\mathbb{R}^n} e^{i(\overline{t}, \overline{\xi})} d F_{\overline{\xi}} (\overline{x})
 \]
 \end{definition}
-\subsection{Свойства характеристичекой функции случайного вектора}
+\subsection{Свойства характеристической функции случайного вектора}
 \begin{enumerate}
 	\item $\forall \overline{t} \in \mathbb{R}^n$, $|\phi_{\overline{\xi}} (\overline{t}) | \leqslant 1$, $\phi (\overline{\theta}) = 1$
 	\item $\phi(\overline{t})$ равномерно непрерывна по $\overline{t} \in \mathbb{R}^1$
@@ -433,20 +433,20 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 \end{example}
 
 \section{Типы сходимости последовательностей случайных величин}
-\begin{enumerate}
-	\item Сходимость с вероятностью 1. \\
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+	\item \textbf{Сходимость с вероятностью 1.}  \\
  	Говорят, что последовательность случайных величин $\{ \xi_n \}$ сходится к случайной величине $\xi$ почти наверняка, или с вероятностью 1, если вероятность того, что $\Prob \{ \lim\limits_{n \to \infty} \xi_n = \xi \} = 1$, $\omega: \lim\limits_{n \to \infty} \xi_n (\omega) = \xi (\omega)$
-	\item Сходимость по вероятности. \\
-	Говорят, что $\{ \xi_n \}$ стремится по вероятности к $\xi$, если $\forall \varepsilon > 0$:
+	\item \textbf{Сходимость по вероятности.}  \\
+	Говорят, что $\{ \xi_n \}$ стремится по вероятности к $\xi$, если:
 	\[
-		\lim\limits_{n \to \infty} \Prob \{ |\xi_n - \xi | > \varepsilon \} = 0
+		\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} \Prob \{ |\xi_n - \xi | > \varepsilon \} = 0
 	\]
-	\item Сходимость в среднем квадратическом. \\
+	\item \textbf{Сходимость в среднем квадратическом.}  \\
 	Говорят, что $\{ \xi_n \}$ стремится к $\xi$ в среднем квадратическом, если существуют вторые моменты у членов последовательности и 
 	\[
 		\MExpect | \xi_n - \xi |^2 \underset{n \to \infty}{\rightarrow} 0
 	\]
-	\item Сходимость по распределению. \\
+	\item \textbf{Сходимость по распределению.}  \\
 	Говорят, что $\{ \xi_n \}$ стремится к $\xi$ по распределению, если
 	\[
 		F_{\xi_n} (x) \underset{n \to \infty}{\rightarrow} F_{\xi} (x),
@@ -467,18 +467,18 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 \begin{definition}
 	Последовательность имеющих математическое ожидание случайных величин подчиняется закону больших чисел, если у этой последовательности выполняется предельное соотношение:
 \[
-	\forall \varepsilon > 0: \lim\limits_{n \to \infty} \Prob \left\{ \left| \frac{1}{n} \sum\limits_{k = 1}^{n} \xi_k - \frac{1}{n} \sum\limits_{k = 1}^{n} \MExpect_{\xi_k} \right| \right\} = 0
+	\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} \Prob \left\{ \left| \frac{1}{n} \sum\limits_{k = 1}^{n} \xi_k - \frac{1}{n} \sum\limits_{k = 1}^{n} \MExpect_{\xi_k} \right| \right\} = 0
 \]
 \end{definition}
 \begin{theorem}
 	\textbf{(Хинчина)}. Пусть случайные величины $\xi_1, \ldots, \xi_n, \ldots$ независимы, одинаково распределены и имеют математическое ожидание $ \MExpect_{\xi_n} = a $. Тогда для последовательности таких случайных величин $\{ \xi_n \}$ выполняется закон больших чисел:
 \[
-	\forall \varepsilon > 0: \lim \Prob \left\{ \left| \frac{\sum\limits_{k = 1}^{n} \xi_k}{n} - a \right| \leqslant \varepsilon \right\} = 1 
+	\forall \varepsilon > 0: \ \lim \Prob \left\{ \left| \frac{\sum\limits_{k = 1}^{n} \xi_k}{n} - a \right| \leqslant \varepsilon \right\} = 1 
 \]
 \end{theorem}
 \begin{proof}
 	\[
-		\forall k: \phi_{\xi_k} (t) = \phi (t) = 1 + it a + o(t)
+		\forall k: \ \phi_{\xi_k} (t) = \phi (t) = 1 + it a + o(t)
 	\]
 	\[
 		\phi_{\sum\limits_{k = 1}^{n} \xi_k (t)} = \left[ \phi(t) \right]^n
@@ -514,7 +514,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 \begin{theorem}
 	\textit{(Бернулли)} $\mu_n$, $B [n, p]$
 	\[
-		\forall \varepsilon > 0: \lim\limits_{n \to \infty} \Prob \left\{ \left| \frac{\mu_n}{n} - p \right| > \varepsilon \right\} = 0
+		\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} \Prob \left\{ \left| \frac{\mu_n}{n} - p \right| > \varepsilon \right\} = 0
 	\]
 \end{theorem}
 Из теоремы Хинчина следует теорема Бернулли.
@@ -522,11 +522,11 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 		\mu_n = \sum\limits_{k = 1}^{n} \xi_k,
 	\]
 	где $\xi_k$ --- число $n$ успеха в $k$-ом испытании Бернулли. \\
-При большом числе испытаний относительная частота успеха стремится по вероятности к вероятности появления успеха. Число испытаний растёт, значит, отночистельная частота реже отличается от вероятности.
+При большом числе испытаний относительная частота успеха стремится по вероятности к вероятности появления успеха. Число испытаний растёт, значит, относительная частота реже отличается от вероятности.
 \begin{theorem}
 	\textit{(Чебышёва)} $\{ \xi_n \}$ --- независимые случайные величины, пусть также имеющие дисперсию $\Variance_{\xi_k} = \sigma_k^2$
 \[
-	\forall k: \exists c: \sigma_k^2 \leqslant c
+	\forall k: \ \exists c: \sigma_k^2 \leqslant c
 \]
 значит, выполнен закон больших чисел. Пусть 
 \[
@@ -555,31 +555,179 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 	\textit{(Колмогорова)}. $\{ \xi_n \}$ --- последовательность независимых случайных величин, имеющих дисперсию $\Variance_{\xi_n} = \sigma_n^2$. Если $\sum\limits_{n = 1}^{\infty} \frac{\sigma_n^2}{n^2}$ сходится, то $\{ \xi_n \}$ подчиняется усиленному закону больших чисел.
 \end{theorem}
 
+\section{Центральная предельная теорема}
+Пусть $\xi_1, \ldots, \xi_n$ --- последовательность независимых случайных величин, каждая из которых имеет конечную дисперсию. Говорят, что для последовательности выполнена центральная предельная теорема, если $\eta_n = \xi_1 + \ldots + \xi_n$ справедливо
+\[
+	\forall x \in \mathbb{R}^1: \ \lim\limits_{n \to \infty} \Prob \left\{ \frac{\eta_n - \MExpect_{\eta_n}}{\sqrt{\Variance_{\eta_n}}} \leqslant x \right\} = \frac{1}{\sqrt{2 \pi}} \int\limits_{-\infty}^{x} e^{- \frac{u^2}{2}} du = F_{N(0,1)} (x)
+\]
+Введём стандартизированную случайную величину, соответствующую $\eta_n$:
+\[
+	\widetilde{\eta}_n \frac{\eta_n - \MExpect_{\eta_n}}{\sqrt{\Variance_{\eta_n}}}
+\]
+Итак,
+\[
+	F_{\widetilde{\eta}_n} (x) \underset{n \to \infty}{\rightarrow} F_{N(0, 1)} (x)
+\]
+\[
+	\widetilde{\eta}_n \overset{d}{\rightarrow} \eta: \eta \sim N(0, 1)
+\]
+\begin{theorem}
+	\textit{(Поля-Леви)} Пусть $\xi_1, \ldots, \xi_n$ --- последовательность независимых, одинаково распределённых случайных величин, имеющих дисперсию $\Variance_{\xi_k} = \sigma_k^2 > 0$ и математическое ожидание $\MExpect_{\xi_k}$. Тогда выполнена ЦПТ для $\{ \xi_n \}_{n = 1, \ldots}$:
+\[
+	\forall x \in \mathbb{R}^1: \ \lim\limits_{n \to \infty} \Prob \left\{ \frac{\xi_1 + \ldots + \xi_n - na}{\sigma \sqrt{n}} \leqslant x \right\} = F_{N(0, 1)} (x)
+\]
+\end{theorem}
+\begin{proof}
+	Обозначим
+	\[
+		\sum\limits_{k = 1}^{n} \xi_k = \eta_n, \ \frac{\xi_1 + \ldots + \xi_n - na}{\sigma \sqrt{n}} = \widetilde{\eta}_n
+	\]
+	Введём для каждой величины $\xi_k$ центрированную случайную величину
+	\[
+		\widetilde{\xi}_k = \xi_k - a
+	\]
+	Тогда
+	\[
+		\widetilde{\eta}_n = \frac{1}{\sigma \sqrt{n}} \sum\limits_{k = 1}^{n} \widetilde{\xi}_k
+	\]
+	\[
+		\MExpect_{\widetilde{\xi}_k} = 0, \ \Variance_{\widetilde{\xi}_k} = \Variance_{\xi_k} = \MExpect_{\xi_k^2}
+	\]
+	Рассмотрим характеристическую функцию:
+	\[
+		\exists \MExpect_{|\xi|^n} \Rightarrow \phi_{\xi} (t) = \sum\limits_{k = 0}^{n} \frac{(it)^k}{k!} \MExpect_{\xi^k} + o(t^n)
+	\]
+	\[
+		\forall t \in \mathbb{R}^1: \ \phi_{{\widetilde{\xi}_k}} (t) = 1 - \frac{t^2 \sigma^2}{2} + o(t^2)
+	\]
+	Перейдём к интересующей нас $\widetilde{\eta}_n$:
+	\[
+		\phi_{\widetilde{\eta}_n} (t) = \left[ \phi_{\widetilde{\xi}_k} \left( \frac{t}{\sigma \sqrt{n}} \right) \right]^n = \left[ 1 - \frac{t^2}{n \cdot 2} + o \left( \frac{t^2}{n} \right) \right] \underset{n \to \infty}{\rightarrow} e^{- \frac{t^2}{2}}
+	\]
+	Известно, что $\phi_{N(0, 1)} = e^{- \frac{t^2}{2}}$
+	Итак,
+	\[
+		\forall t \in \mathbb{R}^1: \ \phi_{\widetilde{\eta}_n} (t) \underset{n \to \infty}{\rightarrow} \phi_{N(0, 1)}
+	\]
+	Значит, по теореме непрерывности:
+	\[
+		\forall x \in \mathbb{R}^1: \ F_{\widetilde{\eta}_n} \underset{n \to \infty}{\rightarrow} F_{N(0, 1)} (x)
+	\]
+	Значит, ЦПТ выполнена для $\{ \xi_n \}_{n = 1, \ldots}$
+\end{proof}
+\begin{theorem}
+	\textit{(Муавра-Лапласа)} Распределения числа успехов в схеме испытаний Бернулли при фиксированной вероятности появления успеха $p$ не близкой к 1 и 0 при стремлении числа испытаний к бесконечности имеет соотношение:
+\[
+	B[n, p], \ \mu_n, \ 0 < p < 1, q = 1 - p
+\]
+где $p$ фиксировано
+\[
+	\forall x \in \mathbb{R}^1: \ \lim\limits_{n \to \infty} \Prob \left\{ \frac{\mu_n - n \cdot p}{\sqrt{n \cdot p \cdot q}} \leqslant x \right\} = F_{N(0, 1)} (x)
+\]
+\end{theorem}
+\begin{proof}
+	Из теоремы Поля-Леви:
+	\[
+		\mu_n = \sum\limits_{k = 1}^{n} \xi_k,
+	\]
+	где $\xi_k$ --- число появления «успеха» в $k$-ом испытании.
+	\[
+		\Variance_{\xi_k} = pq
+	\]
+	Для $\{ \xi_n \}_{n = 1, \ldots}$ --- бернуллиевских выполнена ЦПТ.
+\end{proof}
+\[
+	\mu_n \sim N(np, \sqrt{npq})
+\]
+Пусть $\xi_1, \ldots, \xi_n$ --- набор независимых случайных величин, имеющих дисперсию $\Variance_{\xi_k}$, при этом $\sum\limits_{k = 1}^{n} \Variance_{\xi_k} > 0$. Рассмотрим $\xi_k$.
+\[
+	\MExpect_{\xi_k} = a_k, \ \Variance_{\xi_k} = \sigma_k^2, \ F_k(x) \text{ --- функция распределения $F_k(x)$}
+\]
+\[
+	\sum\limits_{k = 1}^{n} \sigma_k^2 = B_n^2, \ \lambda_n = max \frac{\sigma_k^2}{B_n^2}, \ B_n = \sqrt{B_n^2}
+\]
+Пусть $\varepsilon > 0$, введём
+\[ 
+	Z_n(\varepsilon) = \frac{1}{B^2_n} \sum\limits_{k = 1}^{n} \int\limits_{\omega} (x - a_k)^2 dF_k (x)
+\] 
+где $\omega = \{ x: |x - a_k| \geqslant \varepsilon \cdot B_n \}$. \\
+Будем говорить, что выполнено условие Линдеберга, если
+\[
+	\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} Z_n (\varepsilon) = 0
+\]
+\begin{theorem}
+	\textit{(Линдеберга)}. Пусть для $\xi_1, \ldots, \xi_n, \ldots$ --- набора независимых случайных величин, имеющих конечную дисперсию $\Variance_{\xi_k}$, выполнено условие Линдеберга. Тогда
+\begin{enumerate}
+	\item $\{ \xi_n \}_{n = 1, \ldots}$ подчиняется ЦПТ.
+	\item $\lambda_n \underset{n \to \infty}{\rightarrow} 0$
+\end{enumerate}
+И также из (1, 2) следует выполнимость условия Линдеберга. \\
+$\lambda_n \underset{n \to \infty}{\rightarrow} 0$ означает, что каждое слагаемое в $\eta_n = \sum\limits_{k = 1}^{n} \xi_k$ пренебрежимо мало по сравнению с $\eta_n$
+\end{theorem}
+\begin{conclusion}
+\textit{Теорема Поля-Леви.}  $\{ \xi_n \}$ --- последовательность одинаково распределённых случайных величин. Рассмотрим $Z_n (\varepsilon)$ для фиксированного $\varepsilon > 0$:
+\[
+	Z_n (\varepsilon) = \frac{1}{\sigma^2 n} \sum\limits_{k = 1}^{n} \int\limits_{\omega} (x - a)^2 d F(x) =
+\]
+где $\omega = \{ x: |x - a_k| \geqslant \varepsilon \cdot \sigma \sqrt{n} \}$
+\[
+	\frac{1}{\sigma^2} \int\limits_{\omega} (x - a) dF(x) \rightarrow 0 \Rightarrow \text{ $\{ \xi_n \}$ подчиняется ЦПТ.}
+\]
+\end{conclusion}
+\begin{conclusion}
+\textit{Теорема Ляпунова.} Пусть $\{ \xi_n \}_{n = 1, \ldots}$ --- последовательность независимых случайных величин, имеющих дисперсию $\Variance_{\xi_k}$
+\[
+	\forall k = 1, 2, \ldots : \ \exists \delta > 0: \exists \MExpect \left[ |x - a_k|^{2 + \delta}\right] < \infty
+\]
+Составим дробь Ляпунова:
+\[
+	L_n = \frac{\sum\limits_{k = 1}^{n} \alpha_k}{B_n^{2 + \delta}}
+\]
+Тогда 
+\[
+	L_n \underset{n \to \infty}{\rightarrow} 0 \Rightarrow \text{ для $\{ \xi_n \}_{n = 1, \ldots}$ выполняется ЦПТ.}
+\]
+\end{conclusion}
+\begin{proof}
+	Пусть для любого $\varepsilon > 0$ %TODO WTF
+	\[
+		Z_n (\varepsilon) \leqslant \frac{1}{\varepsilon^{\delta} \cdot B_n^{2 + \delta}} \cdot \sum\limits_{k = 1}^{n} \int\limits_{\omega} |x - a_k|^{2 + \delta} dF_k(x) \leqslant \frac{\sum\limits_{k = 1}^{n} \alpha_k}{\varepsilon^{\delta} \cdot B_n^{2 + \delta}} \underset{n \to \infty}{\rightarrow} 0
+	\]
+	где $\omega = \{ x: |x - a_k| \geqslant \varepsilon \cdot B_n \}$.
+\end{proof}
+\begin{theorem}
+	\textit{(Стеклова)}. Пусть $\{ \xi_n \}_{n = 1, \ldots}$ --- последовательность независимых равномерно ограниченных случайных величин, имеющих дисперсию $\Variance_{\xi_k}$, при этом 
+\[
+	\forall k: \ |\xi_k| \leqslant K, \ K = const
+\]
+Тогда
+\[
+	B_n \underset{n \to \infty}{\rightarrow} + \infty \Rightarrow \{ \xi_n \}_{n = 1, \ldots} \text{ подчиняется ЦПТ.}
+\]
+\end{theorem}
+\begin{proof}
+	$\varepsilon > 0$:
+	\[
+		\int\limits_{S} (x - a_k)^2 dF_k (x) = \MExpect [(\xi_k - a_k)^2 \cdot I_A (\omega)]
+	\]
+	где $S = \{ x: \ |x - a_k| \geqslant \varepsilon B_n \}$, $A = \{ |\xi_k - a_k | \geqslant \varepsilon \cdot B_n \}$.
+	\[
+		\MExpect [(\xi_k - a_k)^2 \cdot I_A (\omega)] \leqslant (2K)^2 \Prob (S) \overset{\text{нер-во Чебышёва}}{\leqslant} (2K)^2 \frac{\sigma_k^2}{\varepsilon^2 \cdot B_n^2}
+	\]
+	Теперь оценим $Z_n(\varepsilon)$
+	\[
+		Z_n (\varepsilon) \leqslant \frac{(2K)^2}{\varepsilon^2 B_n^2} \underset{n \to \infty}{\rightarrow} 0
+	\]
+\end{proof}
+Вообще класс предельных распределений сумм квадратов случайных величин не исчерпывается нормальным. \\
 
+Закон называется безгранично-делимым, если его характеристическую функцию можно представить как другую функцию в $n$-ой степени:
+\[
+	\forall n : \ \phi(t) = \left[ \widetilde{\phi} (t) \right]^n
+\]
+Нормальный закон также можно представить таким образом (и $\Gamma$-распределение, и распределение Пуассона, и др.) \\
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Если на величину какого-то признака влияет много независимых случайных факторов, и влияние каждого из них невелико, однако суммарное ощутимо, то закон распределения этой величины можно считать нормальным.
 
 
 

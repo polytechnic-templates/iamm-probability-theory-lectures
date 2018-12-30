@@ -1,5 +1,7 @@
-\part{Исчисление вероятностей случайных событий}
+\chapter{Исчисление вероятностей случайных событий}
 \section{Соотношение между случайными событиями}
+
+
 Пусть имеется фиксированный комплекс условий, воспроизводимый любое количество раз, в том числе и неограниченное.
 
 \begin{definition}
@@ -121,7 +123,7 @@ $$\tilde{\Prob}(U) = \Prob(U) = 1.$$
 При увеличении числа опытов отклонения (большие) относительной частоты $\tilde{\Prob}(A)$ от вероятности $\Prob(A)$ будут попадаться реже. На практике относительная частота $\tilde{\Prob}(A)$ может быть принята за вероятность $\Prob(A)$ при достаточно большом количестве испытаний.
 
 \section{Геометрические вероятности}
-Пусть $\chi_0$ --- номинальный размер некоторой детали. С учётом погрешности изготовления этой детали реальный размер $\chi \in (\chi - 4; \chi + 4)$. Получено несчётное пространство, и классическое определениe вероятности, заданное для счётных пространств событий, не может быть использовано для вычислений в данном случае.
+Пусть $\chi_0$ --- номинальный размер некоторой детали. С учётом погрешности изготовления этой детали реальный размер $\chi \in (\chi - 4; \chi + 4)$. Получено несчётное пространство, и классическое определение вероятности, заданное для счётных пространств событий, не может быть использовано для вычислений в данном случае.
 
 \subsection{Геометрический подход}
 Пусть имеется ограниченное одномерное евклидово множество, имеющее объём. \\
@@ -221,12 +223,15 @@ $$\tilde{\Prob}(U) = \Prob(U) = 1.$$
 \]
 Попарная независимость событий
 \begin{equation}\label{1-5-3}
-	\begin{split}
-		\Prob(A_1 \times A_2) = \Prob(A_1) \cdot \Prob(A_2) \\
-		\Prob(A_3 \times A_2) = \Prob(A_3) \cdot \Prob(A_2) \\
-		\Prob(A_1 \times A_3) = \Prob(A_1) \cdot \Prob(A_3) \\
-	\end{split}
+		\Prob(A_1 \times A_2) = \Prob(A_1) \cdot \Prob(A_2)
 \end{equation}
+\[
+	\Prob(A_3 \times A_2) = \Prob(A_3) \cdot \Prob(A_2)
+\]
+
+\[
+	\Prob(A_1 \times A_3) = \Prob(A_1) \cdot \Prob(A_3)
+\]
 
 При независимости событий (в совокупности):
 \begin{equation}\label{1-5-4}
@@ -282,20 +287,17 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 	\Prob(\underbrace{A \times \overline{A}}_{U = 1}) = \Prob(A) + \Prob(\overline{A}) \Rightarrow \Prob(\overline{A}) = 1 - \Prob(A)
 \]
 По теореме о сложении:
-\[
-	\begin{split}
-		\Prob(A_1 + A_2 + A_3) = \Prob(A_1 + A_2) + \Prob(A_3) - \\
-		- \Prob((A_1 + A_2) \times A_3) = \Prob(A_1) + \Prob(A_2) + \Prob(A_3) - \\
-		- \Prob(A_1 \times A_2) - \Prob(A_1 \times A_3) - \Prob(A_2 \times A_3) + \\
-		+ \Prob(A_1 \times A_2 \times A_3)
-	\end{split}
-\]
+\[ \Prob(A_1 + A_2 + A_3) = \Prob(A_1 + A_2) + \Prob(A_3) -  \]
+\[ - \Prob((A_1 + A_2) \times A_3) = \Prob(A_1) + \Prob(A_2) + \Prob(A_3) - \]	
+\[ - \Prob(A_1 \times A_2) - \Prob(A_1 \times A_3) - \Prob(A_2 \times A_3) + \]
+\[ + \Prob(A_1 \times A_2 \times A_3) \]
 Обобщённая формула:
+\[ \Prob(\sum\limits_{k=1}^n A_k) = \sum\limits_{k=1}^n \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{j=k+1}^n \Prob(A_k \times A_j) + \]
 \[
-	\begin{split}
-		\Prob(\sum\limits_{k=1}^n A_k) = \sum\limits_{k=1}^n \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{j=k+1}^n \Prob(A_k \times A_j) + \\
-		+ \sum\limits_{k=1}^{n-2} \sum\limits_{j=k+1}^{n-1} \sum\limits_{i=j+1}^n \Prob(A_k \times A_j \times A_i) - \ldots \\ \ldots + (-1)^n \cdot \Prob(\prod\limits_{k=1}^n A_k)
-	\end{split}
+	+ \sum\limits_{k=1}^{n-2} \sum\limits_{j=k+1}^{n-1} \sum\limits_{i=j+1}^n \Prob(A_k \times A_j \times A_i) - \ldots 
+\]
+\[
+	\ldots + (-1)^n \cdot \Prob(\prod\limits_{k=1}^n A_k)
 \]
 Для попарно несовместных событий:
 \[
@@ -303,27 +305,17 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 \]
 Если $A_1, \dots, A_n$ независимы в совокупности, то справедлива следующая формула:
 \[
-	\begin{split}
-		\Prob(\sum\limits_{k=1}^n A_k) = 1 - \Prob(\overline{\sum\limits_{k=1}^n A_k}) = 1 - \Prob(\prod\limits_{k=1}^n \overline{A_k}) = \\
-		= 1 - \prod\limits_{k=1}^n \Prob(\overline{A_k}) = 1 - \prod\limits_{k=1}^n(1 - \Prob(A_k)).
-	\end{split}
+	\Prob(\sum\limits_{k=1}^n A_k) = 1 - \Prob(\overline{\sum\limits_{k=1}^n A_k}) = 1 - \Prob(\prod\limits_{k=1}^n \overline{A_k}) =
 \]
+\[ = 1 - \prod\limits_{k=1}^n \Prob(\overline{A_k}) = 1 - \prod\limits_{k=1}^n(1 - \Prob(A_k)). \]
 Если вероятности исходных событий не зависят от номеров, а от количества сомножителей, то
-\[
-	\begin{split}
-		\Prob(\sum\limits_{k=1}^n A_k) = C_n^1 \Prob(A_1) - C_n^2 \Prob(A_1 \times A_2) + C_n^3 \Prob(A_1 \times A_2 \times \\
-		\times A_3) - \ldots + (-1)^n-1 C_n^n \Prob(\prod\limits_{k=1}^n A_k)
-	\end{split}
-\]
+\[ \Prob(\sum\limits_{k=1}^n A_k) = C_n^1 \Prob(A_1) - C_n^2 \Prob(A_1 \times A_2) + C_n^3 \Prob(A_1 \times A_2 \times \]
+\[ \times A_3) - \ldots + (-1)^n-1 C_n^n \Prob(\prod\limits_{k=1}^n A_k) \]
 \begin{proof}
 	%TODO:
 \end{proof}
-\[
-	\begin{split}
-		\Prob(\prod\limits_{k=1}^n A_k) = \sum\limits_{k=1}^n \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{j=k+1}^{n} \Prob(A_k + A_j) + \\
-		+ \sum\limits_{k=1}^{n-2} \sum\limits_{j=k+1}^{n-1} \sum\limits_{i=j+1}^{n} \Prob(A_k + A_j + A_i) - \ldots + (-1)^{n-1} \Prob(\sum\limits_{k=1}^n A_k)
-	\end{split}
-\]
+\[ \Prob(\prod\limits_{k=1}^n A_k) = \sum\limits_{k=1}^n \Prob(A_k) - \sum\limits_{k=1}^{n-1} \sum\limits_{j=k+1}^{n} \Prob(A_k + A_j) + \]
+\[ + \sum\limits_{k=1}^{n-2} \sum\limits_{j=k+1}^{n-1} \sum\limits_{i=j+1}^{n} \Prob(A_k + A_j + A_i) - \ldots + (-1)^{n-1} \Prob(\sum\limits_{k=1}^n A_k) \]
 \begin{proof}
 	%TODO:
 \end{proof}
@@ -368,12 +360,8 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 $A_i$ -- появление $A$ в $i$-ом испытании. Тогда
 \[ \forall i=\To n : \Prob(A) = p \Rightarrow \Prob(\overline{A}) = 1 - p = q \]
 Пусть имеется $n$ испытаний с $k=2$ исходами. $m$ -- число появления $A$ за $n$ испытаний
-\[
-	\begin{split}
-		\overbrace{A_1 \times A_2 \times \dots A_m \times A_m}^{C_n^m p^m q^{n-m}} \times \overline{A_{m+1}} \times \dots \\
-		\ldots \times \overline{A_n} + \underbrace{\overline{A_1} \times \overline{A_2} \times \dots \times \overline{A_{n-m}}}_{n-m} \times \overbrace{A_{n-m+1} \times \ldots \times A_n}^m.
-	\end{split}
-\]
+\[ \overbrace{A_1 \times A_2 \times \dots A_m \times A_m}^{C_n^m p^m q^{n-m}} \times \overline{A_{m+1}} \times \dots \]
+\[ \ldots \times \overline{A_n} + \underbrace{\overline{A_1} \times \overline{A_2} \times \dots \times \overline{A_{n-m}}}_{n-m} \times \overbrace{A_{n-m+1} \times \ldots \times A_n}^m.\]
 \captionof*{figure}{\textbf{Формула Бернулли}}
 \[
 	\boxed{\Prob_m^{(n)} = C_n^m p^m q^{n-m}}
@@ -418,15 +406,11 @@ $m_1, \dots, m_k$ раз будут происходить $A_1, \dots, A_k$, $\
 	      \]
 	\item[$k \ge 2:$] $\Prob_{m_1, \ldots, m_k}^{(n)} = \frac{n!}{m_1 ! \ldots m_k !} \cdot p_1^{m_1} \cdot p_2^{m_2} \cdot \ldots \cdot p_k^{m_k}$ \\
 	      Любое событие представимо в виде суммы несовместных. Пусть
-	      \[
-		      \begin{split}
-			      A_k = A’_k + A’_{k+1}, A’_k \cdot A’_{k+1} = V \\
-			      p’_k + p’_{k+1} = p_k, \\
-			      m’_k + m’_{k+1} = m_k, \\
-			      {\Prob’}_{k}^{m’_{k}} \cdot {\Prob’}_{k+1}^{m'_{k+1}} \\
-			      C_{m_k}^{{m’}_k} \cdot \overbrace{ C_{\underbrace{{m_k - {m’}_k}}_{{m’}_{k+1}}}^{{m’}_{k+1}} }^{\text{= 1}} = \frac{m_k !}{{m’}_k !\ {m’}_{k+1} !}
-		      \end{split}
-	      \]
+		  \[ A_k = A’_k + A’_{k+1}, A’_k \cdot A’_{k+1} = V \]
+		  \[ p’_k + p’_{k+1} = p_k, \]
+		  \[ m’_k + m’_{k+1} = m_k, \]
+		  \[ {\Prob’}_{k}^{m’_{k}} \cdot {\Prob’}_{k+1}^{m'_{k+1}} \]
+	      \[ C_{m_k}^{{m’}_k} \cdot \overbrace{ C_{\underbrace{{m_k - {m’}_k}}_{{m’}_{k+1}}}^{{m’}_{k+1}} }^{\text{= 1}} = \frac{m_k !}{{m’}_k !\ {m’}_{k+1} !} \]
 	      Тогда $ \forall i : m_i \geqslant 0, m_i \in \mathbb{Z};  \sum\limits_{i=1}^k m_i = 0$ :
 	      \captionof*{figure}{\textbf{Полиномиальный закон распределения вероятностей}}
 	      \[
