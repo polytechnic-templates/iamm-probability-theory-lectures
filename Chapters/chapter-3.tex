@@ -14,7 +14,7 @@
     \exists \MExpect_{\xi} \Leftrightarrow \MExpect_{|\xi|} < +\infty
   \]
   \[
-    \exists \MExpect_{\xi} \Rightarrow \forall A \in \mathcal{F} \exists \int\limits_A \xi(\omega) d \Prob = \int\limits_{\Omega} \xi \cdot I_A d \Prob = \MExpect \left[ \xi \cdot I_A \right]
+    \exists \MExpect_{\xi} \Rightarrow \forall A \in \mathcal{F} \;\;\exists \int\limits_A \xi(\omega) d \Prob = \int\limits_{\Omega} \xi \cdot I_A d \Prob = \MExpect \left[ \xi \cdot I_A \right]
   \]
   \[
     \MExpect I_A = \int\limits_{\Omega} I_A (\omega) d \Prob = \int\limits_A d \Prob = \Prob(A)
@@ -37,7 +37,7 @@
   \]
   Рассмотрим
   \[
-    \Prob \{ \xi \geqslant t \} = \int\limits_{\{ \omega: \xi(\omega \geqslant t)\}} d \Prob \leqslant \int\limits_{\{ \xi \geqslant t \}} \frac{\xi(\omega)}{t} d \Prob \leqslant \frac{1}{t} \int\limits_{\Omega} \xi(\Omega) d \Prob = \frac{\MExpect \xi}{t}
+    \Prob \{ \xi \geqslant t \} = \int\limits_{\{ \omega: \xi(\omega) \geqslant t\}} d \Prob \leqslant \int\limits_{\{ \xi \geqslant t \}} \frac{\xi(\omega)}{t} d \Prob \leqslant \frac{1}{t} \int\limits_{\Omega} \xi(\Omega) d \Prob = \frac{\MExpect \xi}{t}
   \]
 \end{enumerate}
 \begin{conclusion}
@@ -53,7 +53,7 @@
     \Prob \{ |\xi| \leqslant t \} \leqslant \frac{\MExpect \xi^2}{t^2}, t > 0
   \]
   \[
-    g(x_1, \ldots, x_n), g: \mathbb{R}^n \to \mathbb{R}^1
+    g(x_1, \ldots, x_n), \; g: \mathbb{R}^n \to \mathbb{R}^1
   \]
   \[
     \forall B \in \mathcal{B} (\mathbb{R}^1) : g^{-1}(B) \in \mathcal{B} (\mathbb{R}^n)
@@ -68,9 +68,9 @@
 \begin{theorem} \textit{(О вычислении математического ожидания случайной величины.)} Пусть задан вектор случайных величин $\overline{\xi} = (\xi_1, \ldots, \xi_n)$ на вероятностном пространстве $(\Omega, \mathcal{F}, \mathcal{P})$. \\
 $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борелевская функция. Тогда на конкретном вероятностном пространстве задан интеграл Лебега
 \[
-  \MExpect g(\overline\xi) = \int\limits_{\mathbb{R}^n} g(x) d \mathcal{P}_{\overline{\xi}} (x), x \in \mathbb{R}^n
+  \MExpect g(\overline\xi) = \int\limits_{\mathbb{R}^n} g(x) d \mathcal{P}_{\overline{\xi}} (x),\; x \in \mathbb{R}^n
 \]
-По определению математического ожидания задан также интеграл Лебега, но на абстрактном пространстве этих событий.
+По определению математического ожидания задан также интеграл Лебега, но на абстрактном пространстве элементарных событий.
 \[
   \int\limits_{\Omega} g (\overline{\xi}(\omega)) d \Prob (\omega)
 \]
@@ -87,7 +87,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   \]
 \end{conclusion}
 \begin{conclusion}
-  Пусть задан абсолютно непрерывный вектор случайных величин $\overline{\xi} = (\xi_1, \ldots, \xi_n)$, $f_{\overline{\xi}}(x_1, \ldots, x_n), x \in \mathbb{R}^n$, $g$ --- борелевская функция. Определим:
+  Пусть задан абсолютно непрерывный вектор случайных величин $\overline{\xi} = (\xi_1, \ldots, \xi_n)$, $f_{\overline{\xi}}(\underbrace{x_1, \ldots, x_n}_{x}), x \in \mathbb{R}^n$, $g$ --- борелевская функция. Определим:
   \[
     \MExpect g(\overline{\xi}) = \int\limits_{\mathbb{R}^n} g(x) f_{\overline{\xi}} (x) dx
   \]
@@ -99,40 +99,40 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   $\xi \sim U [a, b]$.
   \[
     f_{\xi} (x) = \begin{dcases*}
-    \frac{1}{b-a}, x \in [a, b] \\
-    0, x \not\in [a, b]
+    \frac{1}{b-a},\; x \in [a, b] \\
+    0,\; x \not\in [a, b]
   \end{dcases*}
   \]
   \[
     \MExpect_{\xi} = \int\limits_a^b \frac{x}{b-a} dx = \frac{a+b}{2}
   \]
 \end{example}
-\begin{example} \textit{(Дискретная случайная величина (бернуллиевская), задающая некоторые распределение).}
+\begin{example} \textit{Дискретная случайная величина (бернуллиевская), задающая некоторые распределение.}
   \[
-    p + q = 1, \MExpect_{\xi} = p
+    q = 0,\; p = 1;\; p + q = 1,\; \MExpect_{\xi} = p
   \]
   Рассмотрим биномиальную случайную величину. Пусть $\mu_n$ --- число появления <<успеха>> в $n$ испытаниях Бернулли. Также пусть $\xi_k$ --- число появления успеха в $k$-ом испытании Бернулли
   \[
     \mu_n = \sum\limits_{k = 1}^n \xi_k
   \]
   \[
-    \MExpect_{\mu_n} = \MExpect \left[ \sum\limits_{k = 1}^n \right] = \sum\limits_{k = 1}^n \MExpect_{\xi_k} = np
+    \MExpect_{\mu_n} = \MExpect \left[ \sum\limits_{k = 1}^n  \xi_k \right] = \sum\limits_{k = 1}^n \MExpect_{\xi_k} = np
   \]
 \end{example}
-\begin{example} \textit{(Распределение вероятностей случайных величин Пуассона).} $\xi \sim \Prob [a], a > 0$
+\begin{example} \textit{Распределение вероятностей случайных величин Пуассона.} $\xi \sim \Prob [a], a > 0$
   \[
     \MExpect_{\xi} = \sum\limits_{k = 0}^{\infty} k \cdot \frac{a^k}{k \ !} e^{-a} = a \cdot e^{-a} \sum\limits_{k = 0}^{\infty} \frac{a^{k-1}}{(k-1) \ !} = a
   \]
 \end{example}
-\begin{example} \textit{(Распределение вероятностей случайных величин Коши).}
+\begin{example} \textit{Распределение вероятностей случайных величин Коши.}
   $a > 0$
   \[
-    f_{\xi} (x) = \frac{a}{\pi (x^2 + a^2)}, x \in \mathbb{R}^1
+    f_{\xi} (x) = \frac{a}{\pi (x^2 + a^2)},\; x \in \mathbb{R}^1
   \]
   \[
     F_{\xi} (x) = \frac{1}{2} + \frac{1}{\pi} \arctg \frac{x}{a}
   \]
-  Закон распределения Коши не имеет моментов математического ожидания. Рассмотрим $\MExpect_{|\xi|}$
+  Закон распределения Коши не имеет моментов и математического ожидания. Рассмотрим $\MExpect_{|\xi|}$
   \[
     \MExpect_{|\xi|} = \int\limits_{-\infty}^{+\infty} |x| \cdot f_{\xi} (x) dx
   \]
@@ -164,7 +164,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
       \MExpect [{((a \xi + b) - \MExpect [a \xi + b])}^2] = a^2 \MExpect [{(\xi - \MExpect_{\xi})}^2] = a^2 \Variance_{\xi}
     \]
   \end{proof}
-  \item $g(x) = x^2$, $x > 0$, $g(|\eta|), \eta = \xi - \MExpect_{\xi}$, $\varepsilon > 0:$
+  \item $g(x) = x^2$, $x > 0$, $g(|\eta|),\; \eta = \xi - \MExpect_{\xi}$, $\varepsilon > 0:$
   \[
     \Prob \{ | \xi - \MExpect_{\xi} | \geqslant \varepsilon \} \leqslant \frac{\Variance_{\xi}}{\varepsilon^2} \text{ --- классическое нер-во Чебышёва}
   \]
@@ -177,7 +177,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   Обратное не верно. \\
   $\xi, \eta$ --- независимые случайные величины. $\xi \sim x$, $\eta \sim y$, $\mathcal{P}_{\xi, \eta} = \mathcal{P}_{\xi} \times \mathcal{P}_{\eta}$
   \[
-    \MExpect [\xi, \eta] = \iint\limits_{\mathbb{R}^1 \times \mathbb{R}^1} x y d (\mathcal{P}_{\xi, \eta}) \overset{\text{по т. Фубини}}{=} \int\limits_{\mathbb{R}^1} x d \mathcal{P}_{\xi} \int\limits_{\mathbb{R}^1} y d \mathcal{P}_{\eta} = \MExpect_{\xi} \cdot \MExpect_{\eta}
+    \MExpect [\xi \cdot \eta] = \iint\limits_{\mathbb{R}^1 \times \mathbb{R}^1} x y d (\mathcal{P}_{\xi, \eta}) \overset{\text{по т. Фубини}}{=} \int\limits_{\mathbb{R}^1} x d \mathcal{P}_{\xi} \int\limits_{\mathbb{R}^1} y d \mathcal{P}_{\eta} = \MExpect_{\xi} \cdot \MExpect_{\eta}
   \]
 \end{theorem}
 \begin{example}
@@ -243,7 +243,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 Очевидно, что:
 \begin{itemize}
   \item $cov(\xi_i, \xi_j) = cov(\xi_j, \xi_i)$,
-  \item $cov(\xi_i, \xi_j) = \Variance_{\xi_i}$,
+  \item $cov(\xi_i, \xi_i) = \Variance_{\xi_i}$,
   \item $cov(a\xi_i, \xi_j) = a \cdot cov(\xi_i, \xi_j)$, где $a$ --- константа.
 \end{itemize}
 Также
@@ -259,7 +259,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   \begin{itemize}
     \item вектор случайных величин $\overline{\xi} = (\xi_1, \ldots, \xi_n)$,
     \item матрица $C$, элементами которой являются константы $c$: $C = {\{ c_{ij}\}}_{m \times n}$, вектор $\overline{a} = {\{ a_i \}}_{i = 1, \ldots, m}$,
-    \item вектор $\overline{b} = {\{ b_j \}}_{j = 1, \ldots, m}$.
+    \item вектор $\overline{b} = {\{ b_j \}}_{j = 1, \ldots, n}$
   \end{itemize}
   Рассмотрим вектор $\overline{\eta}$:
   \[
@@ -311,13 +311,13 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 \[
   \rho (\xi_1, \xi_2) = \frac{cov(\xi_1, \xi_2)}{\sqrt{\Variance_{\xi_1} \cdot \Variance_{\xi_2}}}, \text{ где $\Variance_{\xi_1} \not= 0$ и $\Variance_{\xi_2} \not= 0$ }
 \]
-Отсюда следует, что $| \rho(\xi_1, \xi_2) | \leqslant 1$, т.е. $\rho$ --- безразмерная числовая характеристика.
+Отсюда следует, что $| \rho(\xi_1, \xi_2) | \leqslant 1$,\; $\rho$ --- безразмерная числовая характеристика.
 \subsection{Свойства коэффициента корреляции}
 \begin{enumerate}
   \item $\rho$ --- безразмерная числовая характеристика --- $| \rho(\xi_1, \xi_2) | \leqslant 1$
-  \item Пусть заданы независимые случайные величины $\xi, \eta$. Тогда $\rho(\xi_1, \xi_2) = 0$. Обратное в общем случае не верно. \\
-  \textbf{Но!} Если $\xi, \eta$ --- нормальные случайные величины то $\rho(\xi_1, \xi_2) = 0 \Rightarrow \xi, \eta$ --- независимые.
-  \item $\xi, \eta$ линейно независимы $\Leftrightarrow$ $| \rho(\xi_1, \xi_2) | = 1$.
+  \item Пусть заданы независимые случайные величины $\xi, \eta$. Тогда $\rho(\xi, \eta) = 0$. Обратное в общем случае не верно. \\
+  \textbf{Но!} Если $\xi, \eta$ --- нормальные случайные величины то $\rho(\xi, \eta) = 0 \Rightarrow \xi, \eta$ --- независимые.
+  \item $\xi, \eta$ линейно зависимы $\Leftrightarrow$ $| \rho(\xi, \eta) | = 1$.
   \end{enumerate}
   \begin{proof} \textit{(Свойство [3] --- необходимость)}
     Пусть $a, b$ --- константы, $a \neq 0$.\\
@@ -338,7 +338,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
     \begin{itemize}
       \item $\MExpect_{\xi_1} = 0$, то $\xi_1$ --- \textit{центрированная} случайная величина
       \item $\Variance_{\xi_1} = 1$, то $\xi_1$ --- \textit{нормированная} случайная величина
-      \item $\MExpect_{\xi_1} = 0$ и $\Variance_{\xi_1} = 1$, то $\xi_1$ --- \textit{стандартизированная случайная величина}
+      \item $\MExpect_{\xi_1} = 0$ и $\Variance_{\xi_1} = 1$, то $\xi_1$ --- \textit{стандартизованная случайная величина}
     \end{itemize}
     То есть для любой случайной величины $\xi$ можно сопоставить $\xi_1$ --- стандартизованную случайную величину. Тогда
     \[
@@ -357,7 +357,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   \begin{proof} \textit{(Свойство [3] --- достаточность).}
     Рассмотрим $\rho(\xi, \eta) = 1$. Тогда
     \[
-      \Variance [\xi_1 - \eta_1] = 2(1 - \rho(\xi, \eta)) = 0 \Rightarrow \Prob \{ \xi_1 - \eta_1 = 0 \} = 1 \Rightarrow \text{ линейно нез.}
+      \Variance [\xi_1 - \eta_1] = 2(1 - \rho(\xi, \eta)) = 0 \Rightarrow \Prob \{ \xi_1 - \eta_1 = 0 \} = 1 \Rightarrow \text{ линейно зав.}
     \]
     Рассмотрим $\rho(\xi, \eta) = -1$. Тогда
     \[
@@ -371,7 +371,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 \end{definition}
 
 \section{Моменты случайных величин произвольных порядков}
-Кроме коэффициента корреляции существует немало других характеристик, например, корелляционное отношение.
+Кроме коэффициента корреляции существует немало других характеристик (например, корелляционное отношение).
 \begin{definition}
   \textit{Моментом} (или начальным моментом) порядка $p > 0$ случайной величины $\xi$ на вероятностном пространстве $(\Omega, \mathcal{F}, \Prob)$ назовём $\MExpect_{\xi^p}$, при этом предполагается, что существует $\MExpect_{|\xi|^p} < +\infty$. По теореме о вычислении математического ожидания:
   \[
@@ -390,12 +390,12 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 \end{definition}
 \subsection{Свойства моментов случайных величин}
 \begin{enumerate}
-  \item Если существует абсолютный момент порядка $p$ случайной величины, то существуют все моменты порядка $0 < q < p$, т.е.
+  \item Если существует абсолютный момент порядка $p$ случайной величины, то существуют все абсолютные моменты порядка $0 < q < p$, т.е.
   \[
     \forall 0 < q < p : \exists \MExpect_{|\xi|^p} \Rightarrow \exists \MExpect_{|\xi|^q}
   \]
+  Покажем это. Воспользуемся свойством: \\
   \textbf{Свойство (*)}: $\xi \leqslant \eta \Rightarrow \MExpect_{\xi} \leqslant \MExpect_{\eta}$ \label{3-5-ast}
-  Покажем это:
   \[
     |x|^q \leqslant 1 + |x|^p
   \]
@@ -422,7 +422,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   \begin{proof}
     Так как $g(x)$ выпукла вниз, то
     \[
-      \forall y \in \mathbb{R}^1 \ \exists \lambda(y) : \forall x \in \mathbb{R}^1 g(x) \geqslant g(y) + g(x-y) \cdot \lambda(y)
+      \forall y \in \mathbb{R}^1 \ \exists \lambda(y) : \forall x \in \mathbb{R}^1 \; g(x) \geqslant g(y) + g(x-y) \cdot \lambda(y)
     \]
     Положим $x = \xi$, $y = \MExpect_{\xi}$. Тогда
     \[
@@ -435,10 +435,11 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   \end{proof}
   \item \textbf{Неравенство Ляпунова}. Пусть задана случайная величина $\xi$, имеющая математическое ожидание $\MExpect_{\xi}$, а также $p > q > 0$. Тогда
   \[
-    \left[ \underbrace{\MExpect_{|\xi|^p}}  \right]^{\frac{1}{p}} \geqslant \left[ \MExpect_{|\xi|^q} \right]^{\frac{1}{q}}
+    \underbrace{\left[{\MExpect_{|\xi|^p}} \right]^{\frac{1}{p}}}_{\phi(p)}  \geqslant \left[ \MExpect_{|\xi|^q} \right]^{\frac{1}{q}}
   \]
+  $\phi(p)$ монотонно не убывает.
   \begin{proof}
-    Пусть $\frac{p}{q} = r > 1$. Рассмотрим борелевскую функцию $g(x) = |x|^r$. $r > 0$, значит, $g(x)$ выпуклая вниз. Обозначим $\eta = |\xi|^q$. Тогда запишем неравенство Йенсена:
+    Пусть $\frac{p}{q} = r > 1$. Рассмотрим борелевскую функцию $g(x) = |x|^r$. $r > 0$, значит, $g(x)$ выпуклая вниз. Обозначим $\eta = |\xi|^q$. Запишем неравенство Йенсена:
     \[
       \left[ \MExpect_{\eta} \right]^r \leqslant \MExpect_{|\eta|^r}, \
       \left[ \MExpect_{|\xi|^q} \right]^{\frac{p}{q}} \leqslant \MExpect_{|\xi|^p}
@@ -458,7 +459,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
     \]
     \item \label{3-5-2} \textit{Центральным смешанным} моментом порядка ($k_1 + \ldots + k_n$) назовём
     \[
-      \MExpect [(\xi_1 - \MExpect_{\xi_1})^k_1 \cdot \ldots \cdot (\xi_n - \MExpect_{\xi_n})^{k_n}]
+      \MExpect [(\xi_1 - \MExpect_{\xi_1})^{k_1} \cdot \ldots \cdot (\xi_n - \MExpect_{\xi_n})^{k_n}]
     \]
     Если $\xi_1, \ldots, \xi_n$ независимы, то \ref{3-5-1} и \ref{3-5-2} представляются произведением соответствующих моментов.
   \end{enumerate}
@@ -489,22 +490,22 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 Рассмотрим
 \begin{itemize}
   \item $\eta = a \xi + b$, где $a, b$ --- константы
-  \begin{itemize}
+  \begin{enumerate}
     \item a > 0:
     \[
-      F_{\eta} (y) = \Prob \{a \xi + b \leqslant y \} = \Prob \left\{ \xi \leqslant \frac{y-b}{a} \right\} = F_{\eta} \left( \frac{y-b}{a} \right)
+      F_{\eta} (y) = \Prob \{a \xi + b \leqslant y \} = \Prob \left\{ \xi \leqslant \frac{y-b}{a} \right\} = F_{\xi} \left( \frac{y-b}{a} \right)
     \]
     \item a < 0:
     \[
       F_{\eta} (y) = \Prob \{a \xi + b \geqslant y \} = \Prob \left\{ \xi \geqslant \frac{y-b}{a} \right\} =
     \]
     \[
-      = 1 - F_{\eta} \left( \frac{y-b}{a}\right) + \Prob \left\{ \xi = \frac{y-b}{a} \right\}
+      = 1 - F_{\xi} \left( \frac{y-b}{a}\right) + \Prob \left\{ \xi = \frac{y-b}{a} \right\}
     \]
-  \end{itemize}
+  \end{enumerate}
   \item $\eta = \xi^2$
 	\[
-		F_{\eta}(y) =  \Prob \{\xi^2 \leqslant y \} = \Prob \{ -\sqrt{y} \leqslant \xi \sqrt{y} \} =
+		F_{\eta}(y) =  \Prob \{\xi^2 \leqslant y \} = \Prob \{ -\sqrt{y} \leqslant \xi \leqslant \sqrt{y} \} =
 	\]
 	\[
 		F_{\xi}(\sqrt{y})  - F_{\xi} (-\sqrt{ y }) + \Prob \{ \xi = -\sqrt{y} \}
@@ -514,7 +515,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 Пусть задана абсолютно непрерывная случайная величина $\xi$, функция распределения этой случайной величины $F_{\xi} (x) $ и функция плотности вероятности $ f_{\xi} (x) $. \\
 $ J = (a, b) \subset \mathbb{R}^1$, $g(x)$ --- непрерывная дифференцируемая функция, строго монотонна. $x \in J$, $g'(x) \neq 0$. 
 \[
-	x \in J, g'(x) = 0 \Rightarrow \exists g^{-1} (y), \ y \in g(J)
+	x \in J,\; g'(x) = 0 \Rightarrow \exists g^{-1} (y), \ y \in g(J)
 \] 
 Рассмотрим случайную величину $g(\xi)$, пусть $g(\xi)$ строго возрастает.
 \[
@@ -528,7 +529,7 @@ $ J = (a, b) \subset \mathbb{R}^1$, $g(x)$ --- непрерывная диффе
 	F_{g(\xi)} (y) = F_{\xi} (\underbrace{g^{-1}(y)}_{h(y)}) = \int\limits_{-\infty}^{h(y)} f_{\xi} (x) dx = [x = h(z), z = g(x)] = 
 \]
 \[
-	= \int\limits_{\infty}^{y} \underbrace{f_{\xi} (h(z)) h'(z)}_{f_{g(\xi) (z)}} dz
+	= \int\limits_{-\infty}^{y} \underbrace{f_{\xi} (h(z)) h'(z)}_{f_{g(\xi) (z)}} dz
 \]
 Пусть $g(x)$ строго убывает
 \[
@@ -542,7 +543,7 @@ $ J = (a, b) \subset \mathbb{R}^1$, $g(x)$ --- непрерывная диффе
 \]
 Если $g(x)$ строго монотонна:
 \[
-	fg_{(\xi)} (y) = f_{\xi} (y^{-1}(y)) \cdot [|g^{-1}(y)|]
+	fg_{(\xi)} (y) = f_{\xi} (g^{-1}(y)) \cdot [|g^{-1}(y)|]
 \]
 Рассмотрим область значений
 \[
@@ -555,22 +556,22 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \]
 Тогда обобщённая формула имеет вид:
 \[
-	f_{g(\xi)} (y) = \sum\limits_{k = 1}^{n} f_{\xi} (h_k(y)) \cdot | {h'}_k(y) | \cdot I_{g(y_k)} (y)
+	f_{g(\xi)} (y) = \sum\limits_{k = 1}^{n} f_{\xi} (h_k(y)) \cdot | {h'}_k(y) | \cdot I_{g(J_k)} (y)
 \]
 \begin{example}
 	Пусть $\eta = g(\xi)$.
 \begin{enumerate}
 	\item $\eta = \xi^2$, $\xi$ --- абсолютно непрерывная случайная величина.
 	\[
-		y \leqslant 0: f_{\eta^2} (y) = 0, \ y > 0 : g(x) = x^2
+		y \leqslant 0: f_{\xi^2} (y) = 0, \ y > 0 : g(x) = x^2
 	\]
 	$J_1 = (-\infty, 0)$ --- $g(x)$ строго монотонно убывает \\
-	$J_1 = (0, +\infty)$ --- $g(x)$ строго монотонно возрастает\\
+	$J_2 = (0, +\infty)$ --- $g(x)$ строго монотонно возрастает\\
 	$y = x^2$, $x \in \mathbb{R}^1$
 	\[
 		x = \begin{cases}
 		-\sqrt{y}, \ x < 0 \\
-		\sqrt{y}, \ x \geqslant 0 
+		\;\;\:\sqrt{y}, \ x \geqslant 0 
 		\end{cases}
 	\]
 	Вычислим $h'(y)$
@@ -583,7 +584,7 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 	\]
 	Рассмотрим:
 	\[
-		\xi \sim N(0, 1), \ f_{\xi} (x) = \sqrt{1}{2\pi} e^{-\frac{x^2}{2}}
+		\xi \sim N(0, 1), \ f_{\xi} (x) = \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}}
 	\]
 	\[
 		f_{\xi^2} (y) = \frac{1}{\sqrt{2 \pi y}} e^{- \frac{y}{2}}, \ y > 0
@@ -591,12 +592,12 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 	\item Пусть $\eta = |\xi|$, $g(x) = |x|$, $y = |x|$,
 	\[
 		x = \begin{cases}
-		-y, x < 0 \\
-		y, x > 0
+		-y, \ x < 0 \\
+		\;\;\:y,\ x \geqslant 0
 		\end{cases}
 	\]
 	\[
-		f_{|\xi|} (y) = f_{\xi} (-y) + f_{\xi} (y), y \geqslant 0
+		f_{|\xi|} (y) = f_{\xi} (-y) + f_{\xi} (y), \ y \geqslant 0
 	\]
 	
 	\item Пусть $\eta = \sqrt{|\xi|}$
@@ -604,7 +605,7 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 		f_{\sqrt{|\xi|}} (y) = 2y \cdot \left[ f_{\xi} (y^2) + f_{\xi} (-y^2) \right], \ y > 0
 	\]
 	
-	\item Рассмотрим пример другого вида. Пусть имеется строго возрастающая функция распределения $F_{\xi} (x)$. $\xi$ --- случайная величина. Каков закон распределения?
+	\item Рассмотрим пример другого вида. Пусть имеется строго возрастающая функция распределения $F_{\xi} (x)$.  $F_{\xi} (\xi)$ --- случайная величина. Каков закон распределения?
 	\[
 		F_{F_{\xi}(\xi)} (x) = \Prob \{ F_{\xi} (\xi) \leqslant x \} = \Prob \{ \xi \leqslant F_{\xi}^{-1} (x) \} =
 	\]
@@ -615,14 +616,14 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 		\Prob \{ F_{\xi} (\xi) \leqslant x \} = \begin{cases}
 			0, \ x < 0 \\
 			x, \ 0 \leqslant x \leqslant 1 \\
-			1, x > 1
+			1, \ x > 1
 		\end{cases} \overset{\textrm{def}}{=} F_{F_{\xi}(\xi)} (x)
 	\]
 	\[
 		F_{\xi} : \mathbb{R}^1 \to [0, 1]
 	\]
 	\[
-		F_{F_{\xi}(\xi)} \sim \textrm{U} [0, 1] \text{ --- равномерна на отрезке}
+		F_{F_{\xi}(\xi)} \sim \textrm{U} [0, 1] \text{ --- равномерное распределение на отрезке}
 	\]
 
 	\item Пусть $\eta \sim \textrm{U} [0, 1]$, $F(x)$ --- непрерывная функция распределения. Тогда
@@ -637,12 +638,12 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 	\[
 		F_{g(\xi, \eta)} (z) = \Prob \{ g(\xi, \eta) \leqslant z \} = \iint\limits_{\{ x, y : g(x, y) \leqslant z \}} d F_{\xi, \eta} (x, y)
 	\]
-	Также пусть $g(x, y) = x + y$, $\xi, \eta$ --- независимые случайные величины
+	Также пусть $g(x, y) = x + y$; $\xi, \eta$ --- независимые случайные величины
 	\[
 		F_{\xi + \eta} (z) = \iint\limits_{\{ x, y : x + y \leqslant z \}} dF_{\xi} (x) dF_{\eta} (y) =
 	\]
 	\[
-		= \iint\limits_{\mathbb{R}^2} I_{\{ x + y \leqslant z \} (x, y)} dF_{\xi} (x) dF_{\eta} (y) =
+		= \iint\limits_{\mathbb{R}^2} I_{\{ x + y \leqslant z \}} (x, y) dF_{\xi} (x) dF_{\eta} (y) =
 	\]
 	По теореме Фубини:
 	\[
@@ -655,21 +656,21 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 	\[
 		H (z) = \underbrace{\int\limits_{-\infty}^{+\infty} F(z-x) dG(x) = \int\limits_{-\infty}^{+\infty} F(z - y) dF(y)}_{\text{свёртка $F$ и $G$ (композ.)}}
 	\]
-	Функция распределения суммы двух случайных (независимых) величин есть свёртка функций распределения слагаемых. \\
+	Функция распределения суммы двух случайных независимых величин есть свёртка функций распределения слагаемых. \\
 Пусть существует функция плотности вероятности $f_{\xi} (x), f_{\eta} (y)$. Тогда
 \[
 	F_{\xi + \eta} (z) = \int\limits_{-\infty}^{+\infty} \left[ \int\limits_{-\infty}^{z-y} f_{\xi} (u) du \right] \cdot f_{\eta} (y) dy = [\nu = u + y] =
 \]
 \[
-	\int\limits_{-\infty}^{+\infty} \left[ \int\limits_{-\infty}^{z} f_{\xi} (\nu - y)du \right] \cdot f_{\eta} (y) dy =
+	\int\limits_{-\infty}^{+\infty} \left[ \int\limits_{-\infty}^{z} f_{\xi} (\nu - y)d\nu \right] \cdot f_{\eta} (y) dy =
 \]
 По теореме Фубини:
 \[
-	\int\limits_{-\infty}^{+\infty} \left[ \int\limits_{-\infty}^{+\infty} f_{\xi} (\nu - y) f_{\eta} (y) dy \right] d\nu
+	\int\limits_{-\infty}^{z} \left[ \int\limits_{-\infty}^{+\infty} f_{\xi} (\nu - y) f_{\eta} (y) dy \right] d\nu
 \]
 Итак:
 \[
-	f_{\xi + \eta} (z) = \int\limits_{-\infty}^{+\infty} f_{\xi} (z - y) f_{\eta} (y) dy = \int\limits_{-oo}^{+oo} f_{\eta} (z - x) f_{\xi} (x) dx
+	f_{\xi + \eta} (z) = \int\limits_{-\infty}^{+\infty} f_{\xi} (z - y) f_{\eta} (y) dy = \int\limits_{-\infty}^{+\infty} f_{\eta} (z - x) f_{\xi} (x) dx
 \]
 Пусть имеется набор независимых случайных величин $\xi_1, \ldots, \xi_n$, $\forall i : \xi_i \sim N (0,1)$. \\
 
@@ -679,8 +680,8 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \]
 \[
 	f_{\chi_n^2} (x) = \begin{dcases*}
-	\frac{x^{\frac{n}{2}} \cdot e^{-\frac{x}{2}} }{2^{\frac{n}{2}} \cdot \Gamma \left( \frac{n}{2} \right)}, \ x > 0 \\
-	0, x \leqslant 0
+	\frac{x^{\frac{n}{2}-1} \cdot e^{-\frac{x}{2}} }{2^{\frac{n}{2}} \cdot \Gamma \left( \frac{n}{2} \right)}, \ x > 0 \\
+	0, \ x \leqslant 0
 	\end{dcases*}
 \]
 Составим распределение Стьюдента
@@ -698,7 +699,7 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \[
 	f_{t_n} (x) = \frac{\Gamma \left( \frac{n + 1}{2} \right)}{\sqrt{n \cdot \pi} \cdot \Gamma \left( \frac{n}{2} \right)} \left( 1 + \frac{x^2}{n} \right)^{-\frac{n+1}{2}}
 \]
-Если $n \to \infty$, то получим функцию плотности вероятности нормального распределения
+Если $n \to \infty$, то получим функцию плотности вероятности стандартного нормального распределения
 \[
 	f_{t_n} (x) \underset{n \to \infty}{\rightarrow} \frac{1}{\sqrt{2\pi}} e^{\frac{-x^2}{2}}
 \]
@@ -716,7 +717,7 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 	\Prob \{ \xi + \eta = z_k \} = \sum\limits_{i} \Prob \{ \xi = x_i \} \Prob \{ \eta = z_k - x_i \} = 
 \]
 \[
-	= \sum\limits_{j} \Prob \{ \eta = y_i \} \Prob \{ \xi = z_k - y_j \}
+	= \sum\limits_{j} \Prob \{ \eta = y_j \} \Prob \{ \xi = z_k - y_j \}
 \]
 Тогда функция распределения
 \[
@@ -731,11 +732,11 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \]
 Пусть задан вектор случайных величин с абсолютно непрерывным распределением
 \[
-	\overline{\xi} = (\xi_1, \ldots, \xi_n), f_{\xi} (x), x = (x_1, \ldots, x_n)
+	\overline{\xi} = (\xi_1, \ldots, \xi_n), \ f_{\xi} (x), \ x = (x_1, \ldots, x_n)
 \]
-Пусть $g$ --- борелевская функция
+Пусть $g_i$ --- борелевские функции
 \[
-	g_1: \mathbb{R}^n \to \mathbb{R}^1, \ i = 1, \ldots, n
+	g_i: \mathbb{R}^n \to \mathbb{R}^1, \ i = 1, \ldots, n
 \]
 Рассмотрим
 \[
@@ -750,5 +751,5 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \]
 Его распределение описывается следующей функцией плотности вероятности
 \[
-	f_{\overline{\eta}} (x) = f_{\xi} (g^{-1}(x)) = |J(g^{-1}(x))|^{-1}
+	f_{\overline{\eta}} (x) = f_{\overline{\xi}} (g^{-1}(x)) = |J(g^{-1}(x))|^{-1}
 \]
