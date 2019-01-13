@@ -14,7 +14,7 @@
     \exists \MExpect_{\xi} \Rightarrow \forall A \in \mathcal{F} \;\;\exists \int\limits_A \xi(\omega) d \Prob = \int\limits_{\Omega} \xi \cdot I_A d \Prob = \MExpect \left[ \xi \cdot I_A \right]
   \]
   \[
-    \MExpect I_A = \int\limits_{\Omega} I_A (\omega) d \Prob = \int\limits_A d \Prob = \Prob(A)
+    \MExpect_{I_A} = \int\limits_{\Omega} I_A (\omega) d \Prob = \int\limits_A d \Prob = \Prob(A)
   \]
 \end{definition}
 \subsection{Свойства математического ожидания}
@@ -59,7 +59,7 @@
     g^{-1} (B) = \{ x, x \in \mathbb{R}^n : g(x) \in B \}
   \]
   \[
-    \overline{\xi} = (\xi_1, \ldots, \xi_n), g(\overline{\xi}) : \Omega \to \mathbb{R}^1, \xi_i: \Omega \to \mathbb{R}^n
+    \overline{\xi} = (\xi_1, \ldots, \xi_n), g(\overline{\xi}) : \Omega \to \mathbb{R}^1, \xi_i: \Omega \to \mathbb{R}^1
   \]
 \end{conclusion}
 \begin{theorem} \textit{(О вычислении математического ожидания случайной величины.)} Пусть задан вектор случайных величин $\overline{\xi} = (\xi_1, \ldots, \xi_n)$ на вероятностном пространстве $(\Omega, \mathcal{F}, \mathcal{P})$. \\
@@ -372,7 +372,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 \begin{definition}
   \textit{Моментом} (или начальным моментом) порядка $p > 0$ случайной величины $\xi$ на вероятностном пространстве $(\Omega, \mathcal{F}, \Prob)$ назовём $\MExpect_{\xi^p}$, при этом предполагается, что существует $\MExpect_{|\xi|^p} < +\infty$. По теореме о вычислении математического ожидания:
   \[
-    \MExpect_{\xi^p} = \int\limits_{\-\infty}^{+\infty} x^p d \mathcal{P}_{\xi} (x)
+    \MExpect_{\xi^p} = \int\limits_{-\infty}^{+\infty} x^p d \mathcal{P}_{\xi} (x)
   \]
   \[
     \xi : \Omega \to \mathbb{R}^1 \ (\mathbb{R}^1, \mathcal{B} (\mathbb{R}^1), \mathcal{P}_{\xi})
@@ -389,7 +389,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 \begin{enumerate}
   \item Если существует абсолютный момент порядка $p$ случайной величины, то существуют все абсолютные моменты порядка $0 < q < p$, т.е.
   \[
-    \forall 0 < q < p : \exists \MExpect_{|\xi|^p} \Rightarrow \exists \MExpect_{|\xi|^q}
+    \forall q,\;p: \; 0 < q < p \;\;\;\; \exists \MExpect_{|\xi|^p} \Rightarrow \exists \MExpect_{|\xi|^q}
   \]
   Покажем это. Воспользуемся свойством: \\
   \textbf{Свойство (*)}: $\xi \leqslant \eta \Rightarrow \MExpect_{\xi} \leqslant \MExpect_{\eta}$ \label{3-5-ast}
@@ -419,7 +419,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
   \begin{proof}
     Так как $g(x)$ выпукла вниз, то
     \[
-      \forall y \in \mathbb{R}^1 \ \exists \lambda(y) : \forall x \in \mathbb{R}^1 \; g(x) \geqslant g(y) + g(x-y) \cdot \lambda(y)
+      \forall y \in \mathbb{R}^1 \ \exists \lambda(y) : \forall x \in \mathbb{R}^1 \; g(x) \geqslant g(y) + (x-y) \cdot \lambda(y)
     \]
     Положим $x = \xi$, $y = \MExpect_{\xi}$. Тогда
     \[
@@ -494,7 +494,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
     \]
     \item a < 0:
     \[
-      F_{\eta} (y) = \Prob \{a \xi + b \geqslant y \} = \Prob \left\{ \xi \geqslant \frac{y-b}{a} \right\} =
+      F_{\eta} (y) = \Prob \{a \xi + b \leqslant y \} = \Prob \left\{ \xi \geqslant \frac{y-b}{a} \right\} =
     \]
     \[
       = 1 - F_{\xi} \left( \frac{y-b}{a}\right) + \Prob \left\{ \xi = \frac{y-b}{a} \right\}
@@ -512,7 +512,7 @@ $g(x) : \mathbb{R}^n \to \mathbb{R}^1$, $x \in \mathbb{R}^n$, $g$ --- борел
 Пусть задана абсолютно непрерывная случайная величина $\xi$, функция распределения этой случайной величины $F_{\xi} (x) $ и функция плотности вероятности $ f_{\xi} (x) $. \\
 $ J = (a, b) \subset \mathbb{R}^1$, $g(x)$ --- непрерывная дифференцируемая функция, строго монотонна. $x \in J$, $g'(x) \neq 0$. 
 \[
-	x \in J,\; g'(x) = 0 \Rightarrow \exists g^{-1} (y), \ y \in g(J)
+	x \in J,\; g'(x) \neq 0 \Rightarrow \exists g^{-1} (y), \ y \in g(J)
 \] 
 Рассмотрим случайную величину $g(\xi)$, пусть $g(\xi)$ строго возрастает.
 \[
@@ -526,21 +526,21 @@ $ J = (a, b) \subset \mathbb{R}^1$, $g(x)$ --- непрерывная диффе
 	F_{g(\xi)} (y) = F_{\xi} (\underbrace{g^{-1}(y)}_{h(y)}) = \int\limits_{-\infty}^{h(y)} f_{\xi} (x) dx = [x = h(z), z = g(x)] = 
 \]
 \[
-	= \int\limits_{-\infty}^{y} \underbrace{f_{\xi} (h(z)) h'(z)}_{f_{g(\xi) (z)}} dz
+	= \int\limits_{-\infty}^{y} \underbrace{f_{\xi} (h(z)) h'(z)}_{f_{g(\xi) }(z)} dz
 \]
 Пусть $g(x)$ строго убывает
 \[
 	F_{g(\xi)} (y) = \Prob \{ \xi \geqslant g^{-1}(y) \} = 1 - F_{\xi} (\underbrace{g^{-1}(y)}_{h(y)}) = 
 \]
 \[
-	= \int\limits_{h(y)}^{+\infty} f_{\xi} (x) dx = [ x = h(z), z = g(x) ] = \int\limits_{y}^{-\infty} f_{\xi} (h(z)) h'(z) dz =
+	= \int\limits_{h(y)}^{-\infty} f_{\xi} (x) dx = [ x = h(z), z = g(x) ] = \int\limits_{y}^{-\infty} f_{\xi} (h(z)) h'(z) dz =
 \]
 \[
 	- \int\limits_{-\infty}^y f_{\xi} (h(z)) h'(z) dz
 \]
 Если $g(x)$ строго монотонна:
 \[
-	fg_{(\xi)} (y) = f_{\xi} (g^{-1}(y)) \cdot [|g^{-1}(y)|]
+	fg_{(\xi)} (y) = f_{\xi} (g^{-1}(y)) \cdot [|g^{-1}(y)'|]
 \]
 Рассмотрим область значений
 \[
@@ -651,7 +651,7 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 	\]
 	Если имеются функции распределения $F, G$, то
 	\[
-		H (z) = \underbrace{\int\limits_{-\infty}^{+\infty} F(z-x) dG(x) = \int\limits_{-\infty}^{+\infty} F(z - y) dF(y)}_{\text{свёртка $F$ и $G$ (композ.)}}
+		H (z) = \underbrace{\int\limits_{-\infty}^{+\infty} F(z-x) dG(x) = \int\limits_{-\infty}^{+\infty} G(z - y) dF(y)}_{\text{свёртка $F$ и $G$ (композ.)}}
 	\]
 	Функция распределения суммы двух случайных независимых величин есть свёртка функций распределения слагаемых. \\
 Пусть существует функция плотности вероятности $f_{\xi} (x), f_{\eta} (y)$. Тогда
@@ -683,7 +683,7 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \]
 Составим распределение Стьюдента
 \[
-	t_n = \frac{\xi_o}{\sqrt{\frac{1}{n} \sum\limits_{i=1}^{n} \xi_i^2}} = \frac{\varepsilon_0 \sqrt{n}}{\sqrt{\chi_n^2}} 
+	t_n = \frac{\xi_0}{\sqrt{\frac{1}{n} \sum\limits_{i=1}^{n} \xi_i^2}} = \frac{\xi_0 \sqrt{n}}{\sqrt{\chi_n^2}} 
 \]
 где $\chi_n$ --- $\chi$-распределение с $n$ степенями свободы
 \[
@@ -704,7 +704,7 @@ $g(x)$ либо (строго) монотонно возрастает, либо
 \[
 	f_{t_n} (x) = \frac{1}{\pi (1 + x^2)}
 \]
-Рассмотрим случайные величины $\xi, \eta$
+Рассмотрим независимые случайные величины $\xi, \eta$
 \begin{itemize}
 	\item $\xi \sim {\{ x_i \}}_{i = 1, 2, \ldots}$,
 	\item $\eta \sim {\{ y_i \}}_{i = 1, 2, \ldots}$,

@@ -50,11 +50,11 @@
 \end{enumerate}
 
 \subsection{Свойства событий}
-\textbf{Коммуникативность.} $A + B = B + A, A\times B = B\times A$ \\
+\textbf{Коммутативность.} $A + B = B + A, \; A\times B = B\times A$ \\
 
-\textbf{Ассоциативность.} $A + (B + C)=(A + B) + C, A\times (B\times C) = (A\times B)\times C$ \\
+\textbf{Ассоциативность.} $A + (B + C)=(A + B) + C, \; A\times (B\times C) = (A\times B)\times C$ \\
 
-\textbf{Дистрибутивность.} $(A + B)\times C = A\times C + B\times C,  A + B\times C = (A + B)\times (A + C)$
+\textbf{Дистрибутивность.} $(A + B)\times C = A\times C + B\times C, ;\  A + B\times C = (A + B)\times (A + C)$
 
 \subsection{Некоторые тождества}
 \begin{enumerate}
@@ -88,11 +88,11 @@
 \example $A_0, \ldots, A_n$ --- система из $n+1$ событий. Если в серии испытаний событие $A_k$, где $k = \ZTo n$, происходит $k$ раз, то $A_0, \ldots, A_n$ --- полная группа.
 
 \section{Классическое определение вероятности}
-Пусть результатом испытания являeтся одно из попарно несовместных образующих полную группу равновозможных событий. Такая группа называется элементарной, а её результат --- элементарным исходом. \\
+Пусть результат испытания --- одно из попарно несовместных образующих полную группу равновозможных событий. Такая группа называется элементарной, а её результат --- элементарным исходом. \\
 $E_1, \dots, E_n$ --- элементарные события $\Leftrightarrow$ $E_k\times E_i = V,$ где $i, k = \ZTo n, i \not= k$, при этом $\sum\limits_{i = 1}^n E_i = U$
 
 \definition $E_n$ называется благоприятствующим для некоторого события $A$, если $E_n$ влечёт $A$.
-\definition Вероятностью появления события $A$ будем называть отношение числа элементарных событий $m$ к числу исходов $n$.
+\definition Вероятностью появления события $A$ будем называть отношение числа элементарных благоприятных событий $m$ к числу исходов $n$.
 \begin{equation}
 	\Prob (A) = \frac{m}{n} \hfill
 \end{equation}
@@ -182,7 +182,7 @@ $$\tilde{\Prob}(U) = \Prob(U) = 1.$$
 \subsection{Теорема умножения вероятностей}
 Пусть имеется $n$ элементарных событий $\{E_i\}_{i = \To n}$. Событие $A$ происходит $m$ раз, событие $B$ --- $k$ раз, $A\times B$ --- $l$ раз ($m, k, l < n$). Тогда
 \[ \Prob(A) = \frac{m}{n}, \Prob(B) = \frac{k}{n}, \Prob(A\times B) = \frac{l}{n}. \]
-\[ \Prob(B \mid A) = \frac{l}{m} = \frac{\frac{l}{n}}{\frac{m}{n}} = \frac{\Prob(A \mid B)}{\Prob(A)},\]
+\[ \Prob(B \mid A) = \frac{l}{m} = \frac{\frac{l}{n}}{\frac{m}{n}} = \frac{\Prob(A \times B)}{\Prob(A)},\]
 \[ \Prob(A \mid B) = \frac{\frac{l}{n}}{\frac{k}{n}}, \text{ то есть} \]
 \[ \Prob(A \times B) = \Prob(A) \cdot \Prob(B \mid A) = \Prob(B) \cdot \Prob(A \mid B) \]
 Установлена теорема умножения двух любых событий, хотя бы одно из которых является возможным. \\
@@ -214,7 +214,7 @@ $$\tilde{\Prob}(U) = \Prob(U) = 1.$$
 \textit{Самостоятельно.}
 \end{proof}
 \[
-	\Prob(A_1, A_2, A_3) = \Prob(A_1 \times A_2) \times \Prob(A_3 \mid A_1 \times A_2) =
+	\Prob(A_1 \times A_2 \times A_3) = \Prob(A_1 \times A_2) \times \Prob(A_3 \mid A_1 \times A_2) =
 \]
 \[
 	\Prob(A_1) \cdot \Prob(A_2 \mid A_1) \cdot \Prob(A_3 \mid A_1 \times A_2)
@@ -270,7 +270,7 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 Рассмотрим события $A$ и $B$.
 \begin{itemize}
 	\item $A$ -- $m$ элементарных событий из $n$,
-	\item $B$ -- $n$ элементарных событий из $n$,
+	\item $B$ -- $k$ элементарных событий из $n$,
 	\item $A \times B$ -- $l$ элементарных событий из $n$.
 \end{itemize}
 \[
@@ -278,11 +278,11 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 \]
 Установлена теорема о сложении двух любых событий.
 \[
-	A \times B = V \Rightarrow \Prob(A \times B) = \Prob(A) + \Prob(B)
+	A \times B = V \Rightarrow \Prob(A + B) = \Prob(A) + \Prob(B)
 \]
 Если $B$ = $\overline{A}$, то
 \[
-	\Prob(\underbrace{A \times \overline{A}}_{U = 1}) = \Prob(A) + \Prob(\overline{A}) \Rightarrow \Prob(\overline{A}) = 1 - \Prob(A)
+	\underbrace{\Prob(A + \overline{A})}_{\Prob(U) = 1} = \Prob(A) + \Prob(\overline{A}) \Rightarrow \Prob(\overline{A}) = 1 - \Prob(A)
 \]
 По теореме о сложении:
 \[ \Prob(A_1 + A_2 + A_3) = \Prob(A_1 + A_2) + \Prob(A_3) -  \]
@@ -295,7 +295,7 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 	+ \sum\limits_{k=1}^{n-2} \sum\limits_{j=k+1}^{n-1} \sum\limits_{i=j+1}^n \Prob(A_k \times A_j \times A_i) - \ldots 
 \]
 \[
-	\ldots + (-1)^n \cdot \Prob(\prod\limits_{k=1}^n A_k)
+	\ldots + (-1)^{n-1} \cdot \Prob(\prod\limits_{k=1}^n A_k)
 \]
 Для попарно несовместных событий:
 \[
@@ -308,7 +308,7 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 \[ = 1 - \prod\limits_{k=1}^n \Prob(\overline{A_k}) = 1 - \prod\limits_{k=1}^n(1 - \Prob(A_k)). \]
 Если вероятности исходных событий не зависят от номеров, а от количества сомножителей, то
 \[ \Prob(\sum\limits_{k=1}^n A_k) = C_n^1 \Prob(A_1) - C_n^2 \Prob(A_1 \times A_2) + C_n^3 \Prob(A_1 \times A_2 \times \]
-\[ \times A_3) - \ldots + (-1)^n-1 C_n^n \Prob(\prod\limits_{k=1}^n A_k) \]
+\[ \times A_3) - \ldots + (-1)^{n-1} C_n^n \Prob(\prod\limits_{k=1}^n A_k) \]
 \begin{proof}
 	\textit{Самостоятельно.}
 \end{proof}
@@ -328,7 +328,7 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 Также определим событие $A$ как безусловное:
 \[ A = U \times A = \sum\limits_{i=1}^n H_i \times A \]
 \[
-	\Prob(A) = \Prob(\sum\limits_{i=1}^n H_i \times A) = \sum\limits_{i=1}^n \underbrace{\Prob(H_i)}_{\underset{\text{зав. от опыта}}{\textit{a posteriori}}} = \underbrace{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A \mid H_i)}_{\underset{\text{не зав. от опыта}}{\textit{a priori}}}
+	\Prob(A) = \Prob(\sum\limits_{i=1}^n H_i \times A) = \sum\limits_{i=1}^n \underbrace{\Prob(H_i \times A)}_{\underset{\text{зав. от опыта}}{\textit{a posteriori}}} = \underbrace{\sum\limits_{i=1}^n \Prob(H_i) \cdot \Prob(A \mid H_i)}_{\underset{\text{не зав. от опыта}}{\textit{a priori}}}
 \]
 \captionof*{figure}{\textbf{Формула полной вероятности.}}
 \[\boxed{\Prob(A) = \sum\limits_{i=1}^n \Prob(H_i) \times \Prob(A \mid H_i)} \]
@@ -356,10 +356,10 @@ $\boxed{2^n - C_n^1 - C_n^0}$ -- число соотношений для про
 	\end{enumerate}
 \end{definition}
 $A_i$ -- появление $A$ в $i$-ом испытании. Тогда
-\[ \forall i=\To n : \Prob(A) = p \Rightarrow \Prob(\overline{A}) = 1 - p = q \]
+\[ \forall i=\To n : \Prob(A_i) = p \Rightarrow \Prob(\overline{A_i}) = 1 - p = q \]
 Пусть имеется $n$ испытаний с $k=2$ исходами. $m$ -- число появления $A$ за $n$ испытаний
-\[ \overbrace{A_1 \times A_2 \times \dots A_m \times A_m}^{C_n^m p^m q^{n-m}} \times \overline{A_{m+1}} \times \dots \]
-\[ \ldots \times \overline{A_n} + \underbrace{\overline{A_1} \times \overline{A_2} \times \dots \times \overline{A_{n-m}}}_{n-m} \times \overbrace{A_{n-m+1} \times \ldots \times A_n}^m.\]
+\[ \overbrace{A_1 \times A_2 \times \dots A_{m-1} \times A_m}^{C_n^m p^m q^{n-m}} \times \overline{A_{m+1}} \times \dots \]
+\[ \ldots \times \overline{A_n} + \ldots + \underbrace{\overline{A_1} \times \overline{A_2} \times \dots \times \overline{A_{n-m}}}_{n-m} \times \overbrace{A_{n-m+1} \times \ldots \times A_n}^m.\]
 \captionof*{figure}{\textbf{Формула Бернулли}}
 \[
 	\boxed{\Prob_m^{(n)} = C_n^m p^m q^{n-m}}
@@ -378,7 +378,7 @@ $A_i$ -- появление $A$ в $i$-ом испытании. Тогда
 \subsection{Закон распределения вероятностей Пуассона}
 Рассмотрим последовательность испытаний Бернулли, когда число испытаний $n \to \infty$, при этом $p = \Prob(A_i) \to 0$, $np = a$ --- константа
 \[
-	\Prob_m \equiv \lim_{n \to \infty} C_n^m p^m (1-p)^{nm}
+	\Prob_m \equiv \lim_{n \to \infty} C_n^m p^m (1-p)^{n-m}
 \]
 \[ p = \frac{a}{n} \]
 \[ \Prob_m = \lim_{n \to \infty} \frac{n!\ a^m (1 - \frac{a}{n})^n}{(n-m)!\ m!\ n^m (1 - \frac{a}{n})^m} = \frac{a^m}{m!} \cdot e^{-a}, m = 0, 1, 2, \dots \]
@@ -412,7 +412,7 @@ $m_1, \dots, m_k$ раз будут происходить $A_1, \dots, A_k$, $\
 	      Тогда $ \forall i : m_i \geqslant 0, m_i \in \mathbb{Z};  \sum\limits_{i=1}^k m_i = 0$ :
 	      \captionof*{figure}{\textbf{Полиномиальный закон распределения вероятностей}}
 	      \[
-		      \boxed{\Prob_{m_1, \dots, m_k}^{(n)} = \frac{n!}{{m’}_1 ! \ldots {m’}_k !\ {m’}_{k+1} !} \cdot p_1^{m_1} \cdot p_2^{m_2} \cdot \dots \cdot {p’}_k^{{m’}_k} \cdot {p’}_{k+1}^{{m’}_{k+1}}}
+		      \boxed{\Prob_{m_1, \dots, m_k}^{(n)} = \frac{n!}{{m}_1 ! \ldots {m’}_k !\ {m’}_{k+1} !} \cdot p_1^{m_1} \cdot p_2^{m_2} \cdot \dots \cdot {p’}_k^{{m’}_k} \cdot {p’}_{k+1}^{{m’}_{k+1}}}
 	      \]
 \end{description}
 

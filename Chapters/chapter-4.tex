@@ -1,13 +1,13 @@
 \chapter{Характеристические функции. Предельные теоремы}
 \setcounter{equation}{0}
 \section{Производящие функции. Факториальные моменты}
-Пусть задана случайная величина $\xi$, $m = 0, 1, 2, \ldots$, закон распределения, которому подчиняется $\xi$: 
+Пусть задана дискретная целочисленная неотрицательная случайная величина $\xi$, $m = 0, 1, 2, \ldots$ – возможные значения. Закон распределения, которому подчиняется $\xi$: 
 \[
 	\Prob \{ \xi = m \} = p_m, \sum\limits_{m = 0}^{\infty} p_m = 1
 \]
 Такой закон удобно исследовать с помощью производящих функций. Пусть $u \in \mathbb{R}^1$. Определим производящую функцию дискретной случайной величины
 \begin{equation}
-	\Psi_{\xi} (u) \underset{\textrm{def} }{=} \MExpect_u^{\xi} = \sum\limits_{m} p_m \cdot u^m, \ |u| \leqslant 1
+	\Psi_{\xi} (u) \underset{\textrm{def} }{=} \MExpect_{u^{\xi}} = \sum\limits_{m} p_m \cdot u^m, \ |u| \leqslant 1
 \end{equation}
 Рассмотрим данный ряд. Он абсолютно сходится для $|u| \leqslant 1$
 \begin{equation}
@@ -62,7 +62,7 @@
 \]
 $n \in \mathbb{N}$
 \[
-	\psi_{\eta_{\nu}} (u) \underset{\textrm{def}}{=} \MExpect_{u^{\eta_{\nu}}} = \MExpect \left[ \MExpect \left[ u^{\eta_{\nu}} \ | \ \nu \right] \right] = \MExpect \left[ \left[ \psi_{\xi} (u) \right]^{\nu} \right] = \psi_{\nu} \left( \psi_{\xi} (u)\right)
+	\psi_{\eta_{\nu}} (u) \overset{\textrm{def}}{=} \MExpect_{u^{\eta_{\nu}}} = \MExpect \left[ \MExpect \left[ u^{\eta_{\nu}} \ | \ \nu \right] \right] = \MExpect \left[ \left[ \psi_{\xi} (u) \right]^{\nu} \right] = \psi_{\nu} \left( \psi_{\xi} (u)\right) 
 \]
 \end{proof}
 \begin{definition}
@@ -78,7 +78,7 @@ $n \in \mathbb{N}$
 	\]
 	При $k = 0$: $\xi^{[0]} = 1$
 	\[
-		\MExpect_{\xi^{[1]}} = \MExpect_{\xi}, \ \MExpect_{\xi^{[2]}} = \MExpect_{\xi^{[2]}} - \MExpect_{\xi}
+		\MExpect_{\xi^{[1]}} = \MExpect_{\xi}, \ \MExpect_{\xi^{[2]}} = \MExpect_{\xi^{2}} - \MExpect_{\xi}
 	\]
 	\[
 		\Variance_{\xi} = \MExpect_{\xi^{[2]}} + \MExpect_{\xi^{[1]}} - (\MExpect_{\xi^{[1]}})^2
@@ -123,7 +123,7 @@ $|u| < 1$
 		\psi_m (u) = \sum\limits_{k = 0}^{\infty} p_k (n) u^k
 	\]
 	\[
-		\lim\limits_{n \to \infty} p_k (n) = p_k, \ \sum\limits_{k = 0}^{\infty} p_k = 1 \Leftrightarrow \forall 0 < u \leqslant 1: \lim\limits_{n \to \infty} \psi_n (u) = \psi (u),
+		\lim\limits_{n \to \infty} p_k (n) = p_k, \ \sum\limits_{k = 0}^{\infty} p_k = 1 \Leftrightarrow \forall \; u:  0 < u \leqslant 1 \;\; \lim\limits_{n \to \infty} \psi_n (u) = \psi (u),
 	\]
 	где $\psi (u) = \sum\limits_{k = 0}^{\infty} p_k u^k$
 \end{theorem}
@@ -157,7 +157,7 @@ $|u| < 1$
 \]
 \[
 	\MExpect_{\xi_1^{[k_1]} \cdot \ldots \cdot \xi_n^{[k_n]}} = 
-\left. \frac{ \partial^{k_1 + \ldots + k_n} \psi_{\overline{\xi}} (u_1, \ldots, u_m) }{ \partial u_1^{k_1} \cdot \ldots \cdot \partial u_n^{k_n} } \right|_{u_1 = \ldots = u_n = 1}
+\left. \frac{ \partial^{k_1 + \ldots + k_n} \psi_{\overline{\xi}} (u_1, \ldots, u_m) }{ \partial u_1^{k_1} \cdot \ldots \cdot \partial u_n^{k_n} } \right|_{u_1 = \ldots = u_n = 0}
 \]
 
 \section{Характеристические функции случайных величин}
@@ -193,7 +193,7 @@ $\theta_1$ и $\theta_2$ независимы, если независимы д�
 \]
 Если $\xi$ --- дискретная случайная величина:
 \[
-	\phi_{\xi} (t) = \sum\limits_{k} e^{itx} \cdot \Prob \{ \xi = x_k \},
+	\phi_{\xi} (t) = \sum\limits_{k} e^{itx_k} \cdot \Prob \{ \xi = x_k \},
 \]
 где $\{ x_k \}_{k = 1, \ldots}$ --- не более чем счётный набор
 \subsection{Свойства характеристической функции случайной величины}
@@ -210,10 +210,10 @@ $c$ --- константа
 \]
 	\item $\xi_1, \ldots, \xi_n$ --- независимые случайные величины. Тогда
 \[
-	\phi_{\xi_1 + \ldots + \xi_n} (t) = \prod\limits_{k = 1}^{n} \phi_{\xi_k} (t) \Rightarrow e^{it \xi_1}, \ldots, e^{it \xi_n}
+	\phi_{\xi_1 + \ldots + \xi_n} (t) = \prod\limits_{k = 1}^{n} \phi_{\xi_k} (t) \Rightarrow e^{it \xi_1}, \ldots, e^{it \xi_n} \text{ --- тоже независимые}
 \]
 \item $\phi_{\xi} (-t) = \phi_{- \xi} (t) = \overline{\phi_{\xi} (t)}$
-\item $\xi \geqslant 0$, целочисленный случайная величина. Тогда производящая функция $\psi_{\xi} (u) = \MExpect_{u^{\xi}}$. Тогда
+\item $\xi \geqslant 0$, целочисленная случайная величина. Тогда производящая функция $\psi_{\xi} (u) = \MExpect_{u^{\xi}}$. Тогда
 \[
 	\phi_{\xi} (t) = \MExpect_{e^{it\xi}} = \psi_{\xi} (e^{it})
 \]
@@ -298,10 +298,10 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 	\begin{itemize}
 		\item Пусть $\xi \sim N(a_1, \sigma_1)$, $\xi_2 \sim N(a_2, \sigma_2)$, где $\xi_1, \xi_2$ --- независимые случайные величины. Каков закон распределения $\xi_1 + \xi_2$?
 \[
-	\phi_{\xi_k} (t) = e^{it a_k - \frac{\sigma^2_k t^2}{2}}, \ k = 1, 2, \ldots
+	\phi_{\xi_k} (t) = e^{it a_k - \frac{\sigma^2_k t^2}{2}}, \ k = 1, 2
 \]
 \[
-	\phi_{\xi_1 + \xi_2} (t) = e^{it(a_1 + a_2) - \frac{(\sigma_1^2 + \sigma_2^2)t^2}{3}}
+	\phi_{\xi_1 + \xi_2} (t) = e^{it(a_1 + a_2) - \frac{(\sigma_1^2 + \sigma_2^2)t^2}{2}}
 \]
 \[
 	\xi_1 + \xi_2 \sim N \left(a_1 + a_2, \sqrt{\sigma_1^2 + \sigma_2^2} \right)
@@ -365,7 +365,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 \begin{definition}
 	Пусть имеется $\overline{\xi} = (\xi_1, \ldots, \xi_n)$, $F_{\xi} (x_1, \ldots, x_n) = \Prob(\xi_1 \leqslant x_1, \ldots, \xi_n \leqslant x_n)$. Характеристической функцией случайного $n$-мерного вектора будем называть $n$-мерную функцию, которая представляет собой:
 \[
-	\phi_{\overline{\xi}} (\overline{t}) = \MExpect_{e^{i(\overline{t}, \overline{\xi})}}, \ i(\overline{t}, \overline{\xi}) = \sum\limits_{k = 1}^{n} t_k \xi_k
+	\phi_{\overline{\xi}} (\overline{t}) = \MExpect_{e^{i(\overline{t}, \overline{\xi})}}, \ (\overline{t}, \overline{\xi}) = \sum\limits_{k = 1}^{n} t_k \xi_k
 \]
 где $\overline{t} = (t_1, \ldots, t_n) \in \mathbb{R}^n$
 \[
@@ -375,7 +375,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 \subsection{Свойства характеристической функции случайного вектора}
 \begin{enumerate}
 	\item $\forall \overline{t} \in \mathbb{R}^n$, $|\phi_{\overline{\xi}} (\overline{t}) | \leqslant 1$, $\phi (\overline{0}) = 1$
-	\item $\phi(\overline{t})$ равномерно непрерывна по $\overline{t} \in \mathbb{R}^1$
+	\item $\phi(\overline{t})$ равномерно непрерывна по $\overline{t} \in \mathbb{R}^n$
 	\item Пусть $m < k$, тогда
 \[
 	\phi_{\xi_1, \ldots, \xi_m} (t_1, \ldots, t_m) = \phi_{\xi_1, \ldots, \xi_k} (t_1, \ldots, t_m, 0, \ldots, 0)
@@ -392,10 +392,10 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 	\[
 		\phi_{\overline{\eta}} (\overline{t}) = e^{i(\overline{t}, \overline{b})} \cdot \phi_{\overline{\xi}} (C^T \overline{t})
 	\]
-	\item $\phi_{\overline{\xi}} (- \overline{t}) = \overline{\phi_{\overline{\xi} (\overline{t})}} = \phi_{- \overline{\xi}} (\overline{t})$
+	\item $\phi_{\overline{\xi}} (- \overline{t}) = \overline{\phi_{\overline{\xi}}(\overline{t})} = \phi_{- \overline{\xi}} (\overline{t})$
 	\item Можем рассмотреть смешанные моменты, $k_m \geqslant 0$, $m = 1, \ldots, n$:
 	\[
-		\MExpect [\xi_1^{k_1} \cdot \ldots \cdot \xi_n^{k_n}] = \left. i^{-K} \frac{\partial^k \phi_{\overline{\xi}} (t_1, \ldots, t_n)}{\partial t_1^{k_1} \ldots \partial t_n^{k_n}} \right|_{t_1 = \ldots = t_n = 0}
+		\MExpect [\xi_1^{k_1} \cdot \ldots \cdot \xi_n^{k_n}] = \left. i^{-K} \frac{\partial^K \phi_{\overline{\xi}} (t_1, \ldots, t_n)}{\partial t_1^{k_1} \ldots \partial t_n^{k_n}} \right|_{t_1 = \ldots = t_n = 0}
 	\]
 	\[
 		\sum\limits_{m = 1}^{n} k_m = K > 0
@@ -464,7 +464,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 \begin{definition}
 	Последовательность имеющих математическое ожидание случайных величин подчиняется закону больших чисел, если для этой последовательности выполняется предельное соотношение:
 \[
-	\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} \Prob \left\{ \left| \frac{1}{n} \sum\limits_{k = 1}^{n} \xi_k - \frac{1}{n} \sum\limits_{k = 1}^{n} \MExpect_{\xi_k} \right| \right\} = 0
+	\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} \Prob \left\{ \left| \frac{1}{n} \sum\limits_{k = 1}^{n} \xi_k - \frac{1}{n} \sum\limits_{k = 1}^{n} \MExpect_{\xi_k} \right| > \varepsilon \right\} = 0
 \]
 \end{definition}
 \begin{theorem}
@@ -518,7 +518,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 	\[
 		\mu_n = \sum\limits_{k = 1}^{n} \xi_k,
 	\]
-	где $\xi_k$ --- число $n$ успеха в $k$-ом испытании Бернулли. \\
+	где $\xi_k$ --- число успеха в $k$-ом испытании Бернулли. \\
 При большом числе испытаний относительная частота успеха стремится по вероятности к вероятности появления успеха. Число испытаний растёт, значит, относительная частота реже отличается от вероятности.
 \begin{theorem}
 	\textit{(Чебышёва)} $\{ \xi_n \}$ --- независимые случайные величины, пусть также имеющие дисперсию $\Variance_{\xi_k} = \sigma_k^2$
@@ -569,7 +569,7 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 	\widetilde{\eta}_n \overset{d}{\rightarrow} \eta: \eta \sim N(0, 1)
 \]
 \begin{theorem}
-	\textit{(Поля-Леви)} Пусть $\xi_1, \ldots, \xi_n$ --- последовательность независимых, одинаково распределённых случайных величин, имеющих дисперсию $\Variance_{\xi_k} = \sigma^2 > 0$ и математическое ожидание $\MExpect_{\xi_k}$. Тогда выполнена ЦПТ для $\{ \xi_n \}_{n = 1, \ldots}$:
+	\textit{(Поля-Леви)} Пусть $\xi_1, \ldots, \xi_n$ --- последовательность независимых, одинаково распределённых случайных величин, имеющих дисперсию $\Variance_{\xi_k} = \sigma^2 > 0$ и математическое ожидание $\MExpect_{\xi_k} = a$. Тогда выполнена ЦПТ для $\{ \xi_n \}_{n = 1, \ldots}$:
 \[
 	\forall x \in \mathbb{R}^1: \ \lim\limits_{n \to \infty} \Prob \left\{ \frac{\xi_1 + \ldots + \xi_n - na}{\sigma \sqrt{n}} \leqslant x \right\} = F_{N(0, 1)} (x)
 \]
@@ -645,12 +645,12 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 \]
 Пусть $\varepsilon > 0$, введём
 \[ 
-	Z_n(\varepsilon) = \frac{1}{B^2_n} \sum\limits_{k = 1}^{n} \int\limits_{\omega} (x - a_k)^2 dF_k (x)
+	\mathcal{L}_n(\varepsilon) = \frac{1}{B^2_n} \sum\limits_{k = 1}^{n} \int\limits_{\omega} (x - a_k)^2 dF_k (x)
 \] 
 где $\omega = \{ x: |x - a_k| \geqslant \varepsilon \cdot B_n \}$. \\
 Будем говорить, что выполнено условие Линдеберга, если
 \[
-	\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} Z_n (\varepsilon) = 0
+	\forall \varepsilon > 0: \ \lim\limits_{n \to \infty} \mathcal{L}_n (\varepsilon) = 0
 \]
 \begin{theorem}
 	\textit{(Линдеберга)}. Пусть для $\xi_1, \ldots, \xi_n, \ldots$ --- набора независимых случайных величин, имеющих конечную дисперсию $\Variance_{\xi_k}$, выполнено условие Линдеберга. Тогда
@@ -662,9 +662,9 @@ $g_h(x) \underset{h \to 0}{\rightarrow} 0$, $g_h(x) \leqslant 2, \forall x \in \
 $\lambda_n \underset{n \to \infty}{\rightarrow} 0$ означает, что каждое слагаемое в $\eta_n = \sum\limits_{k = 1}^{n} \xi_k$ пренебрежимо мало по сравнению с $\eta_n$
 \end{theorem}
 \begin{conclusion}
-\textit{Теорема Поля-Леви.}  $\{ \xi_n \}$ --- последовательность одинаково распределённых случайных величин. Рассмотрим $Z_n (\varepsilon)$ для фиксированного $\varepsilon > 0$:
+\textit{Теорема Поля-Леви.}  $\{ \xi_n \}$ --- последовательность одинаково распределённых случайных величин. Рассмотрим $\mathcal{L}_n (\varepsilon)$ для фиксированного $\varepsilon > 0$:
 \[
-	Z_n (\varepsilon) = \frac{1}{\sigma^2 n} \sum\limits_{k = 1}^{n} \int\limits_{\omega} (x - a)^2 d F(x) =
+	\mathcal{L}_n (\varepsilon) = \frac{1}{\sigma^2 n} \sum\limits_{k = 1}^{n} \int\limits_{\omega} (x - a)^2 d F(x) =
 \]
 где $\omega = \{ x: |x - a_k| \geqslant \varepsilon \cdot \sigma \sqrt{n} \}$
 \[
@@ -688,7 +688,7 @@ $\lambda_n \underset{n \to \infty}{\rightarrow} 0$ означает, что ка
 \begin{proof}
 	Пусть для любого $\varepsilon > 0$
 	\[
-		Z_n (\varepsilon) \leqslant \frac{1}{\varepsilon^{\delta} \cdot B_n^{2 + \delta}} \cdot \sum\limits_{k = 1}^{n} \int\limits_{\omega} |x - a_k|^{2 + \delta} dF_k(x) \leqslant \frac{\sum\limits_{k = 1}^{n} \alpha_k}{\varepsilon^{\delta} \cdot B_n^{2 + \delta}} \underset{n \to \infty}{\rightarrow} 0
+		\mathcal{L}_n (\varepsilon) \leqslant \frac{1}{\varepsilon^{\delta} \cdot B_n^{2 + \delta}} \cdot \sum\limits_{k = 1}^{n} \int\limits_{\omega} |x - a_k|^{2 + \delta} dF_k(x) \leqslant \frac{\sum\limits_{k = 1}^{n} \alpha_k}{\varepsilon^{\delta} \cdot B_n^{2 + \delta}} \underset{n \to \infty}{\rightarrow} 0
 	\]
 	где $\omega = \{ x: |x - a_k| \geqslant \varepsilon \cdot B_n \}$.
 \end{proof}
@@ -711,9 +711,9 @@ $\lambda_n \underset{n \to \infty}{\rightarrow} 0$ означает, что ка
 	\[
 		\MExpect [(\xi_k - a_k)^2 \cdot I_A (\omega)] \leqslant (2K)^2 \Prob (S) \overset{\text{нер-во Чебышёва}}{\leqslant} (2K)^2 \frac{\sigma_k^2}{\varepsilon^2 \cdot B_n^2}
 	\]
-	Теперь оценим $Z_n(\varepsilon)$
+	Теперь оценим $\mathcal{L}_n(\varepsilon)$
 	\[
-		Z_n (\varepsilon) \leqslant \frac{(2K)^2}{\varepsilon^2 B_n^2} \underset{n \to \infty}{\rightarrow} 0
+		\mathcal{L}_n (\varepsilon) \leqslant \frac{(2K)^2}{\varepsilon^2 B_n^2} \underset{n \to \infty}{\rightarrow} 0
 	\]
 \end{proof}
 Вообще класс предельных распределений сумм квадратов случайных величин не исчерпывается нормальным. \\
