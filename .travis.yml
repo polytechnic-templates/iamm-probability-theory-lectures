@@ -2,7 +2,7 @@ language: r
 sudo: true
 
 install:
-  - sudo apt-get install texlive-full
+  - sudo apt-get install texlive-lang-russian texlive-xetex texlive-latex-extra texlive-fonts-extra texlive-math-extra
   - sudo pip install pygments
   - tlmgr install lstfiracode polyglossia minted
 
