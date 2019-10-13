@@ -6,7 +6,6 @@ all:
 
 pdf:
 	pdflatex main.tex
-	cp main.pdf PDF/lectures.pdf
 
 clean:
 	rm -f *.aux
