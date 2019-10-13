@@ -3,7 +3,6 @@ sudo: true
 
 install:
   - sudo apt-get install latexmk
-  - tlmgr install fontawesome tex-gyre moderncv
 
 script: 
   - latexmk -interaction=nonstopmode main.tex
