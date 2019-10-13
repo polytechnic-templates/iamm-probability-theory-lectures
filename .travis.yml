@@ -3,7 +3,7 @@ sudo: true
 
 install:
   - sudo apt-get install texlive-full
-  - tlmgr install lstfiracode
+  - tlmgr install lstfiracode polyglossia
 
 script: 
   - make
