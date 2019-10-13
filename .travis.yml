@@ -2,7 +2,7 @@ language: r
 sudo: true
 
 install:
-  - sudo apt-get install texlive-full xzdec
+  - sudo apt-get install texlive-full
   - tlmgr install lstfiracode
 
 script: 
