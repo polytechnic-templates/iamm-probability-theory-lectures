@@ -11,8 +11,7 @@ script:
 
 deploy:
   provider: releases
-  api_key: 
-    secure: "${GH_TOKEN}"
+  github_token: $GH_TOKEN
   file: "main.pdf"
   skip_cleanup: true
   on:
