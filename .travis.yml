@@ -5,7 +5,7 @@ install:
   - sudo apt-get install latexmk
 
 script: 
-  - latexmk -interaction=nonstopmode main.tex
+  - latexmk -pdf -interaction=nonstopmode main.tex
 
 deploy:
   provider: releases
