@@ -1,7 +1,7 @@
 # Лекции по теории вероятностей
 ## :arrow_down: Конспект без регистрации и СМС
 
-PDF: https://github.com/tiulpin/PTL/blob/master/PDF/lectures.pdf
+PDF: https://github.com/tiulpin/PTL/releases/latest/download/plt.pdf
 
 Опечатки можно искать (и нужно) и писать об этом в Issues (https://github.com/tiulpin/PTL/issues) репозитория. 
 
