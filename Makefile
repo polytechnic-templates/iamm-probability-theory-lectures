@@ -6,6 +6,7 @@ all:
 
 pdf:
 	latexmk -pdf -interaction=nonstopmode main.tex
+	mv main.pdf ptl.pdf
 
 clean:
 	rm -f *.aux
