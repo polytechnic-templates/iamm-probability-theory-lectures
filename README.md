@@ -1,4 +1,4 @@
-# Лекции по теории вероятностей
+# Лекции по теории вероятностей [![Build Status](https://travis-ci.org/tiulpin/PTL.svg?branch=master)](https://travis-ci.org/tiulpin/PTL)
 ## :arrow_down: Конспект без регистрации и СМС
 
 PDF: https://github.com/tiulpin/PTL/releases/latest/download/plt.pdf
