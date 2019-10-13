@@ -1,6 +1,13 @@
 language: r
 sudo: true
 
+before_deploy:
+# Set up git user name and tag this commit
+- git config --local user.name "TravisCI"
+- git config --local user.email "travis@travis-ci.org"
+- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+- git tag $TRAVIS_TAG
+
 install:
   - sudo apt-get install texlive-lang-cyrillic texlive-xetex texlive-latex-extra texlive-fonts-extra texlive-math-extra fonts-cmu
   - sudo pip install pygments
@@ -13,7 +20,8 @@ deploy:
   provider: releases
   api_key: 
     secure: "${GH_TOKEN}"
-  file: "main.pdf"
+  file: "ptl.pdf"
   skip_cleanup: true
   on:
     repo: tiulpin/PTL
+    tags: true
