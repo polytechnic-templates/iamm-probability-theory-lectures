@@ -2,10 +2,10 @@ language: r
 sudo: true
 
 install:
-  - sudo apt-get install latexmk
+  - tlmgr install cancel
 
 script: 
-  - latexmk -pdf -interaction=nonstopmode main.tex
+  - make
 
 deploy:
   provider: releases
