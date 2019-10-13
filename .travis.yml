@@ -3,6 +3,7 @@ sudo: true
 
 install:
   - sudo apt-get install texlive-full
+  - tlmgr install lstfiracode
 
 script: 
   - make
