@@ -2,7 +2,7 @@ dist: bionic
 sudo: true
 
 install:
-  - sudo apt-get install texlive-full texlive-extra
+  - sudo apt-get install texlive-full
 
 script: 
   - make
