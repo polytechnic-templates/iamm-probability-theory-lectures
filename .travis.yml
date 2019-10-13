@@ -1,9 +1,8 @@
-dist: bionic
+language: r
 sudo: true
 
 install:
   - sudo apt-get install texlive-full xzdec
-  - tlmgr init-usertree
   - tlmgr install lstfiracode
 
 script: 
