@@ -2,7 +2,7 @@ dist: bionic
 sudo: true
 
 install:
-  - sudo apt-get install texlive-full
+  - sudo apt-get install texlive-full xzdec
   - tlmgr init-usertree
   - tlmgr install lstfiracode
 
