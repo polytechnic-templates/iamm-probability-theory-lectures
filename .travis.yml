@@ -2,7 +2,7 @@ language: r
 sudo: true
 
 install:
-  - tlmgr install cancel babel-russian
+  - sudo apt-get install texlive-full
 
 script: 
   - make
