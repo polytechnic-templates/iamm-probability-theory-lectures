@@ -1,44 +1,61 @@
-\title{Теория вероятностей. Конспект}
-\author{В. А. Тюльпин}
+% настройки polyglossia
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
 
+% локализация
 \addto\captionsrussian{
+  \renewcommand{\figurename}{Рисунок}%
   \renewcommand{\partname}{Глава}
-  \renewcommand{\contentsname}{Содержание}
-  \renewcommand{\refname}{Перечень использованных источников}
-  \renewcommand{\bibname}{Перечень использованных источников}
+  \renewcommand{\contentsname}{\centerline{Содержание}}
+  \renewcommand{\listingscaption}{Листинг}
 }
 
-\newcommand{\university}{САНКТ-ПЕТЕРБУРГСКИЙ ПОЛИТЕХНИЧЕСКИЙ \\ УНИВЕРСИТЕТ ПЕТРА ВЕЛИКОГО}
-\newcommand{\faculty}{Институт прикладной математики и механики}
-\newcommand{\department}{ }
-\newcommand{\city}{Санкт-Петербург}
-\newcommand{\type}{Теория вероятностей. Kонспект.}
-\newcommand{\num}{ № 1}
-\newcommand{\subject}{Теория вероятностей. Конспект}
-\newcommand{\tutorname}{к.б.н. Н. О. Кадырова}
-\newcommand{\studentname}{В. А. Тюльпин,  Ю. А. Камалетдинова}
-\newcommand{\course}{3 курс}
-\newcommand{\group}{33633/1}
+% основной шрифт документа
+\setmainfont{CMU Serif}
 
-\renewcommand{\thesection}{\arabic{section}}
-\titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}
-\setlength{\parindent}{0pt}
-\bibliographystyle{ugost2008}
-\providecommand*{\bblmay}[1]{#1}
-\graphicspath{ {} }
+% перечень использованных источников
+% \addbibresource{refs.bib}
 
-%% Перенос знаков в формулах (по Львовскому)
-\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
-{\hbox{$\mathsurround=0pt #1$}}{}}
-%\usepackage{setspace}
-%\singlespacing
+% настройка полей
+\geometry{top=2cm}
+\geometry{bottom=2cm}
+\geometry{left=2cm}
+\geometry{right=2cm}
+\geometry{bindingoffset=0cm}
 
-\setcounter{tocdepth}{1} 
-\makeatletter
-\@addtoreset{section}{part}
-\makeatother
-\pagestyle{plain}
-\flushbottom
+% настройка ссылок и метаданных документа
+\hypersetup{unicode=true,colorlinks=true,linkcolor=red,citecolor=green,filecolor=magenta,urlcolor=cyan,        		       
+    pdftitle={\docname},   	    
+    pdfauthor={\studentname},      
+    pdfsubject={\subject},      		        
+    pdfcreator={\studentname}, 	       
+    pdfproducer={Overleaf}, 		     
+    pdfkeywords={\subject}
+}
+
+% настройка подсветки кода и окружения для листингов
+\usemintedstyle{colorful}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
+% шрифт для листингов с лигатурами
+\setmonofont{[FiraCode-Regular.otf]}[
+  Contextuals=Alternate  % Activate the calt feature
+]
+
+% оформления подписи рисунка
+\captionsetup[figure]{labelsep = period}
+
+% подпись таблицы
+\DeclareCaptionFormat{hfillstart}{\hfill#1#2#3\par}
+\captionsetup[table]{format=hfillstart,labelsep=newline,justification=centering,skip=-10pt,textfont=bf}
+
+% путь к каталогу с рисунками
+\graphicspath{{fig/}}
+
+\titlelabel{\thetitle.\quad}
+
+% для удобного конспектирования математики
+\mathtoolsset{showonlyrefs=true}
 
 \theoremstyle{definition}
 \newtheorem*{theorem}{Теорема}
@@ -55,6 +72,30 @@
 \theoremstyle{definition}
 \newtheorem*{interjection}{Отступление}
 
+% настоящее матожидание
 \newcommand{\MExpect}{\mathsf{M}}
+
+% объявили оператор!
+\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+% перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{} {\hbox{$\mathsurround=0pt #1$}}{}} 
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}
+\setlength{\parindent}{0pt}
+
+\setcounter{tocdepth}{1} 
+
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+\pagestyle{plain}
+\flushbottom
+
+% 
 \newcommand\To[1]{1,2,\dots,#1}
 \newcommand\ZTo[1]{0,1,\dots,#1}
+
+\newcommand*{\textitplusparen}[1]{\textit{#1)}}
