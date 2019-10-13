@@ -1,0 +1,18 @@
+language: r
+sudo: true
+
+install:
+  - sudo apt-get install latexmk
+  - tlmgr install fontawesome tex-gyre moderncv
+
+script: 
+  - latexmk -interaction=nonstopmode main.tex
+
+deploy:
+  provider: releases
+  api_key: 
+    secure: "${GH_TOKEN}"
+  file: "main.pdf"
+  skip_cleanup: true
+  on:
+    repo: tiulpin/PTL
