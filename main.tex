@@ -1,35 +1,28 @@
-\documentclass[10pt,ebook,openany]{memoir}
-\input{Config/packages.tex}
+\documentclass[10pt,ebook,openany,russian]{memoir}
+\include{settings/packages}
 
-\newwatermark[allpages,color=gray!5,angle=45,scale=3,xpos=0,ypos=0]{DRAFT}
-
-\input{Config/about.tex}
-\input{Config/Russian.tex}
-\input{Config/math-defs.tex}
-\input{Config/page.tex}
+\include{settings/preferences}
 
 \begin{document}
-
-\input{Templates/title-page.tex}
+\include{templates/titlepage}
 \newpage
+\include{templates/tocpage}
 
-\input{Templates/toc-page.tex}
 \newpage
+\include{chapter-1}
 
-\input{Chapters/chapter-1.tex}
 \newpage
-
 \setcounter{section}{0}
-\input{Chapters/chapter-2.tex}
-\newpage
+\include{chapter-2}
 
+\newpage
 \setcounter{section}{0}
-\input{Chapters/chapter-3.tex}
-\newpage
+\include{chapter-3}
 
+\newpage
 \setcounter{section}{0}
-\input{Chapters/chapter-4.tex}
+\include{chapter-4}
 \newpage
 
-\input{Templates/bib-page.tex}
+\include{templates/bibpage}
 \end{document}
