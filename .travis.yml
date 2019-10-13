@@ -2,11 +2,9 @@ language: r
 sudo: true
 
 install:
-  - sudo apt-get install texlive-lang-cyrillic texlive-xetex texlive-latex-extra texlive-fonts-extra texlive-math-extra
+  - sudo apt-get install texlive-full
   - sudo pip install pygments
   - tlmgr install lstfiracode polyglossia minted latexmk fvextra ifplatform cancel xwatermark catoptions ltxkeys
-  - sudo cp $(kpsewhich -var-value TEXMFSYSVAR)/fonts/conf/texlive-fontconfig.conf /etc/fonts/conf.d/09-texlive.conf
-  - sudo fc-cache -fsv
 
 script: 
   - make
