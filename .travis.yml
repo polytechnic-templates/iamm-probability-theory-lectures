@@ -4,7 +4,7 @@ sudo: true
 install:
   - sudo apt-get install texlive-lang-cyrillic texlive-xetex texlive-latex-extra texlive-fonts-extra texlive-math-extra
   - sudo pip install pygments
-  - tlmgr install lstfiracode polyglossia minted
+  - tlmgr install lstfiracode polyglossia minted latexmk
 
 script: 
   - make
