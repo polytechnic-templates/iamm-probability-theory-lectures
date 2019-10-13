@@ -3,7 +3,8 @@ sudo: true
 
 install:
   - sudo apt-get install texlive-full
-  - tlmgr install lstfiracode polyglossia
+  - sudo pip install pygments
+  - tlmgr install lstfiracode polyglossia minted
 
 script: 
   - make
