@@ -5,7 +5,7 @@ all:
 	make clean
 
 pdf:
-	latexmk -interaction=nonstopmode main.tex
+	latexmk -pdf -interaction=nonstopmode main.tex
 
 clean:
 	rm -f *.aux
@@ -18,4 +18,3 @@ clean:
 	rm -f *.toc
 	rm -f *.xwm
 	rm -f *.pdf
-
