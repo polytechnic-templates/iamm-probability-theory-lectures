@@ -17,4 +17,3 @@ clean:
 	rm -f *.snm
 	rm -f *.toc
 	rm -f *.xwm
-	rm -f *.pdf
