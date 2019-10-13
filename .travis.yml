@@ -2,8 +2,8 @@ language: r
 sudo: true
 
 install:
-  - tlmgr install texliveonfly
-  - texliveonfly main.tex  --engine=xelatex --arguments="-shell-escape -synctex=1 -interaction=nonstopmode"
+  - sudo apt-get install texlive-full
+  - tlmgr install lstfiracode polyglossia
 
 script: 
   - make
