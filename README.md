@@ -1,7 +1,7 @@
 # Лекции по теории вероятностей [![Build Status](https://travis-ci.org/tiulpin/PTL.svg?branch=master)](https://travis-ci.org/tiulpin/PTL)
 ## :arrow_down: Конспект без регистрации и СМС
 
-PDF: https://github.com/tiulpin/PTL/releases/latest/download/plt.pdf
+PDF: https://github.com/tiulpin/PTL/releases/latest/download/ptl.pdf
 
 Опечатки можно искать (и нужно) и писать об этом в Issues (https://github.com/tiulpin/PTL/issues) репозитория. 
 
