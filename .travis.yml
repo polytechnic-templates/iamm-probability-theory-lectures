@@ -1,14 +1,12 @@
-language: r
-sudo: true
-
-install:
-  - sudo apt-get install texlive-lang-cyrillic texlive-xetex texlive-latex-extra texlive-fonts-extra texlive-math-extra fonts-cmu
-  - sudo pip install pygments
-  - tlmgr install lstfiracode polyglossia minted latexmk fvextra ifplatform cancel xwatermark catoptions ltxkeys
+sudo: required
+dist: trusty
+services: docker
 
 script: 
-  - make
-
+  - wget https://github.com/iamm-templates/latex-docker/raw/master/latexdockercmd.sh -O latexdockercmd.sh
+  - chmod a+x latexdockercmd.sh
+  - ./latexdockercmd.sh latexmk -cd -f -interaction=batchmode -pdf main.tex
+  - mv main.pdf ptl.pdf
 deploy:
   provider: releases
   api_key: 
@@ -16,4 +14,4 @@ deploy:
   file: "ptl.pdf"
   skip_cleanup: true
   on:
-    repo: tiulpin/PTL
+    repo: iamm-templates/iamm-probability-theory-lectures
