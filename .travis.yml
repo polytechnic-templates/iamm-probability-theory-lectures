@@ -6,6 +6,7 @@ branches:
   - master
 script: 
   - wget https://github.com/tiulpin/xelatex-docker/raw/master/latexdockercmd.sh -O latexdockercmd.sh
+  - wget https://github.com/tiulpin/xelatex-docker/raw/master/.latexmkrc -O .latexmkrc
   - chmod a+x latexdockercmd.sh
   - ./latexdockercmd.sh latexmk -xelatex -shell-escape -cd -f -interaction=nonstopmode -pdf main.tex
   - mv main.pdf ptl.pdf
